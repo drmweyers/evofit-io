@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #0ea5e9;
+  --secondary: #f37316;
+  --background: #ffffff;
+  --foreground: #0f172a;
+}
+
+@theme {
+  --color-primary: #0ea5e9;
+  --color-secondary: #f37316;
+  --color-brand-blue: #0ea5e9;
+  --color-brand-orange: #f37316;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  color: #0f172a;
+  background: #ffffff;
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-orange {
+    background: linear-gradient(135deg, #0ea5e9 0%, #f37316 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bg-gradient-brand {
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  }
+  .bg-gradient-meals {
+    background: linear-gradient(135deg, #0ea5e9 0%, #f37316 100%);
+  }
+}
