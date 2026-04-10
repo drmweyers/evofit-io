@@ -3,7 +3,9 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
-import remarkHtml from 'remark-html';
+import remarkRehype from 'remark-rehype';
+import rehypeSanitize from 'rehype-sanitize';
+import rehypeStringify from 'rehype-stringify';
 import { parseFrontmatter, safeParseFrontmatter, Post } from './schema';
 
 // Default content directory — production path
@@ -19,12 +21,15 @@ export class PostNotFoundError extends Error {
 export type PostWithHtml = Post & { html: string };
 
 /**
- * Converts markdown body to HTML using remark + remark-gfm + remark-html
+ * Converts markdown body to sanitized HTML using remark + remark-gfm + rehype-sanitize.
+ * rehype-sanitize strips script tags, event handlers, and other XSS vectors.
  */
 async function markdownToHtml(markdown: string): Promise<string> {
   const result = await remark()
     .use(remarkGfm)
-    .use(remarkHtml, { sanitize: false })
+    .use(remarkRehype, { allowDangerousHtml: false })
+    .use(rehypeSanitize)
+    .use(rehypeStringify)
     .process(markdown);
   return result.toString();
 }
