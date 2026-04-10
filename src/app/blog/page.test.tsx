@@ -48,36 +48,6 @@ const mockPosts = [
 
 import BlogIndexPage from './page';
 
-describe('Blog index page logic', () => {
-  it('shows empty state when no posts exist', async () => {
-    vi.mocked(listPosts).mockResolvedValue([]);
-    const emptyStateText = "More soon — our AI pipeline is warming up.";
-    expect(emptyStateText).toBe("More soon — our AI pipeline is warming up.");
-  });
-
-  it('paginates posts at 12 per page', () => {
-    const PAGE_SIZE = 12;
-    const posts = Array.from({ length: 15 }, (_, i) => ({ ...mockPosts[0], slug: `post-${i}` }));
-    const page1 = posts.slice(0, PAGE_SIZE);
-    const page2 = posts.slice(PAGE_SIZE);
-    expect(page1).toHaveLength(12);
-    expect(page2).toHaveLength(3);
-  });
-
-  it('calculates total pages correctly', () => {
-    const totalPosts = 25;
-    const pageSize = 12;
-    const totalPages = Math.ceil(totalPosts / pageSize);
-    expect(totalPages).toBe(3);
-  });
-
-  it('returns posts from reader for the index', async () => {
-    vi.mocked(listPosts).mockResolvedValue(mockPosts);
-    const posts = await listPosts({ includeDrafts: false });
-    expect(posts).toHaveLength(2);
-    expect(posts[0].title).toBe('Post One');
-  });
-});
 
 describe('BlogIndexPage component', () => {
   it('renders with posts', async () => {
