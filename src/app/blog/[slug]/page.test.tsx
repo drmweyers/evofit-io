@@ -92,3 +92,11 @@ describe('BlogPostPage notFound branch', () => {
     expect(notFound).toHaveBeenCalled();
   });
 });
+
+describe('generateMetadata canonical URL', () => {
+  it('returns alternates.canonical set to the correct blog post URL', async () => {
+    vi.mocked(readPost).mockResolvedValue(mockPost as any);
+    const metadata = await generateMetadata({ params: Promise.resolve({ slug: 'ai-meal-plans' }) });
+    expect((metadata as any).alternates?.canonical).toBe('https://evofit.io/blog/ai-meal-plans');
+  });
+});

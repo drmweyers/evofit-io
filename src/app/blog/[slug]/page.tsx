@@ -22,6 +22,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     return {
       title: post.title,
       description: post.excerpt,
+      alternates: {
+        canonical: `https://evofit.io/blog/${post.slug}`,
+      },
       openGraph: {
         title: post.title,
         description: post.excerpt,
