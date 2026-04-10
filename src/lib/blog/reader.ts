@@ -61,7 +61,13 @@ export async function readPost(slug: string, contentDir: string = DEFAULT_CONTEN
   if (!matchingFile) {
     for (const file of files) {
       const raw = fs.readFileSync(path.join(contentDir, file), 'utf-8');
-      const { data } = matter(raw);
+      let data: Record<string, unknown>;
+      try {
+        ({ data } = matter(raw));
+      } catch {
+        // Skip files with malformed YAML
+        continue;
+      }
       if (data.slug === slug) {
         matchingFile = file;
         break;
@@ -105,7 +111,14 @@ export async function listPosts(options?: {
   for (const file of files) {
     const filePath = path.join(contentDir, file);
     const raw = fs.readFileSync(filePath, 'utf-8');
-    const { data } = matter(raw);
+
+    let data: Record<string, unknown>;
+    try {
+      ({ data } = matter(raw));
+    } catch (err) {
+      console.warn(`[blog] Skipping ${file} — YAML parse error:`, (err as Error).message);
+      continue;
+    }
 
     const result = safeParseFrontmatter(data);
     if (!result.success) {

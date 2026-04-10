@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import path from 'path';
 import { readPost, listPosts, listPostsByTag, getAllTags, PostNotFoundError } from './reader';
 
@@ -74,5 +74,29 @@ describe('getAllTags', () => {
     expect(Array.isArray(tags)).toBe(true);
     // Tags from welcome-test.md: announcement, evofit, ai
     expect(tags).toContain('announcement');
+  });
+});
+
+describe('reader error paths', () => {
+  it('readPost throws PostNotFoundError for a nonexistent slug', async () => {
+    await expect(readPost('nonexistent-slug', FIXTURE_DIR)).rejects.toThrow(PostNotFoundError);
+    await expect(readPost('nonexistent-slug', FIXTURE_DIR)).rejects.toThrow('Post not found: nonexistent-slug');
+  });
+
+  it('listPosts returns [] when content/blog/ directory does not exist', async () => {
+    const result = await listPosts({ contentDir: '/nonexistent/path/that/does/not/exist' });
+    expect(result).toEqual([]);
+  });
+
+  it('listPosts skips files with malformed YAML frontmatter and logs a warning', async () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    // malformed.md fixture has invalid YAML — should be skipped, not crash
+    const posts = await listPosts({ contentDir: FIXTURE_DIR, includeDrafts: true });
+    // welcome-test.md should still appear; malformed.md should be skipped
+    const slugs = posts.map((p) => p.slug);
+    expect(slugs).toContain('welcome');
+    // The warn spy should have been called for the malformed file
+    expect(warnSpy).toHaveBeenCalled();
+    warnSpy.mockRestore();
   });
 });
