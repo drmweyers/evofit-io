@@ -10,6 +10,8 @@ vi.mock('@/lib/blog/reader', async (importOriginal) => {
 });
 
 import { listPostsByTag, getAllTags } from '@/lib/blog/reader';
+import { render } from '@testing-library/react';
+import TagArchivePage, { generateMetadata, generateStaticParams } from './page';
 
 const mockPost = {
   title: 'Trainer Tips',
@@ -45,5 +47,35 @@ describe('Tag archive page logic', () => {
     const tag = 'trainer';
     const heading = `Posts tagged: ${tag}`;
     expect(heading).toContain('trainer');
+  });
+});
+
+describe('TagArchivePage component', () => {
+  it('renders posts for the given tag', async () => {
+    vi.mocked(listPostsByTag).mockResolvedValue([mockPost] as any);
+    const { container } = render(
+      await TagArchivePage({ params: Promise.resolve({ tag: 'trainer' }) })
+    );
+    expect(container.textContent).toContain('trainer');
+    expect(container.textContent).toContain('1 post');
+  });
+
+  it('renders empty state when no posts for tag', async () => {
+    vi.mocked(listPostsByTag).mockResolvedValue([]);
+    const { container } = render(
+      await TagArchivePage({ params: Promise.resolve({ tag: 'nonexistent' }) })
+    );
+    expect(container.textContent).toContain('No posts found');
+  });
+
+  it('generateMetadata returns correct title for tag', async () => {
+    const meta = await generateMetadata({ params: Promise.resolve({ tag: 'trainer' }) });
+    expect(meta.title).toContain('trainer');
+  });
+
+  it('generateStaticParams returns all tags as params', async () => {
+    vi.mocked(getAllTags).mockResolvedValue(['trainer', 'meals']);
+    const params = await generateStaticParams();
+    expect(params).toEqual([{ tag: 'trainer' }, { tag: 'meals' }]);
   });
 });

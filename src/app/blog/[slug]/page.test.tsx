@@ -99,4 +99,24 @@ describe('generateMetadata canonical URL', () => {
     const metadata = await generateMetadata({ params: Promise.resolve({ slug: 'ai-meal-plans' }) });
     expect((metadata as any).alternates?.canonical).toBe('https://evofit.io/blog/ai-meal-plans');
   });
+
+  it('returns fallback title when readPost throws', async () => {
+    vi.mocked(readPost).mockRejectedValue(new Error('any error'));
+    const metadata = await generateMetadata({ params: Promise.resolve({ slug: 'missing' }) });
+    expect(metadata.title).toBe('Post Not Found');
+  });
+});
+
+describe('BlogPostPage component render', () => {
+  it('renders the full post page with JSON-LD and content', async () => {
+    vi.mocked(readPost).mockResolvedValue(mockPost as any);
+    const { render } = await import('@testing-library/react');
+    const { container } = render(
+      await BlogPostPage({ params: Promise.resolve({ slug: 'ai-meal-plans' }) })
+    );
+    expect(container).toBeTruthy();
+    // JSON-LD script should be present
+    const scripts = container.querySelectorAll('script[type="application/ld+json"]');
+    expect(scripts.length).toBeGreaterThan(0);
+  });
 });

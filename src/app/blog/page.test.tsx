@@ -46,14 +46,11 @@ const mockPosts = [
   },
 ];
 
-// Import the page component helper (we render a simple version for unit tests)
-// Since Next.js server components can't be directly rendered in jsdom,
-// we test the blog index logic via a thin wrapper
+import BlogIndexPage from './page';
 
 describe('Blog index page logic', () => {
   it('shows empty state when no posts exist', async () => {
     vi.mocked(listPosts).mockResolvedValue([]);
-    // Test the empty state message directly
     const emptyStateText = "More soon — our AI pipeline is warming up.";
     expect(emptyStateText).toBe("More soon — our AI pipeline is warming up.");
   });
@@ -79,5 +76,32 @@ describe('Blog index page logic', () => {
     const posts = await listPosts({ includeDrafts: false });
     expect(posts).toHaveLength(2);
     expect(posts[0].title).toBe('Post One');
+  });
+});
+
+describe('BlogIndexPage component', () => {
+  it('renders with posts', async () => {
+    vi.mocked(listPosts).mockResolvedValue(mockPosts as any);
+    const { container } = render(
+      await BlogIndexPage({ searchParams: Promise.resolve({}) })
+    );
+    expect(container).toBeTruthy();
+    expect(container.textContent).toContain('EvoFit Blog');
+  });
+
+  it('renders empty state when no posts', async () => {
+    vi.mocked(listPosts).mockResolvedValue([]);
+    const { container } = render(
+      await BlogIndexPage({ searchParams: Promise.resolve({}) })
+    );
+    expect(container.textContent).toContain('warming up');
+  });
+
+  it('renders with page param', async () => {
+    vi.mocked(listPosts).mockResolvedValue(mockPosts as any);
+    const { container } = render(
+      await BlogIndexPage({ searchParams: Promise.resolve({ page: '1' }) })
+    );
+    expect(container).toBeTruthy();
   });
 });
