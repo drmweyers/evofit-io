@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Dumbbell, Utensils } from "lucide-react";
+import { Menu, X, Dumbbell, Utensils, BookOpen } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -41,6 +41,13 @@ export default function Navbar() {
               className="text-slate-600 hover:text-purple-600 font-medium transition-colors"
             >
               Free Tools
+            </Link>
+            <Link
+              href="/blog"
+              className="flex items-center gap-1.5 text-slate-600 hover:text-sky-500 font-medium transition-colors"
+            >
+              <BookOpen className="w-4 h-4" />
+              Blog
             </Link>
           </div>
 
@@ -97,6 +104,13 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
             >
               Free Tools
+            </Link>
+            <Link
+              href="/blog"
+              className="flex items-center gap-2 px-2 py-2 text-slate-700 hover:text-sky-500 font-medium"
+              onClick={() => setOpen(false)}
+            >
+              <BookOpen className="w-4 h-4" /> Blog
             </Link>
             <div className="pt-2 flex flex-col gap-2">
               <Link

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Utensils, Dumbbell, ExternalLink } from "lucide-react";
+import { Utensils, Dumbbell, ExternalLink, Rss } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -96,6 +96,21 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-white mb-4">Company</h3>
             <ul className="space-y-3 text-sm">
+              <li>
+                <Link href="/blog" className="hover:text-sky-400 transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog/rss.xml"
+                  className="flex items-center gap-1.5 hover:text-orange-400 transition-colors text-slate-500"
+                  aria-label="Subscribe to blog RSS feed"
+                >
+                  <Rss className="w-3.5 h-3.5" />
+                  RSS Feed
+                </Link>
+              </li>
               <li>
                 <a
                   href="https://bcinnovationlabs.com"

@@ -80,6 +80,12 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="EvoFit Blog"
+          href="/blog/rss.xml"
+        />
       </head>
       <body className="antialiased">
         <Navbar />

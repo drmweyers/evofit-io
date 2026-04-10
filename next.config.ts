@@ -11,6 +11,16 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "trainer.evofit.io",
       },
+      {
+        protocol: "https",
+        hostname: "bci-blog-images.nyc3.digitaloceanspaces.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "evofit.io",
+        pathname: "/images/**",
+      },
     ],
   },
   async headers() {
