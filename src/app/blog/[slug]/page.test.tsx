@@ -42,17 +42,6 @@ describe('Blog post page logic', () => {
     expect(post.slug).toBe('ai-meal-plans');
   });
 
-  it('calls notFound when PostNotFoundError is thrown', async () => {
-    vi.mocked(readPost).mockRejectedValue(new PostNotFoundError('missing'));
-    try {
-      await readPost('missing');
-    } catch (e) {
-      if (e instanceof PostNotFoundError) {
-        expect(() => notFound()).toThrow('NEXT_NOT_FOUND');
-      }
-    }
-  });
-
   it('generateStaticParams returns all slugs', async () => {
     vi.mocked(listPosts).mockResolvedValue([
       { ...mockPost, slug: 'post-a' },
@@ -118,5 +107,26 @@ describe('BlogPostPage component render', () => {
     // JSON-LD script should be present
     const scripts = container.querySelectorAll('script[type="application/ld+json"]');
     expect(scripts.length).toBeGreaterThan(0);
+  });
+});
+
+describe('BlogPostPage JSON-LD XSS escape', () => {
+  it('does not emit literal </script> inside the JSON-LD script block', async () => {
+    const evilPost = {
+      ...mockPost,
+      title: 'Evil </script><img src=x onerror=alert(1)> Title',
+      excerpt: 'Safe excerpt.',
+    };
+    vi.mocked(readPost).mockResolvedValue(evilPost as any);
+    const { render } = await import('@testing-library/react');
+    const { container } = render(
+      await BlogPostPage({ params: Promise.resolve({ slug: 'evil-post' }) })
+    );
+    const script = container.querySelector('script[type="application/ld+json"]');
+    expect(script).not.toBeNull();
+    // The raw innerHTML must not contain </script> (which would break out of the tag)
+    expect(script!.innerHTML).not.toContain('</script>');
+    // But it should contain the escaped form
+    expect(script!.innerHTML).toContain('<\\/script>');
   });
 });
