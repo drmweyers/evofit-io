@@ -12,6 +12,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      'next/image': path.resolve(__dirname, './src/__mocks__/next-image.tsx'),
+      'next/link': path.resolve(__dirname, './src/__mocks__/next-link.tsx'),
     },
   },
 });
