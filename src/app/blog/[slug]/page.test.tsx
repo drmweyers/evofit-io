@@ -11,11 +11,12 @@ vi.mock('@/lib/blog/reader', async (importOriginal) => {
 });
 
 vi.mock('next/navigation', () => ({
-  notFound: vi.fn(),
+  notFound: vi.fn(() => { throw new Error('NEXT_NOT_FOUND'); }),
 }));
 
 import { readPost, listPosts, PostNotFoundError } from '@/lib/blog/reader';
 import { notFound } from 'next/navigation';
+import BlogPostPage, { generateMetadata } from './page';
 
 const mockPost = {
   title: 'AI Meal Plans',
@@ -47,10 +48,9 @@ describe('Blog post page logic', () => {
       await readPost('missing');
     } catch (e) {
       if (e instanceof PostNotFoundError) {
-        notFound();
+        expect(() => notFound()).toThrow('NEXT_NOT_FOUND');
       }
     }
-    expect(notFound).toHaveBeenCalled();
   });
 
   it('generateStaticParams returns all slugs', async () => {
@@ -80,5 +80,15 @@ describe('Blog post page logic', () => {
     expect(jsonLd.datePublished).toBe('2026-04-10T08:00:00Z');
     expect(jsonLd.image).toContain('hero.jpg');
     expect(jsonLd.mainEntityOfPage['@id']).toContain('/blog/ai-meal-plans');
+  });
+});
+
+describe('BlogPostPage notFound branch', () => {
+  it('calls notFound() when readPost throws PostNotFoundError', async () => {
+    vi.mocked(readPost).mockRejectedValue(new PostNotFoundError('missing-slug'));
+    await expect(
+      BlogPostPage({ params: Promise.resolve({ slug: 'missing-slug' }) })
+    ).rejects.toThrow('NEXT_NOT_FOUND');
+    expect(notFound).toHaveBeenCalled();
   });
 });
