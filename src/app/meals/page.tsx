@@ -228,12 +228,15 @@ export default function MealsPage() {
             {features.map((f) => {
               const Icon = f.icon;
               return (
-                <div key={f.title} className="bg-white rounded-2xl border border-slate-100 p-6 hover:shadow-md transition-shadow">
+                <div key={f.title} className="bg-white rounded-2xl border border-slate-100 p-6 hover:shadow-md transition-shadow flex flex-col">
                   <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-sky-500" />
                   </div>
                   <h3 className="font-bold text-slate-900 mb-2">{f.title}</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">{f.description}</p>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-1">{f.description}</p>
+                  <Link href="https://evofitmeals.com/get-started" target="_blank" rel="noopener" className="text-sm font-semibold text-sky-500 hover:text-orange-500 transition-colors">
+                    Get started &rarr;
+                  </Link>
                 </div>
               );
             })}
@@ -246,9 +249,9 @@ export default function MealsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-black text-slate-900 mb-4">Simple pricing</h2>
-            <p className="text-xl text-slate-600">Pay once. Own it forever. Or go SaaS for hassle-free hosting.</p>
+            <p className="text-xl text-slate-600">Pay once, own it forever. No monthly fees. No subscriptions.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {tiers.map((tier) => (
               <div
                 key={tier.name}
