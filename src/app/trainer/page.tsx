@@ -204,7 +204,6 @@ export default function TrainerPage() {
         title="Start Training Smarter"
         subtitle="Join the trainers who stopped guessing and started growing."
         buttonText="Get EvoFit Trainer"
-        productTag="evofit-trainer-interest"
       />
     </>
   );
