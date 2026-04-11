@@ -104,6 +104,16 @@ export default function MealsPage() {
         gradient="left"
       />
 
+      {/* CTA after Recipe Library */}
+      <div className="bg-black py-10 text-center border-b border-white/10">
+        <a
+          href="https://evofitmeals.com/get-started"
+          className="inline-flex items-center gap-2 px-8 py-4 bg-[#F97316] text-black font-bold rounded-full hover:bg-white transition-colors text-lg"
+        >
+          Explore the recipe library <span aria-hidden="true">&#8594;</span>
+        </a>
+      </div>
+
       <FullWidthImage
         image="/images/meals-overhead.png"
         alt="Perfectly balanced meal prep spread"
@@ -118,6 +128,19 @@ export default function MealsPage() {
         align="right"
         gradient="right"
       />
+
+      {/* CTA after Macro Balancing */}
+      <div className="bg-black py-10 text-center border-b border-white/10">
+        <p className="font-body text-white/60 text-sm uppercase tracking-[0.15em] mb-4">
+          Perfect macros. Every client. Every time.
+        </p>
+        <a
+          href="https://evofitmeals.com/get-started"
+          className="text-[#F97316] font-semibold text-lg hover:text-white transition-colors"
+        >
+          Try it free &#8594;
+        </a>
+      </div>
 
       <FullWidthImage
         image="/images/trainer-desk.png"
@@ -134,6 +157,16 @@ export default function MealsPage() {
         gradient="left"
       />
 
+      {/* CTA after Client Management */}
+      <div className="bg-black py-10 text-center border-b border-white/10">
+        <a
+          href="https://evofitmeals.com/get-started"
+          className="inline-flex items-center gap-2 px-8 py-4 bg-[#F97316] text-black font-bold rounded-full hover:bg-white transition-colors text-lg"
+        >
+          Start managing clients smarter <span aria-hidden="true">&#8594;</span>
+        </a>
+      </div>
+
       <FullWidthImage
         image="/images/brand-exterior.png"
         alt="Premium fitness facility"
@@ -148,6 +181,22 @@ export default function MealsPage() {
         align="right"
         gradient="right"
       />
+
+      {/* Strong CTA bridge to pricing */}
+      <div className="bg-black py-16 text-center border-b border-white/10">
+        <p className="font-body text-white/50 text-sm uppercase tracking-[0.15em] mb-6">
+          Ready to deliver results your clients talk about?
+        </p>
+        <a
+          href="https://evofitmeals.com/get-started"
+          className="inline-flex items-center gap-2 px-10 py-5 bg-[#F97316] text-black font-bold rounded-full hover:bg-white transition-colors text-xl"
+        >
+          Get lifetime access <span aria-hidden="true">&#8594;</span>
+        </a>
+        <p className="font-body text-white/30 text-sm mt-4">
+          One-time payment. No subscriptions. No surprises.
+        </p>
+      </div>
 
       <PricingSection tiers={mealsTiers} />
 

@@ -9,6 +9,8 @@ type Props = {
   successMessage?: string;
   tag?: string;
   accent?: "sky" | "orange" | "purple" | "blue";
+  productTag?: string;
+  source?: string;
 };
 
 const accentClasses = {
@@ -23,8 +25,9 @@ export default function EmailCaptureForm({
   placeholder = "Enter your email",
   buttonText = "Get Access",
   successMessage = "You're in! Check your inbox.",
-  tag = "general",
   accent = "blue",
+  productTag = "bci-newsletter",
+  source = "evofit.io",
 }: Props) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -41,21 +44,20 @@ export default function EmailCaptureForm({
     setError("");
 
     try {
-      // ConvertKit integration placeholder
-      // Replace CONVERTKIT_FORM_ID with actual form ID when ready
-      // await fetch(`https://api.convertkit.com/v3/forms/FORM_ID/subscribe`, {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify({
-      //     api_key: process.env.NEXT_PUBLIC_CONVERTKIT_API_KEY,
-      //     email,
-      //     tags: [tag],
-      //   }),
-      // });
+      const res = await fetch("/api/leads/capture", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source, productTag }),
+      });
 
-      // Simulating success for now
-      await new Promise((r) => setTimeout(r, 800));
-      setStatus("success");
+      const data = await res.json();
+
+      if (data.success) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+        setError(data.error || "Something went wrong. Please try again.");
+      }
     } catch {
       setStatus("error");
       setError("Something went wrong. Please try again.");

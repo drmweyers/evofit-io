@@ -128,12 +128,20 @@ export default function ProductShowcase() {
           <p className="text-blue-100 mb-6 max-w-xl mx-auto">
             Run the complete nutrition + training business. Bundle EvoFit Meals + Trainer and scale faster.
           </p>
-          <Link
-            href="/#pricing"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-blue-700 font-bold hover:bg-blue-50 transition-colors"
-          >
-            View Bundle Pricing <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="https://trainer.evofit.io/get-started"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-blue-700 font-bold hover:bg-blue-50 transition-colors"
+            >
+              Get Trainer <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="https://evofitmeals.com/get-started"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/20 text-white font-bold hover:bg-white/30 transition-colors border border-white/40"
+            >
+              Get Meals <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>

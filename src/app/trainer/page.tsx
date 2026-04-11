@@ -104,6 +104,16 @@ export default function TrainerPage() {
         gradient="left"
       />
 
+      {/* CTA after Program Builder */}
+      <div className="bg-black py-10 text-center border-b border-white/10">
+        <a
+          href="https://trainer.evofit.io/get-started"
+          className="inline-flex items-center gap-2 px-8 py-4 bg-[#F97316] text-black font-bold rounded-full hover:bg-white transition-colors text-lg"
+        >
+          Start building programs today <span aria-hidden="true">&#8594;</span>
+        </a>
+      </div>
+
       <FullWidthImage
         image="/images/lifestyle-class.png"
         alt="Group fitness class in modern gym"
@@ -118,6 +128,19 @@ export default function TrainerPage() {
         align="right"
         gradient="right"
       />
+
+      {/* CTA after Exercise Library */}
+      <div className="bg-black py-10 text-center border-b border-white/10">
+        <p className="font-body text-white/60 text-sm uppercase tracking-[0.15em] mb-4">
+          1,344 exercises. Every demo. Zero guessing.
+        </p>
+        <a
+          href="https://trainer.evofit.io/get-started"
+          className="text-[#F97316] font-semibold text-lg hover:text-white transition-colors"
+        >
+          See it in action &#8594;
+        </a>
+      </div>
 
       <FullWidthImage
         image="/images/lifestyle-ropes.png"
@@ -134,6 +157,16 @@ export default function TrainerPage() {
         gradient="left"
       />
 
+      {/* CTA after Client Management */}
+      <div className="bg-black py-10 text-center border-b border-white/10">
+        <a
+          href="https://trainer.evofit.io/get-started"
+          className="inline-flex items-center gap-2 px-8 py-4 bg-[#F97316] text-black font-bold rounded-full hover:bg-white transition-colors text-lg"
+        >
+          Manage your roster smarter <span aria-hidden="true">&#8594;</span>
+        </a>
+      </div>
+
       <FullWidthImage
         image="/images/hero-gym.png"
         alt="Modern premium gym interior"
@@ -148,6 +181,22 @@ export default function TrainerPage() {
         align="right"
         gradient="right"
       />
+
+      {/* Strong CTA bridge to pricing */}
+      <div className="bg-black py-16 text-center border-b border-white/10">
+        <p className="font-body text-white/50 text-sm uppercase tracking-[0.15em] mb-6">
+          Ready to transform your business?
+        </p>
+        <a
+          href="https://trainer.evofit.io/get-started"
+          className="inline-flex items-center gap-2 px-10 py-5 bg-[#F97316] text-black font-bold rounded-full hover:bg-white transition-colors text-xl"
+        >
+          Get lifetime access <span aria-hidden="true">&#8594;</span>
+        </a>
+        <p className="font-body text-white/30 text-sm mt-4">
+          One-time payment. No subscriptions. No surprises.
+        </p>
+      </div>
 
       <PricingSection tiers={trainerTiers} />
 

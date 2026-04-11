@@ -60,6 +60,29 @@ export default function HomePage() {
         gradient="right"
       />
 
+      {/* Direct Product CTAs */}
+      <section className="bg-black py-16 border-b border-white/10">
+        <div className="max-w-4xl mx-auto px-8 text-center">
+          <p className="font-body text-white/50 text-sm uppercase tracking-[0.15em] mb-8">
+            Pick your platform — or get both
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://trainer.evofit.io/get-started"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#F97316] text-black font-bold rounded-full hover:bg-white transition-colors text-lg"
+            >
+              Try EvoFit Trainer <span aria-hidden="true">&#8594;</span>
+            </a>
+            <a
+              href="https://evofitmeals.com/get-started"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent text-[#F97316] font-bold rounded-full border-2 border-[#F97316] hover:bg-[#F97316] hover:text-black transition-colors text-lg"
+            >
+              Try EvoFit Meals <span aria-hidden="true">&#8594;</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Stats Section */}
       <section className="relative py-16 md:py-20">
         <div className="absolute inset-0">
