@@ -100,19 +100,10 @@ export default function TrainerPage() {
           "Drop Sets, Pyramid, AMRAP, Cluster, Rest-Pause",
           "Custom template library",
         ]}
+        cta={{ text: "Start Building Programs \u2192", href: "https://trainer.evofit.io/get-started" }}
         align="left"
         gradient="left"
       />
-
-      {/* CTA after Program Builder */}
-      <div className="bg-black py-10 text-center border-b border-white/10">
-        <a
-          href="https://trainer.evofit.io/get-started"
-          className="inline-flex items-center gap-2 px-8 py-4 bg-[#F97316] text-black font-bold rounded-full hover:bg-white transition-colors text-lg"
-        >
-          Start building programs today <span aria-hidden="true">&#8594;</span>
-        </a>
-      </div>
 
       <FullWidthImage
         image="/images/lifestyle-class.png"
@@ -125,22 +116,10 @@ export default function TrainerPage() {
           "Muscle group targeting + equipment filters",
           "Favorites + custom collections",
         ]}
+        cta={{ text: "See The Full Library \u2192", href: "https://trainer.evofit.io/get-started" }}
         align="right"
         gradient="right"
       />
-
-      {/* CTA after Exercise Library */}
-      <div className="bg-black py-10 text-center border-b border-white/10">
-        <p className="font-body text-white/60 text-sm uppercase tracking-[0.15em] mb-4">
-          1,344 exercises. Every demo. Zero guessing.
-        </p>
-        <a
-          href="https://trainer.evofit.io/get-started"
-          className="text-[#F97316] font-semibold text-lg hover:text-white transition-colors"
-        >
-          See it in action &#8594;
-        </a>
-      </div>
 
       <FullWidthImage
         image="/images/lifestyle-ropes.png"
@@ -153,19 +132,10 @@ export default function TrainerPage() {
           "Set-by-set logging with auto PR detection",
           "PR confetti celebration + best tracking",
         ]}
+        cta={{ text: "Manage Your Roster \u2192", href: "https://trainer.evofit.io/get-started" }}
         align="left"
         gradient="left"
       />
-
-      {/* CTA after Client Management */}
-      <div className="bg-black py-10 text-center border-b border-white/10">
-        <a
-          href="https://trainer.evofit.io/get-started"
-          className="inline-flex items-center gap-2 px-8 py-4 bg-[#F97316] text-black font-bold rounded-full hover:bg-white transition-colors text-lg"
-        >
-          Manage your roster smarter <span aria-hidden="true">&#8594;</span>
-        </a>
-      </div>
 
       <FullWidthImage
         image="/images/hero-gym.png"
@@ -176,27 +146,12 @@ export default function TrainerPage() {
         bullets={[
           "AI-generated workouts in 5 seconds",
           "Confidence-rated suggestions (High/Med/Low)",
-          "Stack on any tier — coming soon",
+          "Stack on any tier \u2014 coming soon",
         ]}
+        cta={{ text: "Get Lifetime Access \u2192", href: "https://trainer.evofit.io/get-started" }}
         align="right"
         gradient="right"
       />
-
-      {/* Strong CTA bridge to pricing */}
-      <div className="bg-black py-16 text-center border-b border-white/10">
-        <p className="font-body text-white/50 text-sm uppercase tracking-[0.15em] mb-6">
-          Ready to transform your business?
-        </p>
-        <a
-          href="https://trainer.evofit.io/get-started"
-          className="inline-flex items-center gap-2 px-10 py-5 bg-[#F97316] text-black font-bold rounded-full hover:bg-white transition-colors text-xl"
-        >
-          Get lifetime access <span aria-hidden="true">&#8594;</span>
-        </a>
-        <p className="font-body text-white/30 text-sm mt-4">
-          One-time payment. No subscriptions. No surprises.
-        </p>
-      </div>
 
       <PricingSection tiers={trainerTiers} />
 
