@@ -50,7 +50,7 @@ export default function HomePage() {
                 name: "EvoFit Trainer",
                 url: "https://trainer.evofit.io",
                 priceCurrency: "USD",
-                price: "149",
+                price: "199",
                 description: "Professional personal training platform with 1,344 exercises",
               },
             ],

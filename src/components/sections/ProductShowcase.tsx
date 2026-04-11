@@ -66,7 +66,7 @@ export default function ProductShowcase() {
               <div>
                 <div className="text-sm text-slate-500">Starting from</div>
                 <div className="text-3xl font-black text-slate-900">$199</div>
-                <div className="text-sm text-slate-500">one-time or $39/mo</div>
+                <div className="text-sm text-slate-500">one-time payment</div>
               </div>
               <Link
                 href="/meals"
@@ -108,8 +108,8 @@ export default function ProductShowcase() {
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-sm text-slate-500">Starting from</div>
-                <div className="text-3xl font-black text-slate-900">$149</div>
-                <div className="text-sm text-slate-500">one-time or $29/mo</div>
+                <div className="text-3xl font-black text-slate-900">$199</div>
+                <div className="text-sm text-slate-500">one-time payment</div>
               </div>
               <Link
                 href="/trainer"

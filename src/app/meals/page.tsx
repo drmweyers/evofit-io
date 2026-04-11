@@ -84,15 +84,15 @@ const tiers = [
     name: "Starter",
     price: "$199",
     period: "one-time",
-    clients: "Up to 10 clients",
+    clients: "Up to 9 clients",
     features: ["AI meal plan generation", "3,000+ recipe library", "Basic branding", "Allergy filtering", "Email support"],
     highlighted: false,
   },
   {
-    name: "Pro",
+    name: "Professional",
     price: "$299",
     period: "one-time",
-    clients: "Up to 50 clients",
+    clients: "Up to 20 clients",
     features: ["Everything in Starter", "White-label branding", "Progress tracking", "Client management", "Priority support"],
     highlighted: true,
   },
@@ -101,15 +101,7 @@ const tiers = [
     price: "$399",
     period: "one-time",
     clients: "Unlimited clients",
-    features: ["Everything in Pro", "Multi-trainer support", "Custom domain", "API access", "Dedicated support"],
-    highlighted: false,
-  },
-  {
-    name: "SaaS",
-    price: "$39",
-    period: "/mo",
-    clients: "Unlimited clients",
-    features: ["All features included", "Always up-to-date", "Cloud hosted", "Cancel anytime", "Priority support"],
+    features: ["Everything in Professional", "Multi-trainer support", "Custom domain", "API access", "Dedicated support"],
     highlighted: false,
   },
 ];
@@ -155,7 +147,7 @@ export default function MealsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="https://evofitmeals.com"
+                href="https://evofitmeals.com/get-started"
                 target="_blank"
                 rel="noopener"
                 className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-sky-500 to-orange-500 text-white font-bold text-lg hover:opacity-90 transition-all shadow-lg shadow-sky-500/25"
@@ -286,7 +278,7 @@ export default function MealsPage() {
                   ))}
                 </ul>
                 <Link
-                  href="https://evofitmeals.com"
+                  href="https://evofitmeals.com/get-started"
                   target="_blank"
                   rel="noopener"
                   className="block text-center py-2.5 rounded-xl text-white font-semibold text-sm bg-gradient-to-r from-sky-500 to-orange-500 hover:opacity-90 transition-opacity"
@@ -325,7 +317,7 @@ export default function MealsPage() {
             Stop spending hours on meal plans. Start building the practice you deserve.
           </p>
           <Link
-            href="https://evofitmeals.com"
+            href="https://evofitmeals.com/get-started"
             target="_blank"
             rel="noopener"
             className="inline-flex items-center gap-2 px-10 py-4 rounded-xl bg-white text-sky-600 font-black text-lg hover:bg-sky-50 transition-colors shadow-lg"

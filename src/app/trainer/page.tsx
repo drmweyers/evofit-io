@@ -83,34 +83,26 @@ const features = [
 const tiers = [
   {
     name: "Starter",
-    price: "$149",
+    price: "$199",
     period: "one-time",
-    clients: "Up to 9 clients",
+    clients: "Up to 5 clients",
     features: ["1,344 exercise library", "Program builder", "Workout tracking", "Basic scheduling", "Email support"],
     highlighted: false,
   },
   {
-    name: "Pro",
-    price: "$249",
+    name: "Professional",
+    price: "$299",
     period: "one-time",
-    clients: "Up to 50 clients",
+    clients: "Up to 19 clients",
     features: ["Everything in Starter", "ACWR analytics", "Advanced scheduling", "Client management", "Priority support"],
     highlighted: true,
   },
   {
     name: "Enterprise",
-    price: "$349",
+    price: "$399",
     period: "one-time",
-    clients: "Unlimited clients",
-    features: ["Everything in Pro", "Multi-trainer support", "Custom branding", "API access", "Dedicated support"],
-    highlighted: false,
-  },
-  {
-    name: "SaaS",
-    price: "$29",
-    period: "/mo",
-    clients: "Unlimited clients",
-    features: ["All features included", "Always up-to-date", "Cloud hosted", "Cancel anytime", "Priority support"],
+    clients: "Up to 50 clients",
+    features: ["Everything in Professional", "Multi-trainer support", "Custom branding", "API access", "Dedicated support"],
     highlighted: false,
   },
 ];
@@ -132,7 +124,7 @@ export default function TrainerPage() {
             offers: {
               "@type": "Offer",
               priceCurrency: "USD",
-              price: "149",
+              price: "199",
               name: "Starter License",
             },
           }),
@@ -155,7 +147,7 @@ export default function TrainerPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="https://trainer.evofit.io"
+                href="https://trainer.evofit.io/get-started"
                 target="_blank"
                 rel="noopener"
                 className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg hover:opacity-90 transition-all shadow-lg shadow-blue-500/25"
@@ -302,7 +294,7 @@ export default function TrainerPage() {
                   ))}
                 </ul>
                 <Link
-                  href="https://trainer.evofit.io"
+                  href="https://trainer.evofit.io/get-started"
                   target="_blank"
                   rel="noopener"
                   className="block text-center py-2.5 rounded-xl text-white font-semibold text-sm bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90 transition-opacity"
@@ -341,7 +333,7 @@ export default function TrainerPage() {
             Join trainers who deliver better programs, retain more clients, and look the part.
           </p>
           <Link
-            href="https://trainer.evofit.io"
+            href="https://trainer.evofit.io/get-started"
             target="_blank"
             rel="noopener"
             className="inline-flex items-center gap-2 px-10 py-4 rounded-xl bg-white text-blue-700 font-black text-lg hover:bg-blue-50 transition-colors shadow-lg"
