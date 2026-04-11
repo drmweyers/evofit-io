@@ -1,137 +1,71 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Dumbbell, Utensils, BookOpen } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-100 shadow-sm">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm">
+      <nav className="max-w-7xl mx-auto px-6 lg:px-16">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-              <span className="text-white text-sm font-black">E</span>
-            </div>
-            <span className="text-slate-900">
-              Evo<span className="text-blue-600">Fit</span>
-            </span>
+          <Link href="/" className="font-display text-xl font-bold text-white uppercase tracking-wider">
+            EvoFit
           </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-6">
-            <Link
-              href="/meals"
-              className="flex items-center gap-1.5 text-slate-600 hover:text-sky-500 font-medium transition-colors"
-            >
-              <Utensils className="w-4 h-4" />
-              Meals
-            </Link>
-            <Link
-              href="/trainer"
-              className="flex items-center gap-1.5 text-slate-600 hover:text-blue-600 font-medium transition-colors"
-            >
-              <Dumbbell className="w-4 h-4" />
+          <div className="hidden md:flex items-center gap-8">
+            <Link href="/trainer" className="font-body text-sm text-white/70 hover:text-white uppercase tracking-wider transition-colors">
               Trainer
             </Link>
-            <Link
-              href="/free-tools"
-              className="text-slate-600 hover:text-purple-600 font-medium transition-colors"
-            >
-              Free Tools
+            <Link href="/meals" className="font-body text-sm text-white/70 hover:text-white uppercase tracking-wider transition-colors">
+              Meals
             </Link>
-            <Link
-              href="/blog"
-              className="flex items-center gap-1.5 text-slate-600 hover:text-sky-500 font-medium transition-colors"
-            >
-              <BookOpen className="w-4 h-4" />
+            <Link href="/blog" className="font-body text-sm text-white/70 hover:text-white uppercase tracking-wider transition-colors">
               Blog
             </Link>
-          </div>
-
-          {/* Desktop CTAs */}
-          <div className="hidden md:flex items-center gap-3">
             <Link
-              href="https://evofitmeals.com"
-              target="_blank"
-              rel="noopener"
-              className="px-4 py-2 rounded-lg bg-sky-50 text-sky-600 hover:bg-sky-100 font-semibold text-sm transition-colors"
+              href="/#get-started"
+              className="bg-brand-accent text-black px-6 py-2 font-display font-semibold uppercase tracking-wider text-sm hover:bg-white transition-all duration-300"
             >
-              Try Meals
-            </Link>
-            <Link
-              href="https://trainer.evofit.io"
-              target="_blank"
-              rel="noopener"
-              className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-sm hover:opacity-90 transition-opacity"
-            >
-              Try Trainer
+              Get Started
             </Link>
           </div>
 
-          {/* Mobile toggle */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100"
+            className="md:hidden p-2 text-white"
             aria-label="Toggle menu"
           >
-            {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {open ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {open && (
-          <div className="md:hidden py-4 border-t border-slate-100 space-y-3">
-            <Link
-              href="/meals"
-              className="flex items-center gap-2 px-2 py-2 text-slate-700 hover:text-sky-500 font-medium"
-              onClick={() => setOpen(false)}
-            >
-              <Utensils className="w-4 h-4" /> EvoFit Meals
+          <div className="md:hidden py-6 border-t border-white/10 space-y-4">
+            <Link href="/trainer" className="block font-body text-sm text-white/70 uppercase tracking-wider" onClick={() => setOpen(false)}>
+              Trainer
+            </Link>
+            <Link href="/meals" className="block font-body text-sm text-white/70 uppercase tracking-wider" onClick={() => setOpen(false)}>
+              Meals
+            </Link>
+            <Link href="/blog" className="block font-body text-sm text-white/70 uppercase tracking-wider" onClick={() => setOpen(false)}>
+              Blog
             </Link>
             <Link
-              href="/trainer"
-              className="flex items-center gap-2 px-2 py-2 text-slate-700 hover:text-blue-600 font-medium"
+              href="/#get-started"
+              className="inline-block bg-brand-accent text-black px-6 py-2 font-display font-semibold uppercase tracking-wider text-sm"
               onClick={() => setOpen(false)}
             >
-              <Dumbbell className="w-4 h-4" /> EvoFit Trainer
+              Get Started
             </Link>
-            <Link
-              href="/free-tools"
-              className="block px-2 py-2 text-slate-700 font-medium"
-              onClick={() => setOpen(false)}
-            >
-              Free Tools
-            </Link>
-            <Link
-              href="/blog"
-              className="flex items-center gap-2 px-2 py-2 text-slate-700 hover:text-sky-500 font-medium"
-              onClick={() => setOpen(false)}
-            >
-              <BookOpen className="w-4 h-4" /> Blog
-            </Link>
-            <div className="pt-2 flex flex-col gap-2">
-              <Link
-                href="https://evofitmeals.com"
-                target="_blank"
-                rel="noopener"
-                className="block text-center py-2 rounded-lg bg-sky-50 text-sky-600 font-semibold"
-                onClick={() => setOpen(false)}
-              >
-                Try Meals →
-              </Link>
-              <Link
-                href="https://trainer.evofit.io"
-                target="_blank"
-                rel="noopener"
-                className="block text-center py-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold"
-                onClick={() => setOpen(false)}
-              >
-                Try Trainer →
-              </Link>
-            </div>
           </div>
         )}
       </nav>

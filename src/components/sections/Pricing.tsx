@@ -17,7 +17,7 @@ const mealsTiers: PricingTier[] = [
     name: "Starter",
     price: "$199",
     period: "one-time",
-    clients: "Up to 9 clients",
+    clients: "Up to 10 clients",
     features: [
       "AI meal plan generation",
       "3,000+ recipe library",
@@ -29,10 +29,10 @@ const mealsTiers: PricingTier[] = [
     href: "https://evofitmeals.com/get-started",
   },
   {
-    name: "Professional",
+    name: "Pro",
     price: "$299",
     period: "one-time",
-    clients: "Up to 20 clients",
+    clients: "Up to 50 clients",
     features: [
       "Everything in Starter",
       "White-label branding",
@@ -40,7 +40,7 @@ const mealsTiers: PricingTier[] = [
       "Client management",
       "Priority support",
     ],
-    cta: "Go Professional",
+    cta: "Go Pro",
     href: "https://evofitmeals.com/get-started",
     highlighted: true,
   },
@@ -50,7 +50,7 @@ const mealsTiers: PricingTier[] = [
     period: "one-time",
     clients: "Unlimited clients",
     features: [
-      "Everything in Professional",
+      "Everything in Pro",
       "Multi-trainer support",
       "Custom domain",
       "API access",
@@ -78,7 +78,7 @@ const trainerTiers: PricingTier[] = [
     href: "https://trainer.evofit.io/get-started",
   },
   {
-    name: "Professional",
+    name: "Pro",
     price: "$299",
     period: "one-time",
     clients: "Up to 19 clients",
@@ -89,7 +89,7 @@ const trainerTiers: PricingTier[] = [
       "Client management",
       "Priority support",
     ],
-    cta: "Go Professional",
+    cta: "Go Pro",
     href: "https://trainer.evofit.io/get-started",
     highlighted: true,
   },
@@ -99,7 +99,7 @@ const trainerTiers: PricingTier[] = [
     period: "one-time",
     clients: "Up to 50 clients",
     features: [
-      "Everything in Professional",
+      "Everything in Pro",
       "Multi-trainer support",
       "Custom branding",
       "API access",
@@ -185,7 +185,7 @@ export default function Pricing() {
             Transparent pricing. No surprises.
           </h2>
           <p className="text-xl text-slate-600 max-w-xl mx-auto">
-            Pay once, own it forever. No monthly fees. No subscriptions.
+            Pay once, own it forever. No monthly fees, no subscriptions, no surprises.
           </p>
         </div>
 

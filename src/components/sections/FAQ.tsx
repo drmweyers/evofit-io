@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: "How many clients can I have?",
-    a: "It depends on your plan. Starter plans support 5-9 clients. Professional plans support up to 19-20 clients. Enterprise plans support up to 50+ clients. You can upgrade at any time.",
+    a: "It depends on your plan. Starter plans support up to 5-10 clients. Professional plans support up to 19-50 clients. Enterprise plans support up to 50+ clients. You can upgrade at any time.",
   },
   {
     q: "Is there a free trial?",
