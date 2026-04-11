@@ -6,6 +6,7 @@ interface EmailCTAProps {
   subtitle: string;
   buttonText: string;
   backgroundImage?: string;
+  productTag?: string;
 }
 
 export default function EmailCTA({
@@ -13,6 +14,7 @@ export default function EmailCTA({
   subtitle,
   buttonText,
   backgroundImage = "/images/cta-mood.png",
+  productTag = "bci-newsletter",
 }: EmailCTAProps) {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -34,7 +36,7 @@ export default function EmailCTA({
           email,
           firstName: name || undefined,
           source: "evofit.io",
-          productTag: "bci-newsletter",
+          productTag,
         }),
       });
 

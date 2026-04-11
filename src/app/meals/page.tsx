@@ -204,6 +204,7 @@ export default function MealsPage() {
         title="Start Planning Smarter"
         subtitle="Join the trainers who stopped guessing and started delivering results."
         buttonText="Get EvoFit Meals"
+        productTag="evofit-meals-interest"
       />
     </>
   );

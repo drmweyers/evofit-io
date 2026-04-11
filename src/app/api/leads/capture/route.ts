@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
+        "X-API-Key": apiKey,
       },
       body: JSON.stringify({ email, firstName, source, productTag }),
     });
