@@ -1,16 +1,30 @@
 import type { Metadata } from "next";
+import { Inter, Oswald } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const oswald = Oswald({
+  subsets: ["latin"],
+  variable: "--font-oswald",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://evofit.io"),
   title: {
-    default: "EvoFit — The Complete Fitness Business Platform",
+    default: "EvoFit — The Platform for Elite Fitness Professionals",
     template: "%s | EvoFit",
   },
   description:
-    "AI-powered nutrition tools and professional training software for fitness coaches. EvoFit Meals + EvoFit Trainer — own your health, own your business.",
+    "EvoFit powers the world's most ambitious fitness professionals with AI-driven workout programming and nutrition planning.",
   keywords: [
     "fitness business platform",
     "AI meal plans",
@@ -25,18 +39,18 @@ export const metadata: Metadata = {
   publisher: "BCI Innovation Labs",
   openGraph: {
     type: "website",
-    locale: "en_CA",
+    locale: "en_US",
     url: "https://evofit.io",
     siteName: "EvoFit",
-    title: "EvoFit — The Complete Fitness Business Platform",
+    title: "EvoFit — The Platform for Elite Fitness Professionals",
     description:
-      "AI-powered nutrition tools and professional training software for fitness coaches. Own your health. Own your business.",
+      "EvoFit powers the world's most ambitious fitness professionals with AI-driven workout programming and nutrition planning.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/images/hero-gym.png",
         width: 1200,
         height: 630,
-        alt: "EvoFit — The Complete Fitness Business Platform",
+        alt: "EvoFit - Elite Fitness Platform",
       },
     ],
   },
@@ -44,10 +58,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@evofit_io",
     creator: "@evofit_io",
-    title: "EvoFit — The Complete Fitness Business Platform",
+    title: "EvoFit — The Platform for Elite Fitness Professionals",
     description:
-      "AI-powered nutrition tools and professional training software for fitness coaches.",
-    images: ["/og-image.png"],
+      "EvoFit powers the world's most ambitious fitness professionals with AI-driven workout programming and nutrition planning.",
+    images: ["/images/hero-gym.png"],
   },
   robots: {
     index: true,
@@ -60,6 +74,14 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  other: {
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
+    "theme-color": "#000000",
+  },
+  icons: {
+    icon: "/logos/evofit-favicon-32.png",
+  },
 };
 
 export default function RootLayout({
@@ -68,18 +90,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${oswald.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-          rel="stylesheet"
-        />
         <link
           rel="alternate"
           type="application/rss+xml"
@@ -87,9 +99,9 @@ export default function RootLayout({
           href="/blog/rss.xml"
         />
       </head>
-      <body className="antialiased">
+      <body className="font-body antialiased">
         <Navbar />
-        <main>{children}</main>
+        <main className="bg-black">{children}</main>
         <Footer />
       </body>
     </html>

@@ -8,8 +8,8 @@ const faqs = [
     a: "EvoFit Meals is designed for nutrition professionals and coaches who create meal plans and track nutrition. EvoFit Trainer is for personal trainers who build workout programs, track exercise performance, and manage training loads. Many coaches use both together for a complete coaching business.",
   },
   {
-    q: "Do I need to pay monthly or is there a one-time option?",
-    a: "Both! EvoFit Meals offers one-time licenses starting at $199, and EvoFit Trainer starts at $149 one-time. We also offer SaaS plans ($39/mo for Meals, $29/mo for Trainer) if you prefer always-current hosted software with no server management.",
+    q: "Is this a one-time purchase or a subscription?",
+    a: "One-time purchase. EvoFit Meals and EvoFit Trainer both offer one-time licenses — Starter at $199, Professional at $299, and Enterprise at $399. Pay once, own it forever. No monthly fees, no subscriptions.",
   },
   {
     q: "Can I use my own branding with EvoFit?",
@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: "How many clients can I have?",
-    a: "It depends on your plan. Starter plans support 9-10 clients. Pro plans support up to 50 clients. Enterprise and SaaS plans support unlimited clients. You can upgrade at any time.",
+    a: "It depends on your plan. Starter plans support up to 5-10 clients. Professional plans support up to 19-50 clients. Enterprise plans support up to 50+ clients. You can upgrade at any time.",
   },
   {
     q: "Is there a free trial?",
