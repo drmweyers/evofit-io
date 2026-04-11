@@ -1,14 +1,17 @@
 @import "tailwindcss";
 
-@theme {
-  --color-brand-accent: #D4FF00;
-  --color-brand-dark: #0A0A0A;
-  --color-brand-muted: #999999;
-  --color-brand-green: #22C55E;
-  --color-brand-black: #000000;
+:root {
+  --primary: #0ea5e9;
+  --secondary: #f37316;
+  --background: #ffffff;
+  --foreground: #0f172a;
+}
 
-  --font-display: "Oswald", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+@theme {
+  --color-primary: #0ea5e9;
+  --color-secondary: #f37316;
+  --color-brand-blue: #0ea5e9;
+  --color-brand-orange: #f37316;
 }
 
 html {
@@ -16,20 +19,28 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
-  color: #ffffff;
-  background: #000000;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  color: #0f172a;
+  background: #ffffff;
 }
 
-@keyframes ken-burns {
-  0% {
-    transform: scale(1);
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
-  100% {
-    transform: scale(1.08);
+  .text-gradient-orange {
+    background: linear-gradient(135deg, #0ea5e9 0%, #f37316 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
-}
-
-.animate-ken-burns {
-  animation: ken-burns 20s ease-out forwards;
+  .bg-gradient-brand {
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  }
+  .bg-gradient-meals {
+    background: linear-gradient(135deg, #0ea5e9 0%, #f37316 100%);
+  }
 }

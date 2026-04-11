@@ -26,7 +26,7 @@ const mealsTiers: PricingTier[] = [
       "Email support",
     ],
     cta: "Get Started",
-    href: "https://evofitmeals.com/get-started",
+    href: "https://evofitmeals.com",
   },
   {
     name: "Pro",
@@ -41,7 +41,7 @@ const mealsTiers: PricingTier[] = [
       "Priority support",
     ],
     cta: "Go Pro",
-    href: "https://evofitmeals.com/get-started",
+    href: "https://evofitmeals.com",
     highlighted: true,
   },
   {
@@ -57,16 +57,31 @@ const mealsTiers: PricingTier[] = [
       "Dedicated support",
     ],
     cta: "Go Enterprise",
-    href: "https://evofitmeals.com/get-started",
+    href: "https://evofitmeals.com",
+  },
+  {
+    name: "SaaS",
+    price: "$39",
+    period: "/mo",
+    clients: "Unlimited clients",
+    features: [
+      "All features included",
+      "Always up-to-date",
+      "Cloud hosted",
+      "Cancel anytime",
+      "Priority support",
+    ],
+    cta: "Start Free Trial",
+    href: "https://evofitmeals.com",
   },
 ];
 
 const trainerTiers: PricingTier[] = [
   {
     name: "Starter",
-    price: "$199",
+    price: "$149",
     period: "one-time",
-    clients: "Up to 5 clients",
+    clients: "Up to 9 clients",
     features: [
       "1,344 exercise library",
       "Program builder",
@@ -75,13 +90,13 @@ const trainerTiers: PricingTier[] = [
       "Email support",
     ],
     cta: "Get Started",
-    href: "https://trainer.evofit.io/get-started",
+    href: "https://trainer.evofit.io",
   },
   {
     name: "Pro",
-    price: "$299",
+    price: "$249",
     period: "one-time",
-    clients: "Up to 19 clients",
+    clients: "Up to 50 clients",
     features: [
       "Everything in Starter",
       "ACWR analytics",
@@ -90,14 +105,14 @@ const trainerTiers: PricingTier[] = [
       "Priority support",
     ],
     cta: "Go Pro",
-    href: "https://trainer.evofit.io/get-started",
+    href: "https://trainer.evofit.io",
     highlighted: true,
   },
   {
     name: "Enterprise",
-    price: "$399",
+    price: "$349",
     period: "one-time",
-    clients: "Up to 50 clients",
+    clients: "Unlimited clients",
     features: [
       "Everything in Pro",
       "Multi-trainer support",
@@ -106,7 +121,22 @@ const trainerTiers: PricingTier[] = [
       "Dedicated support",
     ],
     cta: "Go Enterprise",
-    href: "https://trainer.evofit.io/get-started",
+    href: "https://trainer.evofit.io",
+  },
+  {
+    name: "SaaS",
+    price: "$29",
+    period: "/mo",
+    clients: "Unlimited clients",
+    features: [
+      "All features included",
+      "Always up-to-date",
+      "Cloud hosted",
+      "Cancel anytime",
+      "Priority support",
+    ],
+    cta: "Start Free Trial",
+    href: "https://trainer.evofit.io",
   },
 ];
 
@@ -185,7 +215,7 @@ export default function Pricing() {
             Transparent pricing. No surprises.
           </h2>
           <p className="text-xl text-slate-600 max-w-xl mx-auto">
-            Pay once, own it forever. No monthly fees, no subscriptions, no surprises.
+            Pay once, own it forever — or go SaaS for always-current features. Your call.
           </p>
         </div>
 
@@ -200,7 +230,7 @@ export default function Pricing() {
               <p className="text-slate-500 text-sm">Nutrition platform for coaches</p>
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {mealsTiers.map((tier) => (
               <PricingCard key={tier.name} tier={tier} accent="sky" />
             ))}
@@ -218,7 +248,7 @@ export default function Pricing() {
               <p className="text-slate-500 text-sm">Training platform for coaches</p>
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {trainerTiers.map((tier) => (
               <PricingCard key={tier.name} tier={tier} accent="blue" />
             ))}
@@ -244,7 +274,7 @@ export default function Pricing() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
-              href="https://evofitmeals.com/get-started"
+              href="https://evofitmeals.com"
               target="_blank"
               rel="noopener"
               className="px-6 py-3 rounded-xl bg-white text-sky-600 font-bold hover:bg-sky-50 transition-colors"
@@ -252,7 +282,7 @@ export default function Pricing() {
               Start with Meals
             </Link>
             <Link
-              href="https://trainer.evofit.io/get-started"
+              href="https://trainer.evofit.io"
               target="_blank"
               rel="noopener"
               className="px-6 py-3 rounded-xl bg-white/10 border border-white/30 text-white font-bold hover:bg-white/20 transition-colors"
