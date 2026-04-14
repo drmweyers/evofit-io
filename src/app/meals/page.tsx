@@ -29,7 +29,7 @@ const mealsTiers = [
       "Email support",
     ],
     cta: "Get Started — $199",
-    href: "https://evofitmeals.com/get-started",
+    href: "https://meals.evofit.io/get-started",
   },
   {
     name: "Professional",
@@ -43,7 +43,7 @@ const mealsTiers = [
       "Priority support",
     ],
     cta: "Upgrade to Professional — $299",
-    href: "https://evofitmeals.com/get-started",
+    href: "https://meals.evofit.io/get-started",
     highlighted: true,
     badge: "Most Popular",
   },
@@ -59,7 +59,7 @@ const mealsTiers = [
       "Dedicated support manager",
     ],
     cta: "Get Elite — $399",
-    href: "https://evofitmeals.com/get-started",
+    href: "https://meals.evofit.io/get-started",
   },
 ];
 
@@ -74,7 +74,7 @@ export default function MealsPage() {
             "@type": "SoftwareApplication",
             name: "EvoFit Meals",
             applicationCategory: "HealthApplication",
-            url: "https://evofitmeals.com",
+            url: "https://meals.evofit.io",
             description: "AI-powered meal plan generator for nutrition coaches and personal trainers.",
             offers: { "@type": "Offer", priceCurrency: "USD", price: "199", name: "Starter License" },
           }),
@@ -100,7 +100,7 @@ export default function MealsPage() {
           "Dietary restriction accommodation",
           "Complete nutrition breakdown",
         ]}
-        cta={{ text: "Explore The Library \u2192", href: "https://evofitmeals.com/get-started" }}
+        cta={{ text: "Explore The Library \u2192", href: "https://meals.evofit.io/get-started" }}
         align="left"
         gradient="left"
       />
@@ -116,7 +116,7 @@ export default function MealsPage() {
           "Real-time nutritional analysis",
           "Flexible meal swapping",
         ]}
-        cta={{ text: "See It In Action \u2192", href: "https://evofitmeals.com/get-started" }}
+        cta={{ text: "See It In Action \u2192", href: "https://meals.evofit.io/get-started" }}
         align="right"
         gradient="right"
       />
@@ -132,7 +132,7 @@ export default function MealsPage() {
           "Meal plan compliance monitoring",
           "Branded PDF exports",
         ]}
-        cta={{ text: "Manage Your Clients \u2192", href: "https://evofitmeals.com/get-started" }}
+        cta={{ text: "Manage Your Clients \u2192", href: "https://meals.evofit.io/get-started" }}
         align="left"
         gradient="left"
       />
@@ -148,7 +148,7 @@ export default function MealsPage() {
           "Unlimited recipe variations",
           "Stack on any tier \u2014 coming soon",
         ]}
-        cta={{ text: "Get Lifetime Access \u2192", href: "https://evofitmeals.com/get-started" }}
+        cta={{ text: "Get Lifetime Access \u2192", href: "https://meals.evofit.io/get-started" }}
         align="right"
         gradient="right"
       />

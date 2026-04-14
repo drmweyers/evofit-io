@@ -74,7 +74,7 @@ export default function HomePage() {
               Try EvoFit Trainer <span aria-hidden="true">&#8594;</span>
             </a>
             <a
-              href="https://evofitmeals.com/get-started"
+              href="https://meals.evofit.io/get-started"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent text-[#F97316] font-bold rounded-full border-2 border-[#F97316] hover:bg-[#F97316] hover:text-black transition-colors text-lg"
             >
               Try EvoFit Meals <span aria-hidden="true">&#8594;</span>

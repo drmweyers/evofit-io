@@ -40,8 +40,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://evofitmeals.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                  evofitmeals.com
+                <a href="https://meals.evofit.io" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  meals.evofit.io
                 </a>
               </li>
               <li>

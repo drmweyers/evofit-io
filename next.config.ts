@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "meals.evofit.io",
+      },
+      {
+        protocol: "https",
         hostname: "trainer.evofit.io",
       },
       {

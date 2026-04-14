@@ -26,7 +26,7 @@ const mealsTiers: PricingTier[] = [
       "Email support",
     ],
     cta: "Get Started",
-    href: "https://evofitmeals.com/get-started",
+    href: "https://meals.evofit.io/get-started",
   },
   {
     name: "Pro",
@@ -41,7 +41,7 @@ const mealsTiers: PricingTier[] = [
       "Priority support",
     ],
     cta: "Go Pro",
-    href: "https://evofitmeals.com/get-started",
+    href: "https://meals.evofit.io/get-started",
     highlighted: true,
   },
   {
@@ -57,7 +57,7 @@ const mealsTiers: PricingTier[] = [
       "Dedicated support",
     ],
     cta: "Go Enterprise",
-    href: "https://evofitmeals.com/get-started",
+    href: "https://meals.evofit.io/get-started",
   },
 ];
 
@@ -244,7 +244,7 @@ export default function Pricing() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
-              href="https://evofitmeals.com/get-started"
+              href="https://meals.evofit.io/get-started"
               target="_blank"
               rel="noopener"
               className="px-6 py-3 rounded-xl bg-white text-sky-600 font-bold hover:bg-sky-50 transition-colors"

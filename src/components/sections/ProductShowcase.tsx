@@ -136,7 +136,7 @@ export default function ProductShowcase() {
               Get Trainer <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
-              href="https://evofitmeals.com/get-started"
+              href="https://meals.evofit.io/get-started"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/20 text-white font-bold hover:bg-white/30 transition-colors border border-white/40"
             >
               Get Meals <ArrowRight className="w-4 h-4" />
