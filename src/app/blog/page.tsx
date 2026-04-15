@@ -63,20 +63,20 @@ export default async function BlogIndexPage({ searchParams }: BlogIndexPageProps
         {/* Background image — desktop */}
         <div className="absolute inset-0 hidden md:block">
           <Image
-            src="/images/hero-gym.png"
-            alt="EvoFit Blog hero background"
+            src="/images/blog-hero.png"
+            alt="EvoFit Blog — fitness nutrition and peptide science"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             priority
           />
         </div>
         {/* Background image — mobile */}
         <div className="absolute inset-0 md:hidden">
           <Image
-            src="/images/hero-mobile.png"
-            alt="EvoFit Blog hero background"
+            src="/images/blog-hero-mobile.png"
+            alt="EvoFit Blog — fitness nutrition and peptide science"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             priority
           />
         </div>
