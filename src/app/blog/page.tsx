@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Rss } from 'lucide-react';
 import Link from 'next/link';
 import { listPosts } from '@/lib/blog/reader';
@@ -58,24 +59,56 @@ export default async function BlogIndexPage({ searchParams }: BlogIndexPageProps
       />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            EvoFit Blog{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-400">
-              — where fitness meets AI
-            </span>
-          </h1>
-          <p className="text-slate-300 text-lg max-w-2xl mx-auto mb-8">
-            AI-powered fitness insights, nutrition science, and business tips for coaches who want to stay ahead.
-          </p>
-          <Link
-            href="/blog/rss.xml"
-            className="inline-flex items-center gap-2 rounded-lg border border-orange-400/50 bg-orange-500/10 px-4 py-2 text-orange-400 text-sm font-medium hover:bg-orange-500/20 transition-colors"
-          >
-            <Rss className="w-4 h-4" />
-            Subscribe via RSS
-          </Link>
+      <section className="relative w-full min-h-[520px] md:min-h-[600px] overflow-hidden flex items-center">
+        {/* Background image — desktop */}
+        <div className="absolute inset-0 hidden md:block">
+          <Image
+            src="/images/hero-gym.png"
+            alt="EvoFit Blog hero background"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        {/* Background image — mobile */}
+        <div className="absolute inset-0 md:hidden">
+          <Image
+            src="/images/hero-mobile.png"
+            alt="EvoFit Blog hero background"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        {/* Dark overlay matching homepage style */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/25" />
+
+        {/* Content */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-16 py-28 md:py-36">
+          <div className="max-w-3xl">
+            <p
+              className="font-body text-brand-accent text-sm uppercase tracking-[0.18em] font-semibold mb-5"
+            >
+              The EvoFit Blog
+            </p>
+            <h1
+              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white uppercase tracking-wide leading-[1.1] mb-6"
+              style={{ textShadow: '0 2px 30px rgba(0,0,0,0.7)' }}
+            >
+              Fitness. Science.<br />Business.
+            </h1>
+            <p className="font-body text-lg md:text-xl font-light text-white/85 leading-relaxed mb-10 max-w-xl">
+              AI-powered insights, nutrition science, and business playbooks for coaches who want to stay ahead.
+            </p>
+            <Link
+              href="/blog/rss.xml"
+              className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 font-display font-semibold uppercase tracking-wider text-sm hover:bg-brand-accent transition-all duration-300"
+              style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.3)' }}
+            >
+              <Rss className="w-4 h-4" />
+              Subscribe via RSS
+            </Link>
+          </div>
         </div>
       </section>
 
