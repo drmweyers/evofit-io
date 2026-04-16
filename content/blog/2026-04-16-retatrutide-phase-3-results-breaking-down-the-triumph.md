@@ -4,6 +4,7 @@ slug: "retatrutide-phase-3-results-breaking-down-the-triumph"
 excerpt: "Retatrutide Phase 3 Results: Breaking Down the TRIUMPH-4 and TRANSCEND Data Eli Lilly's retatrutide program has produced the most dramatic weight loss data in"
 author:
   name: "EvoFit Team"
+category: "Supplements"
 tags: []
 hero_image: "https://v3b.fal.media/files/b/0a966ed0/4h0CsHc0RLWwrEYLW6sai.jpg"
 hero_image_alt: "Hero image for: Retatrutide Phase 3 Results: Breaking Down the TRIUMPH-"

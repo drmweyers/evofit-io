@@ -4,6 +4,7 @@ slug: "tb-500-for-ligament-recovery-a-deep-dive-into-the-evid"
 excerpt: "TB-500 for Ligament Recovery: A Deep Dive Into the Evidence TB-500 (Thymosin Beta-4 fragment) is the quieter cousin of BPC-157 in the peptide recovery world."
 author:
   name: "EvoFit Team"
+category: "Supplements"
 tags: []
 hero_image: "https://v3b.fal.media/files/b/0a967c39/CjWysEKFi9BskI_H_7bOE.jpg"
 hero_image_alt: "Hero image for: TB-500 for Ligament Recovery: A Deep Dive Into the Evid"

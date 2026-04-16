@@ -4,6 +4,7 @@ slug: "can-bpc-157-prevent-re-injury-what-the-collagen-data-s"
 excerpt: "Can BPC-157 Prevent Re-Injury? What the Collagen Data Suggests Re-injury is the silent killer of athletic careers. An athlete who tears an ACL has a 15-23%"
 author:
   name: "EvoFit Team"
+category: "Supplements"
 tags: []
 hero_image: "https://v3b.fal.media/files/b/0a966ecd/hMhiAd3FKvYBacu0-AJTS.jpg"
 hero_image_alt: "Hero image for: Can BPC-157 Prevent Re-Injury? What the Collagen Data S"

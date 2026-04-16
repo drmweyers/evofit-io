@@ -4,6 +4,7 @@ slug: "test-effect-of-progressive-overload-in-plyometrics"
 excerpt: "Introduction Plyometric training is a well-established method for increasing power output (Ramirez-Campillo, 2015)[^1]. Recent meta-analyses confirm consistent"
 author:
   name: "EvoFit Team"
+category: "Training"
 tags: ["strength-training-research"]
 hero_image: "https://v3b.fal.media/files/b/0a968217/sJU_hpgLh1aPZI3BMKzEj.jpg"
 hero_image_alt: "Hero image for: Test — Effect of Progressive Overload in Plyometrics"
