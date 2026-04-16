@@ -4,7 +4,9 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
-import rehypeSanitize from 'rehype-sanitize';
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeStringify from 'rehype-stringify';
 import { parseFrontmatter, safeParseFrontmatter, Post } from './schema';
 
@@ -18,34 +20,80 @@ export class PostNotFoundError extends Error {
   }
 }
 
-export type PostWithHtml = Post & { html: string };
+export type PostWithHtml = Post & { html: string; readingTimeMin: number };
 
 /**
- * Converts markdown body to sanitized HTML using remark + remark-gfm + rehype-sanitize.
- * rehype-sanitize strips script tags, event handlers, and other XSS vectors.
+ * Estimate reading time in minutes (average 230 wpm for technical content).
+ */
+function estimateReadingTime(text: string): number {
+  const words = text.trim().split(/\s+/).length;
+  return Math.max(1, Math.round(words / 230));
+}
+
+/**
+ * Custom sanitize schema that preserves heading IDs, classes, and
+ * other safe attributes stripped by the strict default.
+ */
+const sanitizeSchema = {
+  ...defaultSchema,
+  attributes: {
+    ...defaultSchema.attributes,
+    '*': [...(defaultSchema.attributes?.['*'] || []), 'id', 'className'],
+    a: [...(defaultSchema.attributes?.['a'] || []), 'href', 'title', 'target', 'rel'],
+  },
+};
+
+/**
+ * Converts markdown body to sanitized HTML.
+ * Adds heading IDs via rehype-slug and anchor links via rehype-autolink-headings.
  */
 async function markdownToHtml(markdown: string): Promise<string> {
   const result = await remark()
     .use(remarkGfm)
     .use(remarkRehype, { allowDangerousHtml: false })
-    .use(rehypeSanitize)
+    .use(rehypeSanitize, sanitizeSchema)
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings, { behavior: 'wrap' })
     .use(rehypeStringify)
     .process(markdown);
   return result.toString();
 }
 
 /**
+ * Strip the leading H1 from markdown if it duplicates the frontmatter title.
+ * SmartSocial commits markdown that starts with `# Title` which duplicates the
+ * PostHeader — strip it to avoid a double heading.
+ */
+function stripLeadingH1(markdown: string, title: string): string {
+  const lines = markdown.split('\n');
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (line === '') continue; // skip blank lines
+    if (line.startsWith('# ')) {
+      // Check if this H1 is similar to the title (fuzzy — first 40 chars)
+      const h1Text = line.replace(/^#\s+/, '').trim();
+      if (
+        h1Text.toLowerCase().startsWith(title.toLowerCase().slice(0, 40)) ||
+        title.toLowerCase().startsWith(h1Text.toLowerCase().slice(0, 40))
+      ) {
+        lines.splice(i, 1);
+        return lines.join('\n').trimStart();
+      }
+    }
+    break; // first non-empty line isn't an H1 — leave content as-is
+  }
+  return markdown;
+}
+
+/**
  * Extract slug from a filename like "2026-04-10-my-slug.md" → "my-slug"
  */
 function filenameToSlug(filename: string): string {
-  // Strip date prefix (YYYY-MM-DD-) and .md suffix
   return filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
 }
 
 /**
  * Read a single post by slug from the given directory.
- * Matches first by filename convention (YYYY-MM-DD-{slug}.md), then by frontmatter slug field.
- * Throws PostNotFoundError if no matching file exists.
  */
 export async function readPost(slug: string, contentDir: string = DEFAULT_CONTENT_DIR): Promise<PostWithHtml> {
   if (!fs.existsSync(contentDir)) {
@@ -53,11 +101,8 @@ export async function readPost(slug: string, contentDir: string = DEFAULT_CONTEN
   }
 
   const files = fs.readdirSync(contentDir).filter((f) => f.endsWith('.md'));
-
-  // First try filename-based match (fast path for production content)
   let matchingFile = files.find((f) => filenameToSlug(f) === slug);
 
-  // If no filename match, fall back to reading frontmatter slug field
   if (!matchingFile) {
     for (const file of files) {
       const raw = fs.readFileSync(path.join(contentDir, file), 'utf-8');
@@ -65,7 +110,6 @@ export async function readPost(slug: string, contentDir: string = DEFAULT_CONTEN
       try {
         ({ data } = matter(raw));
       } catch {
-        // Skip files with malformed YAML
         continue;
       }
       if (data.slug === slug) {
@@ -84,14 +128,15 @@ export async function readPost(slug: string, contentDir: string = DEFAULT_CONTEN
   const { data, content } = matter(raw);
 
   const frontmatter = parseFrontmatter(data);
-  const html = await markdownToHtml(content);
+  const cleanedContent = stripLeadingH1(content, frontmatter.title);
+  const html = await markdownToHtml(cleanedContent);
+  const readingTimeMin = estimateReadingTime(content);
 
-  return { ...frontmatter, html };
+  return { ...frontmatter, html, readingTimeMin };
 }
 
 /**
  * List all posts sorted DESC by published_at.
- * Filters drafts unless includeDrafts: true.
  */
 export async function listPosts(options?: {
   includeDrafts?: boolean;
@@ -105,7 +150,6 @@ export async function listPosts(options?: {
   }
 
   const files = fs.readdirSync(contentDir).filter((f) => f.endsWith('.md'));
-
   const posts: Post[] = [];
 
   for (const file of files) {
@@ -133,24 +177,17 @@ export async function listPosts(options?: {
     posts.push(result.data);
   }
 
-  // Sort DESC by published_at
   return posts.sort(
     (a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
   );
 }
 
-/**
- * List posts filtered by tag (case-insensitive).
- */
 export async function listPostsByTag(tag: string, contentDir?: string): Promise<Post[]> {
   const all = await listPosts({ includeDrafts: false, contentDir });
   const normalised = tag.toLowerCase();
   return all.filter((p) => p.tags.map((t) => t.toLowerCase()).includes(normalised));
 }
 
-/**
- * Returns a unique list of all tags across all non-draft posts.
- */
 export async function getAllTags(contentDir?: string): Promise<string[]> {
   const all = await listPosts({ includeDrafts: false, contentDir });
   const tagSet = new Set<string>();

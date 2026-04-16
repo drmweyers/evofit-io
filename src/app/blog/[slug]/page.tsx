@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { readPost, listPosts, PostNotFoundError } from '@/lib/blog/reader';
 import PostHeader from '@/components/blog/PostHeader';
 import PostBody from '@/components/blog/PostBody';
-import TagPill from '@/components/blog/TagPill';
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -20,7 +19,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   try {
     const post = await readPost(slug);
     return {
-      title: post.title,
+      title: `${post.title} — EvoFit Blog`,
       description: post.excerpt,
       alternates: {
         canonical: `https://evofit.io/blog/${post.slug}`,
@@ -99,34 +98,37 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/<\/(script)/gi, '<\\/$1') }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/<\/(script)/gi, '<\/$1') }}
       />
 
-      <article>
-        <PostHeader post={post} />
+      <article className="bg-black min-h-screen">
+        <PostHeader post={post} readingTimeMin={post.readingTimeMin} />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {/* Tags */}
-          {post.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-8">
-              {post.tags.map((tag) => (
-                <TagPill key={tag} tag={tag} />
-              ))}
-            </div>
-          )}
-
           {/* Body */}
           <PostBody html={post.html} />
 
-          {/* Back to blog */}
-          <div className="mt-16 pt-8 border-t border-slate-200">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 font-medium transition-colors"
-            >
-              ← Back to Blog
-            </Link>
-          </div>
+          {/* Author + share footer */}
+          <footer className="mt-16 pt-8 border-t border-white/10">
+            <div className="flex items-center justify-between flex-wrap gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[var(--color-brand-accent)]/20 flex items-center justify-center text-[var(--color-brand-accent)] font-display font-bold text-sm">
+                  {post.author.name.charAt(0)}
+                </div>
+                <div>
+                  <p className="text-white font-medium text-sm">{post.author.name}</p>
+                  <p className="text-white/40 text-xs">EvoFit</p>
+                </div>
+              </div>
+
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-2 text-[var(--color-brand-accent)] hover:text-white font-display font-semibold uppercase tracking-wider text-sm transition-colors"
+              >
+                ← Back to Blog
+              </Link>
+            </div>
+          </footer>
         </div>
       </article>
     </>
