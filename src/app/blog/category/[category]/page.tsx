@@ -4,6 +4,9 @@ import { listPostsByCategory, getAllCategories } from '@/lib/blog/reader';
 import { slugifyCategory } from '@/lib/blog/schema';
 import PostCard from '@/components/blog/PostCard';
 
+export const revalidate = 3600;
+export const dynamicParams = true;
+
 interface CategoryPageProps {
   params: Promise<{ category: string }>;
 }

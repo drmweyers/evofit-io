@@ -12,6 +12,9 @@ import ShareLinks from '@/components/blog/ShareLinks';
 import ReadingProgressBar from '@/components/blog/ReadingProgressBar';
 import AuthorBio from '@/components/blog/AuthorBio';
 
+export const revalidate = 3600;
+export const dynamicParams = true;
+
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
 }

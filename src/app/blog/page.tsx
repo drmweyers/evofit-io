@@ -7,6 +7,8 @@ import { slugifyCategory } from '@/lib/blog/schema';
 import PostCard from '@/components/blog/PostCard';
 import Pagination from '@/components/blog/Pagination';
 
+export const revalidate = 3600;
+
 const PAGE_SIZE = 12;
 
 export const metadata: Metadata = {
