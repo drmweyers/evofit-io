@@ -58,10 +58,10 @@ export default async function BlogIndexPage({ searchParams }: BlogIndexPageProps
       {/* Hero */}
       <section className="relative w-full min-h-[520px] md:min-h-[600px] overflow-hidden flex items-center">
         <div className="absolute inset-0 hidden md:block">
-          <Image src="/images/blog-hero.png" alt="EvoFit Blog" fill className="object-cover object-center" priority />
+          <Image src="/images/blog-hero-v2-wide.png" alt="EvoFit Blog — athlete training with dumbbells" fill className="object-cover object-center" priority />
         </div>
         <div className="absolute inset-0 md:hidden">
-          <Image src="/images/blog-hero-mobile.png" alt="EvoFit Blog" fill className="object-cover object-center" priority />
+          <Image src="/images/blog-hero-v2-mobile.png" alt="EvoFit Blog — athlete training with dumbbells" fill className="object-cover object-center" priority />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/25" />
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-16 py-28 md:py-36">
