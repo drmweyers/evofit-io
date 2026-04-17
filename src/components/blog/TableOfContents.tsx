@@ -88,7 +88,7 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
 
       {/* Desktop: sticky sidebar */}
       <div className="hidden lg:block sticky top-24">
-        <p className="text-xs font-display uppercase tracking-wider text-white/40 mb-3">On this page</p>
+        <p className="text-xs font-display uppercase tracking-wider text-white/40 mb-3">In this article</p>
         {tocList}
       </div>
     </>
