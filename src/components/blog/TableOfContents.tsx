@@ -36,7 +36,7 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
     return () => observerRef.current?.disconnect();
   }, [headings]);
 
-  if (headings.length < 3) return null;
+  if (headings.length < 2) return null;
 
   const handleClick = (id: string) => {
     const el = document.getElementById(id);

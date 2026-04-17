@@ -5,7 +5,7 @@ excerpt: "The Ethics of Recovery Peptides in Competitive Sport BPC-157 can heal 
 author:
   name: "EvoFit Team"
 category: "Science"
-tags: []
+tags: ["peptides", "sports ethics", "BPC-157", "TB-500", "WADA", "doping"]
 hero_image: "https://v3b.fal.media/files/b/0a966e0e/_fYF8ZglnFkZEKJNZJuUB.jpg"
 hero_image_alt: "Hero image for: The Ethics of Recovery Peptides in Competitive Sport"
 published_at: "2026-04-16T03:13:46.909Z"

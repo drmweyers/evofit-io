@@ -210,18 +210,17 @@ export async function getAllCategories(contentDir?: string): Promise<string[]> {
  * Get related posts scored by shared category (2pts) + shared tags (1pt each).
  */
 export function getRelatedPosts(current: Post, allPosts: Post[], maxCount = 3): Post[] {
-  const scored = allPosts
-    .filter((p) => p.slug !== current.slug)
+  const others = allPosts.filter((p) => p.slug !== current.slug);
+  const scored = others
     .map((p) => {
       let score = 0;
-      if (p.category === current.category) score += 2;
+      if (p.category && current.category && p.category === current.category) score += 2;
       const currentTags = new Set(current.tags.map((t) => t.toLowerCase()));
       for (const tag of p.tags) {
         if (currentTags.has(tag.toLowerCase())) score += 1;
       }
       return { post: p, score };
     })
-    .filter(({ score }) => score > 0)
     .sort((a, b) => b.score - a.score)
     .slice(0, maxCount);
 

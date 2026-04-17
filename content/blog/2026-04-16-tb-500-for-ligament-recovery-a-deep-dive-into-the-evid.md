@@ -5,7 +5,7 @@ excerpt: "TB-500 for Ligament Recovery: A Deep Dive Into the Evidence TB-500 (Th
 author:
   name: "EvoFit Team"
 category: "Supplements"
-tags: []
+tags: ["TB-500", "ligament recovery", "peptides", "thymosin beta-4", "injury rehab"]
 hero_image: "https://v3b.fal.media/files/b/0a967c39/CjWysEKFi9BskI_H_7bOE.jpg"
 hero_image_alt: "Hero image for: TB-500 for Ligament Recovery: A Deep Dive Into the Evid"
 published_at: "2026-04-16T12:46:58.768Z"
