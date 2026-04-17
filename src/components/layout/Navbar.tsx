@@ -23,12 +23,12 @@ export default function Navbar() {
             <Link href="/blog" className="font-body text-sm text-white/70 hover:text-white uppercase tracking-wider transition-colors">
               Blog
             </Link>
-            <Link
+            <a
               href="/#get-started"
               className="bg-brand-accent text-black px-6 py-2 font-display font-semibold uppercase tracking-wider text-sm hover:bg-white transition-all duration-300"
             >
               Get Started
-            </Link>
+            </a>
           </div>
 
           <button
@@ -59,13 +59,13 @@ export default function Navbar() {
             <Link href="/blog" className="block font-body text-sm text-white/70 uppercase tracking-wider" onClick={() => setOpen(false)}>
               Blog
             </Link>
-            <Link
+            <a
               href="/#get-started"
               className="inline-block bg-brand-accent text-black px-6 py-2 font-display font-semibold uppercase tracking-wider text-sm"
               onClick={() => setOpen(false)}
             >
               Get Started
-            </Link>
+            </a>
           </div>
         )}
       </nav>

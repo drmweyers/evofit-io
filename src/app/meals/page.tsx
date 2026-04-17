@@ -22,7 +22,7 @@ const mealsTiers = [
     price: "$199",
     period: "One-Time Payment",
     features: [
-      "Full recipe library with nutrition data",
+      "1,500 recipes with nutrition data",
       "Up to 5 active clients",
       "Automated macro calculations",
       "Meal plan PDF exports",
@@ -36,6 +36,7 @@ const mealsTiers = [
     price: "$299",
     period: "One-Time Payment",
     features: [
+      "3,000 recipes with nutrition data",
       "Up to 19 active clients",
       "Custom branding on meal plans",
       "Progress tracking tools",
@@ -52,6 +53,7 @@ const mealsTiers = [
     price: "$399",
     period: "One-Time Payment",
     features: [
+      "6,000 recipes with nutrition data",
       "Everything in Professional, plus",
       "White-label platform",
       "API access & integrations",

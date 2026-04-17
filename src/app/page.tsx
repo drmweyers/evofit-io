@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "10,000+", label: "Exercises" },
-  { value: "2,500+", label: "Trainers" },
-  { value: "50,000+", label: "Meals Generated" },
-  { value: "300%", label: "Average Client Growth" },
+  { value: "1,344", label: "Exercises with GIF Demos" },
+  { value: "8", label: "Program Types" },
+  { value: "Smart", label: "Macro Calculations" },
+  { value: "PDF", label: "Meal Plan Exports" },
 ];
 
 export default function HomePage() {
@@ -31,7 +31,7 @@ export default function HomePage() {
           </h2>
           <div className="w-24 h-1 bg-brand-accent mx-auto mb-10" />
           <p className="font-body text-xl md:text-2xl font-light text-neutral-500 leading-relaxed max-w-2xl mx-auto">
-            EvoFit powers the world&apos;s most ambitious fitness professionals. We don&apos;t just build software — we build careers.
+            EvoFit can power the world&apos;s most ambitious fitness professionals. We don&apos;t just build software — we help build careers.
           </p>
         </div>
       </section>
@@ -120,14 +120,14 @@ export default function HomePage() {
             &ldquo;
           </span>
           <blockquote className="font-body text-2xl md:text-4xl font-light text-white leading-relaxed mb-16 -mt-12">
-            I went from 12 clients to 87 in six months. EvoFit didn&apos;t just change my business — it changed my life.
+            I believe EvoFit Trainer will be the tool that takes my coaching business from a side hustle to a legacy. Everything I need — programming, tracking, client management — in one place. This is the future.
           </blockquote>
           <cite className="not-italic">
             <span className="font-display text-lg font-semibold text-white uppercase tracking-[0.15em] block">
-              Marcus Chen
+              Jordan
             </span>
             <span className="font-body text-sm text-white/50 mt-2 block uppercase tracking-[0.1em]">
-              Elite Performance Coach
+              Performance Coach
             </span>
           </cite>
         </div>

@@ -36,6 +36,7 @@ const trainerTiers = [
     price: "$299",
     period: "One-Time Payment",
     features: [
+      "Everything in Starter, plus:",
       "Up to 19 active clients",
       "8 program types (Strength, Hypertrophy, Rehab\u2026)",
       "7 set types (Drop Sets, Pyramid, AMRAP\u2026)",
@@ -52,7 +53,7 @@ const trainerTiers = [
     price: "$399",
     period: "One-Time Payment",
     features: [
-      "Everything in Professional, plus",
+      "Everything in Professional, plus:",
       "Up to 50 active clients",
       "Full user management & roles",
       "Feature flags API",
