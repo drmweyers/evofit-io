@@ -25,6 +25,17 @@ const nextConfig: NextConfig = {
         hostname: "evofit.io",
         pathname: "/images/**",
       },
+      // SmartSocial AI-generated hero images
+      {
+        protocol: "https",
+        hostname: "**.fal.media",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "smartsocial-media.nyc3.digitaloceanspaces.com",
+        pathname: "/**",
+      },
     ],
   },
   async headers() {

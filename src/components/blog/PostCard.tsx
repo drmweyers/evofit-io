@@ -16,7 +16,7 @@ function formatDate(dateStr: string): string {
 
 export default function PostCard({ post }: PostCardProps) {
   return (
-    <article className="group relative flex flex-col rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-md hover:border-sky-300 transition-all duration-200">
+    <article className="group relative flex flex-col rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-[var(--color-brand-accent)]/30 hover:bg-white/[0.07] transition-all duration-200">
       {/* Hero image */}
       <Link href={`/blog/${post.slug}`} className="block relative h-48 overflow-hidden">
         <Image
@@ -37,7 +37,7 @@ export default function PostCard({ post }: PostCardProps) {
               <Link
                 key={tag}
                 href={`/blog/tag/${tag}`}
-                className="inline-block rounded-full border border-sky-200 bg-sky-50 px-2.5 py-0.5 text-xs font-medium text-sky-700 hover:bg-sky-100 transition-colors"
+                className="inline-block rounded-full border border-[var(--color-brand-accent)]/30 bg-[var(--color-brand-accent)]/10 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-accent)] hover:bg-[var(--color-brand-accent)]/20 transition-colors"
               >
                 {tag}
               </Link>
@@ -47,18 +47,18 @@ export default function PostCard({ post }: PostCardProps) {
 
         {/* Title */}
         <Link href={`/blog/${post.slug}`}>
-          <h2 className="text-lg font-semibold text-slate-900 mb-2 group-hover:text-sky-600 transition-colors line-clamp-2">
+          <h2 className="text-lg font-display font-semibold uppercase tracking-wide text-white mb-2 group-hover:text-[var(--color-brand-accent)] transition-colors line-clamp-2">
             {post.title}
           </h2>
         </Link>
 
         {/* Excerpt */}
-        <p className="text-slate-600 text-sm leading-relaxed flex-1 line-clamp-3">
+        <p className="text-white/60 text-sm leading-relaxed flex-1 line-clamp-3">
           {post.excerpt}
         </p>
 
         {/* Meta */}
-        <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+        <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-white/40">
           <span>{post.author.name}</span>
           <time dateTime={post.published_at}>{formatDate(post.published_at)}</time>
         </div>

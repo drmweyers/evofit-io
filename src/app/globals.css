@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
   --color-brand-accent: #D4FF00;
@@ -19,6 +20,42 @@ body {
   font-family: var(--font-body);
   color: #ffffff;
   background: #000000;
+}
+
+/* Blog prose — fine-tune heading anchor links */
+.prose a[aria-hidden="true"] {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* References section styling */
+.prose h2#references,
+.prose h2#references ~ ol,
+.prose h2#references ~ ul {
+  font-size: 0.95rem;
+}
+
+.prose h2#references ~ ol li,
+.prose h2#references ~ ul li {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.75rem;
+}
+
+.prose h2#references ~ ol li em,
+.prose h2#references ~ ul li em {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Superscript reference links */
+.prose sup a {
+  color: var(--color-brand-accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.7em;
+}
+
+.prose sup a:hover {
+  text-decoration: underline;
 }
 
 @keyframes ken-burns {
