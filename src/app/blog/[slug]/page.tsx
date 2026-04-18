@@ -114,6 +114,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       />
 
       <article className="bg-black min-h-screen">
+        {/* Sticky back-to-blog bar */}
+        <div className="sticky top-0 z-40 bg-black/90 backdrop-blur-sm border-b border-white/10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 text-sm font-display font-semibold uppercase tracking-wider text-white/60 hover:text-[var(--color-brand-accent)] transition-colors"
+            >
+              &larr; Back to Blog
+            </Link>
+            <span className="text-xs text-white/30 hidden sm:block truncate max-w-[50%]">{post.title}</span>
+          </div>
+        </div>
+
         <PostHeader post={post} readingTimeMin={post.readingTimeMin} />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
