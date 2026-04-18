@@ -4,7 +4,7 @@ slug: "the-peptide-revolution-how-bpc-157-tb-500-and-glp-1"
 excerpt: "The Peptide Revolution: How BPC-157, TB-500, and GLP-1 Agonists Are Rewriting Recovery, Weight Loss, and Longevity The fitness industry is in the middle of a"
 author:
   name: "EvoFit Team"
-category: "Supplements"
+category: "Peptides"
 tags: ["peptides", "BPC-157", "TB-500", "GLP-1", "recovery", "weight loss", "longevity"]
 hero_image: "https://v3b.fal.media/files/b/0a966c58/yrX3G7OkJCxLf0KPy42Vg.jpg"
 hero_image_alt: "Hero image for: The Peptide Revolution: How BPC-157, TB-500, and GLP-1 "

@@ -2,7 +2,7 @@
 title: "Peptides & GLP-1"
 slug: "peptides-glp-1"
 excerpt: "Unlocking the Potential of Peptides and GLP-1 Receptor Agonists: A Deep Dive into Retatrutide and Beyond The realm of peptides and GLP-1 receptor agonists has"
-category: "Science"
+category: "Peptides"
 author:
   name: "EvoFit Team"
 tags: ["peptides-glp-1"]

@@ -4,7 +4,7 @@ slug: "bpc-157-and-gut-healing-the-original-discovery-nobody"
 excerpt: "BPC-157 and Gut Healing: The Original Discovery Nobody Talks About BPC-157 was discovered in human gastric juice. Not in tendons, not in ligaments — in the"
 author:
   name: "EvoFit Team"
-category: "Supplements"
+category: "Peptides"
 tags: ["BPC-157", "gut healing", "peptides", "recovery", "gastric health"]
 hero_image: "https://v3b.fal.media/files/b/0a967c36/b_JWVsVXqZTePx06Y_vJq.jpg"
 hero_image_alt: "Hero image for: BPC-157 and Gut Healing: The Original Discovery Nobody "

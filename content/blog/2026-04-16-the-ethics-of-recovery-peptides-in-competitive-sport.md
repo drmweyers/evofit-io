@@ -4,7 +4,7 @@ slug: "the-ethics-of-recovery-peptides-in-competitive-sport"
 excerpt: "The Ethics of Recovery Peptides in Competitive Sport BPC-157 can heal tendons in rats. TB-500 can accelerate ligament repair in animal models. Retatrutide can"
 author:
   name: "EvoFit Team"
-category: "Science"
+category: "Peptides"
 tags: ["peptides", "sports ethics", "BPC-157", "TB-500", "WADA", "doping"]
 hero_image: "https://v3b.fal.media/files/b/0a966e0e/_fYF8ZglnFkZEKJNZJuUB.jpg"
 hero_image_alt: "Hero image for: The Ethics of Recovery Peptides in Competitive Sport"
