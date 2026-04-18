@@ -226,3 +226,47 @@ export function getRelatedPosts(current: Post, allPosts: Post[], maxCount = 3): 
 
   return scored.map(({ post }) => post);
 }
+
+export function getAdjacentPosts(
+  current: Post,
+  allPosts: Post[]
+): { prev: Post | null; next: Post | null } {
+  const sorted = [...allPosts].sort(
+    (a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
+  );
+  const idx = sorted.findIndex((p) => p.slug === current.slug);
+  return {
+    prev: idx > 0 ? sorted[idx - 1] : null,
+    next: idx < sorted.length - 1 ? sorted[idx + 1] : null,
+  };
+}
+
+export interface MonthArchive {
+  year: number;
+  month: number;
+  label: string;
+  count: number;
+}
+
+export function getMonthlyArchive(posts: Post[]): MonthArchive[] {
+  const map = new Map<string, { year: number; month: number; count: number }>();
+  for (const post of posts) {
+    const d = new Date(post.published_at);
+    const key = `${d.getFullYear()}-${d.getMonth()}`;
+    const existing = map.get(key);
+    if (existing) {
+      existing.count++;
+    } else {
+      map.set(key, { year: d.getFullYear(), month: d.getMonth(), count: 1 });
+    }
+  }
+  return Array.from(map.values())
+    .sort((a, b) => b.year - a.year || b.month - a.month)
+    .map((m) => ({
+      ...m,
+      label: new Date(m.year, m.month).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+      }),
+    }));
+}

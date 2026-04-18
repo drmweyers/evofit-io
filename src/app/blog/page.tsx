@@ -2,10 +2,11 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Rss } from 'lucide-react';
 import Link from 'next/link';
-import { listPosts, getAllCategories } from '@/lib/blog/reader';
+import { listPosts, getAllCategories, getMonthlyArchive } from '@/lib/blog/reader';
 import { slugifyCategory } from '@/lib/blog/schema';
 import PostCard from '@/components/blog/PostCard';
 import Pagination from '@/components/blog/Pagination';
+import BlogSidebar from '@/components/blog/BlogSidebar';
 
 export const revalidate = 3600;
 
@@ -28,18 +29,39 @@ export const metadata: Metadata = {
 };
 
 interface BlogIndexPageProps {
-  searchParams: Promise<{ page?: string }>;
+  searchParams: Promise<{ page?: string; month?: string }>;
 }
 
 export default async function BlogIndexPage({ searchParams }: BlogIndexPageProps) {
   const params = await searchParams;
   const currentPage = Math.max(1, parseInt(params.page ?? '1', 10));
+  const monthFilter = params.month; // e.g. "2026-04"
 
   const allPosts = await listPosts({ includeDrafts: process.env.VERCEL_ENV === 'preview' });
   const categories = await getAllCategories();
-  const totalPages = Math.max(1, Math.ceil(allPosts.length / PAGE_SIZE));
+  const archives = getMonthlyArchive(allPosts);
+  const recentPosts = allPosts.slice(0, 5);
+
+  // Filter by month if param is present
+  let filteredPosts = allPosts;
+  let activeMonthLabel: string | null = null;
+  if (monthFilter && /^\d{4}-\d{2}$/.test(monthFilter)) {
+    const [yearStr, monthStr] = monthFilter.split('-');
+    const year = parseInt(yearStr, 10);
+    const month = parseInt(monthStr, 10) - 1;
+    filteredPosts = allPosts.filter((p) => {
+      const d = new Date(p.published_at);
+      return d.getFullYear() === year && d.getMonth() === month;
+    });
+    activeMonthLabel = new Date(year, month).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+    });
+  }
+
+  const totalPages = Math.max(1, Math.ceil(filteredPosts.length / PAGE_SIZE));
   const safePage = Math.min(currentPage, totalPages);
-  const posts = allPosts.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
+  const posts = filteredPosts.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -90,14 +112,18 @@ export default async function BlogIndexPage({ searchParams }: BlogIndexPageProps
         </div>
       </section>
 
-      {/* Category filter + Posts grid */}
+      {/* Category filter + Posts grid + Sidebar */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Category filter bar */}
         {categories.length > 1 && (
           <div className="flex flex-wrap gap-2 mb-10">
             <Link
               href="/blog"
-              className="inline-block rounded-full border border-[var(--color-brand-accent)] bg-[var(--color-brand-accent)]/10 px-4 py-1.5 text-xs font-display font-semibold uppercase tracking-wider text-[var(--color-brand-accent)] hover:bg-[var(--color-brand-accent)]/20 transition-colors"
+              className={`inline-block rounded-full border px-4 py-1.5 text-xs font-display font-semibold uppercase tracking-wider transition-colors ${
+                !monthFilter
+                  ? 'border-[var(--color-brand-accent)] bg-[var(--color-brand-accent)]/10 text-[var(--color-brand-accent)]'
+                  : 'border-white/20 text-white/60 hover:text-[var(--color-brand-accent)] hover:border-[var(--color-brand-accent)]/30'
+              }`}
             >
               All
             </Link>
@@ -113,20 +139,65 @@ export default async function BlogIndexPage({ searchParams }: BlogIndexPageProps
           </div>
         )}
 
-        {posts.length === 0 ? (
-          <div className="text-center py-24">
-            <p className="text-white/40 text-lg">More soon — our AI pipeline is warming up.</p>
+        {/* Active month filter indicator */}
+        {activeMonthLabel && (
+          <div className="flex items-center gap-3 mb-8">
+            <span className="text-white/50 text-sm">Showing articles from <strong className="text-white/80">{activeMonthLabel}</strong></span>
+            <Link
+              href="/blog"
+              className="text-xs text-[var(--color-brand-accent)] hover:text-white uppercase tracking-wider font-display font-semibold transition-colors"
+            >
+              Clear filter &times;
+            </Link>
           </div>
-        ) : (
-          <>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {posts.map((post) => (
-                <PostCard key={post.slug} post={post} />
-              ))}
-            </div>
-            {totalPages > 1 && <Pagination currentPage={safePage} totalPages={totalPages} basePath="/blog" />}
-          </>
         )}
+
+        <div className="lg:grid lg:grid-cols-[1fr_260px] lg:gap-12">
+          {/* Main content */}
+          <div>
+            {posts.length === 0 ? (
+              <div className="text-center py-24">
+                <p className="text-white/40 text-lg">
+                  {activeMonthLabel
+                    ? `No articles published in ${activeMonthLabel}.`
+                    : 'More soon — our AI pipeline is warming up.'}
+                </p>
+                {activeMonthLabel && (
+                  <Link href="/blog" className="text-[var(--color-brand-accent)] text-sm mt-4 inline-block hover:text-white transition-colors">
+                    View all articles &rarr;
+                  </Link>
+                )}
+              </div>
+            ) : (
+              <>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+                  {posts.map((post) => (
+                    <PostCard key={post.slug} post={post} />
+                  ))}
+                </div>
+                {totalPages > 1 && (
+                  <Pagination
+                    currentPage={safePage}
+                    totalPages={totalPages}
+                    basePath={monthFilter ? `/blog?month=${monthFilter}` : '/blog'}
+                  />
+                )}
+              </>
+            )}
+          </div>
+
+          {/* Sidebar — desktop only */}
+          <div className="hidden lg:block">
+            <div className="sticky top-36">
+              <BlogSidebar categories={categories} archives={archives} recentPosts={recentPosts} />
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile sidebar sections */}
+        <div className="lg:hidden mt-16 pt-10 border-t border-white/10">
+          <BlogSidebar categories={categories} archives={archives} recentPosts={recentPosts} />
+        </div>
       </section>
     </>
   );

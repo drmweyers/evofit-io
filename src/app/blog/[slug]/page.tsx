@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { readPost, listPosts, getRelatedPosts, PostNotFoundError } from '@/lib/blog/reader';
+import { readPost, listPosts, getRelatedPosts, getAdjacentPosts, PostNotFoundError } from '@/lib/blog/reader';
 import { slugifyCategory } from '@/lib/blog/schema';
 import PostHeader from '@/components/blog/PostHeader';
 import PostBody from '@/components/blog/PostBody';
@@ -67,12 +67,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     throw e;
   }
 
-  // Get related posts at build time
   const allPosts = await listPosts({ includeDrafts: false });
   const related = getRelatedPosts(post, allPosts, 3);
+  const { prev, next } = getAdjacentPosts(post, allPosts);
   const postUrl = `https://evofit.io/blog/${post.slug}`;
 
-  // JSON-LD
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -113,20 +112,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/<\/(script)/gi, '<\/$1') }}
       />
 
-      <article className="bg-black min-h-screen">
-        {/* Sticky back-to-blog bar */}
-        <div className="sticky top-0 z-40 bg-black/90 backdrop-blur-sm border-b border-white/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-sm font-display font-semibold uppercase tracking-wider text-white/60 hover:text-[var(--color-brand-accent)] transition-colors"
-            >
-              &larr; Back to Blog
-            </Link>
-            <span className="text-xs text-white/30 hidden sm:block truncate max-w-[50%]">{post.title}</span>
-          </div>
+      {/* Fixed back-to-blog bar — sits below the navbar (h-16 = 64px) */}
+      <div className="fixed top-16 left-0 right-0 z-40 bg-black/90 backdrop-blur-sm border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 text-sm font-display font-semibold uppercase tracking-wider text-white/60 hover:text-[var(--color-brand-accent)] transition-colors"
+          >
+            &larr; Back to Blog
+          </Link>
+          <span className="text-xs text-white/40 hidden sm:block truncate max-w-[50%]">{post.title}</span>
         </div>
+      </div>
 
+      <article className="bg-black min-h-screen pt-10">
         <PostHeader post={post} readingTimeMin={post.readingTimeMin} />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -157,6 +156,34 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   &larr; Back to Blog
                 </Link>
               </footer>
+
+              {/* Previous / Next navigation */}
+              {(prev || next) && (
+                <nav className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {prev ? (
+                    <Link
+                      href={`/blog/${prev.slug}`}
+                      className="group flex flex-col gap-1 rounded-lg border border-white/10 p-4 hover:border-[var(--color-brand-accent)]/40 transition-colors"
+                    >
+                      <span className="text-xs text-white/40 uppercase tracking-wider font-display">&larr; Previous</span>
+                      <span className="text-sm text-white/80 group-hover:text-[var(--color-brand-accent)] transition-colors line-clamp-2">{prev.title}</span>
+                    </Link>
+                  ) : (
+                    <div />
+                  )}
+                  {next ? (
+                    <Link
+                      href={`/blog/${next.slug}`}
+                      className="group flex flex-col gap-1 rounded-lg border border-white/10 p-4 hover:border-[var(--color-brand-accent)]/40 transition-colors text-right"
+                    >
+                      <span className="text-xs text-white/40 uppercase tracking-wider font-display">Next &rarr;</span>
+                      <span className="text-sm text-white/80 group-hover:text-[var(--color-brand-accent)] transition-colors line-clamp-2">{next.title}</span>
+                    </Link>
+                  ) : (
+                    <div />
+                  )}
+                </nav>
+              )}
 
               {/* Related posts */}
               <RelatedPosts posts={related} />
