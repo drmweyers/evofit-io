@@ -15,7 +15,7 @@ const testimonials = [
     role: "Personal Trainer, London",
     avatar: "JK",
     rating: 5,
-    text: "The exercise library is insane. 1,344 exercises with GIF demos — I never run out of ideas for my clients. The ACWR tracking keeps them safe.",
+    text: "The exercise library is insane. 1,324 exercises with GIF demos — I never run out of ideas for my clients. The ACWR tracking keeps them safe.",
     product: "EvoFit Trainer",
     color: "blue",
   },
@@ -92,7 +92,7 @@ export default function Testimonials() {
         {/* Stats row */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { value: "1,344", label: "Exercises with GIFs" },
+            { value: "1,324", label: "Exercises with GIFs" },
             { value: "3,000+", label: "Recipes in library" },
             { value: "2 min", label: "Avg. plan creation time" },
             { value: "5★", label: "Average rating" },

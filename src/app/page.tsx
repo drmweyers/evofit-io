@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "1,344", label: "Exercises with GIF Demos" },
+  { value: "1,324", label: "Exercises with GIF Demos" },
   { value: "8", label: "Program Types" },
   { value: "Smart", label: "Macro Calculations" },
   { value: "PDF", label: "Meal Plan Exports" },

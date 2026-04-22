@@ -17,11 +17,11 @@ const faqs = [
   },
   {
     q: "How many clients can I have?",
-    a: "It depends on your plan. Starter plans support up to 5-10 clients. Professional plans support up to 19-50 clients. Enterprise plans support up to 50+ clients. You can upgrade at any time.",
+    a: "Free tier: 1 active client. Starter ($199 one-time): up to 5 active clients. Professional ($299 one-time) and Enterprise ($399 one-time): unlimited active clients. You can upgrade at any time and keep all your data.",
   },
   {
     q: "Is there a free trial?",
-    a: "We offer free resources (meal plan templates, pricing guides) so you can evaluate our approach before purchasing. Contact us at hello@evofit.io for demo access if you're evaluating the Enterprise tier.",
+    a: "Yes — EvoFit Trainer has a forever-free tier with 1 active client, the full 1,324-exercise library, basic program builder, workout tracking, and offline PWA. No credit card. Upgrade to Starter ($199) when you add a second client. Contact hello@evofit.io for Enterprise demo access.",
   },
   {
     q: "What does the AI actually do in EvoFit Meals?",

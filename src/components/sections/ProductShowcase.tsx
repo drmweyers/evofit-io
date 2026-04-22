@@ -11,7 +11,7 @@ const mealsFeatures = [
 ];
 
 const trainerFeatures = [
-  "1,344 exercises with GIF demos",
+  "1,324 exercises with GIF demos",
   "Program builder & templates",
   "Workout tracking & analytics",
   "ACWR training load monitoring",
@@ -91,7 +91,7 @@ export default function ProductShowcase() {
             </div>
 
             <p className="text-slate-700 mb-6 leading-relaxed">
-              Same programs, bored clients, higher churn. EvoFit Trainer gives you 1,344 exercises and a program builder that keeps clients coming back — week after week.
+              Same programs, bored clients, higher churn. EvoFit Trainer gives you 1,324 exercises and a program builder that keeps clients coming back — week after week.
             </p>
 
             <ul className="space-y-3 mb-8">

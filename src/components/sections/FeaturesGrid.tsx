@@ -30,7 +30,7 @@ const features = [
   },
   {
     icon: Dumbbell,
-    title: "1,344 Exercise Library",
+    title: "1,324 Exercise Library",
     description: "Every exercise with GIF demonstrations. 10 body parts, 29 equipment types, 26 target muscles.",
     product: "Trainer",
     color: "blue",

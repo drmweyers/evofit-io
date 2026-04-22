@@ -18,11 +18,26 @@ export const metadata: Metadata = {
 
 const trainerTiers = [
   {
+    name: "Free",
+    price: "$0",
+    period: "Forever",
+    features: [
+      "1 active client",
+      "1,324 exercises with GIF demos",
+      "Set-by-set workout logging",
+      "Basic program builder",
+      "PWA — works offline",
+      "No credit card required",
+    ],
+    cta: "Start Free",
+    href: "https://trainer.evofit.io/auth/register",
+  },
+  {
     name: "Starter",
     price: "$199",
     period: "One-Time Payment",
     features: [
-      "1,344 exercises with GIF demos",
+      "1,324 exercises with GIF demos",
       "Up to 5 active clients",
       "Set-by-set workout logging",
       "PR detection + confetti celebration",
@@ -37,7 +52,7 @@ const trainerTiers = [
     period: "One-Time Payment",
     features: [
       "Everything in Starter, plus:",
-      "Up to 19 active clients",
+      "Unlimited active clients",
       "8 program types (Strength, Hypertrophy, Rehab\u2026)",
       "7 set types (Drop Sets, Pyramid, AMRAP\u2026)",
       "RPE, RIR & tempo prescriptions",
@@ -49,17 +64,17 @@ const trainerTiers = [
     badge: "Most Popular",
   },
   {
-    name: "Elite",
+    name: "Enterprise",
     price: "$399",
     period: "One-Time Payment",
     features: [
       "Everything in Professional, plus:",
-      "Up to 50 active clients",
+      "Unlimited active clients",
       "Full user management & roles",
       "Feature flags API",
       "Multi-trainer oversight",
     ],
-    cta: "Get Elite — $399",
+    cta: "Get Enterprise — $399",
     href: "https://trainer.evofit.io/get-started",
   },
 ];
@@ -76,7 +91,7 @@ export default function TrainerPage() {
             name: "EvoFit Trainer",
             applicationCategory: "SportsApplication",
             url: "https://trainer.evofit.io",
-            description: "Professional personal training platform with 1,344 exercises, program builder, and ACWR analytics.",
+            description: "Professional personal training platform with 1,324 exercises, program builder, and ACWR analytics.",
             offers: { "@type": "Offer", priceCurrency: "USD", price: "199", name: "Starter License" },
           }),
         }}
@@ -110,7 +125,7 @@ export default function TrainerPage() {
         image="/images/lifestyle-class.png"
         alt="Group fitness class in modern gym"
         label="Feature"
-        title="1,344 Exercises"
+        title="1,324 Exercises"
         description="Every exercise with animated GIF demonstrations. Full-text search + multi-filter stacking."
         bullets={[
           "Animated GIF demonstrations",
@@ -129,7 +144,7 @@ export default function TrainerPage() {
         title="Client Management"
         description="5-status lifecycle tracking, email invitations, custom color tags. Know your roster inside and out."
         bullets={[
-          "Up to 19 clients (Pro) \u00b7 50 (Elite)",
+          "Up to 5 clients (Starter) \u00b7 unlimited (Pro & Enterprise)",
           "Set-by-set logging with auto PR detection",
           "PR confetti celebration + best tracking",
         ]}
@@ -143,7 +158,7 @@ export default function TrainerPage() {
         alt="Modern premium gym interior"
         label="Coming Soon"
         title="AI Workout Generation"
-        description="Full balanced workout in under 5 seconds from 1,344 exercises. RPE-based progression. Plateau detection."
+        description="Full balanced workout in under 5 seconds from 1,324 exercises. RPE-based progression. Plateau detection."
         bullets={[
           "AI-generated workouts in 5 seconds",
           "Confidence-rated suggestions (High/Med/Low)",

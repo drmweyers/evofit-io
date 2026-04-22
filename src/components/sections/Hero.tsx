@@ -92,7 +92,7 @@ export default function Hero() {
                 <div className="text-xs text-slate-500">Training Platform</div>
               </div>
             </div>
-            <p className="text-sm text-slate-600">1,344 exercises with GIFs, program builder, ACWR analytics. Professional-grade tools for serious coaches.</p>
+            <p className="text-sm text-slate-600">1,324 exercises with GIFs, program builder, ACWR analytics. Professional-grade tools for serious coaches.</p>
           </div>
         </div>
       </div>

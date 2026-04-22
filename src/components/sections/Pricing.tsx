@@ -32,7 +32,7 @@ const mealsTiers: PricingTier[] = [
     name: "Pro",
     price: "$299",
     period: "one-time",
-    clients: "Up to 50 clients",
+    clients: "Unlimited clients",
     features: [
       "Everything in Starter",
       "White-label branding",
@@ -63,12 +63,27 @@ const mealsTiers: PricingTier[] = [
 
 const trainerTiers: PricingTier[] = [
   {
+    name: "Free",
+    price: "$0",
+    period: "forever",
+    clients: "1 client",
+    features: [
+      "1,324 exercise library",
+      "Basic program builder",
+      "Workout tracking",
+      "PWA offline support",
+      "No credit card",
+    ],
+    cta: "Start Free",
+    href: "https://trainer.evofit.io/auth/register",
+  },
+  {
     name: "Starter",
     price: "$199",
     period: "one-time",
     clients: "Up to 5 clients",
     features: [
-      "1,344 exercise library",
+      "1,324 exercise library",
       "Program builder",
       "Workout tracking",
       "Basic scheduling",
@@ -81,7 +96,7 @@ const trainerTiers: PricingTier[] = [
     name: "Pro",
     price: "$299",
     period: "one-time",
-    clients: "Up to 19 clients",
+    clients: "Unlimited clients",
     features: [
       "Everything in Starter",
       "ACWR analytics",
@@ -97,7 +112,7 @@ const trainerTiers: PricingTier[] = [
     name: "Enterprise",
     price: "$399",
     period: "one-time",
-    clients: "Up to 50 clients",
+    clients: "Unlimited clients",
     features: [
       "Everything in Pro",
       "Multi-trainer support",
