@@ -57,6 +57,8 @@ const trainerTiers = [
       "7 set types (Drop Sets, Pyramid, AMRAP\u2026)",
       "RPE, RIR & tempo prescriptions",
       "Unlimited custom color tags",
+      "Habit tracking + daily macro log",
+      "Client check-ins + Client 360 dashboard",
     ],
     cta: "Upgrade to Professional — $299",
     href: "https://trainer.evofit.io/get-started",
