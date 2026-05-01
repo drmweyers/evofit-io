@@ -7,7 +7,7 @@ author:
   name: "EvoFit Team"
 tags: ["peptides-training"]
 keywords: ["peptides training", "peptides", "training"]
-hero_image: "https://media.zernio.com/temp/1777564161962_x7q1t2tz_ai-generated.jpg"
+hero_image: "https://smartsocial-media.nyc3.digitaloceanspaces.com/blog-heroes/evofit/peptides-training/d738c17938ca.jpg"
 hero_image_alt: "Hero image for: Peptides & Training"
 published_at: "2026-04-30T16:07:39.517Z"
 updated_at: "2026-04-30T16:07:39.517Z"

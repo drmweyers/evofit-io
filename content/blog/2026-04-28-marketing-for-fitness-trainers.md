@@ -7,7 +7,7 @@ author:
   name: "EvoFit Team"
 tags: ["marketing-for-fitness-trainers"]
 keywords: ["marketing for fitness trainers", "marketing", "fitness", "trainers"]
-hero_image: "https://media.zernio.com/temp/1777396118894_5yn55cev_ai-generated.jpg"
+hero_image: "https://smartsocial-media.nyc3.digitaloceanspaces.com/blog-heroes/evofit/marketing-for-fitness-trainers/f7525eb13752.jpg"
 hero_image_alt: "Hero image for: Marketing for Fitness Trainers"
 published_at: "2026-04-28T17:10:08.721Z"
 updated_at: "2026-04-28T17:10:08.721Z"

@@ -7,7 +7,7 @@ author:
   name: "EvoFit Team"
 tags: ["peptides-glp-1"]
 keywords: ["peptides glp 1", "peptides", "glp-1"]
-hero_image: "https://media.zernio.com/temp/1777423073866_kh839cjx_ai-generated.jpg"
+hero_image: "https://smartsocial-media.nyc3.digitaloceanspaces.com/blog-heroes/evofit/peptides-glp-1/60ef0ecbcdb1.jpg"
 hero_image_alt: "Hero image for: Peptides & GLP-1"
 published_at: "2026-04-29T00:44:20.735Z"
 updated_at: "2026-04-29T00:44:20.735Z"

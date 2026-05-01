@@ -7,7 +7,7 @@ author:
   name: "EvoFit Team"
 tags: ["macro-tracking-for-trainers"]
 keywords: ["macro tracking for trainers", "macro", "tracking", "trainers"]
-hero_image: "https://media.zernio.com/temp/1777420503621_1ee0k98n_ai-generated.jpg"
+hero_image: "https://smartsocial-media.nyc3.digitaloceanspaces.com/blog-heroes/evofit/macro-tracking-for-trainers/c77ddb6a9e31.jpg"
 hero_image_alt: "Hero image for: Macro Tracking for Trainers"
 published_at: "2026-04-29T00:55:52.087Z"
 updated_at: "2026-04-29T00:55:52.087Z"

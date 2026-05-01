@@ -7,7 +7,7 @@ author:
   name: "EvoFit Team"
 tags: ["intermittent-fasting-health-benefits"]
 keywords: ["intermittent fasting health benefits", "intermittent", "fasting", "health", "benefits"]
-hero_image: "https://media.zernio.com/temp/1777341634921_xawxiuv3_ai-generated.jpg"
+hero_image: "https://smartsocial-media.nyc3.digitaloceanspaces.com/blog-heroes/evofit/intermittent-fasting-health-benefits/205ecaf41449.jpg"
 hero_image_alt: "Hero image for: Intermittent Fasting & Health Benefits"
 published_at: "2026-04-28T16:52:44.177Z"
 updated_at: "2026-04-28T16:52:44.177Z"
