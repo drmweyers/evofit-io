@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { TRAINER_SIGNUP_URL, MEALS_SIGNUP_URL } from "@/lib/cta";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -23,12 +24,20 @@ export default function Navbar() {
             <Link href="/blog" className="font-body text-sm text-white/70 hover:text-white uppercase tracking-wider transition-colors">
               Blog
             </Link>
-            <a
-              href="/#get-started"
-              className="bg-brand-accent text-black px-6 py-2 font-display font-semibold uppercase tracking-wider text-sm hover:bg-white transition-all duration-300"
-            >
-              Get Started
-            </a>
+            <div className="flex items-center gap-3">
+              <a
+                href={TRAINER_SIGNUP_URL}
+                className="bg-brand-accent text-black px-4 py-2 font-display font-semibold uppercase tracking-wider text-sm hover:bg-white transition-all duration-300"
+              >
+                Get Trainer
+              </a>
+              <a
+                href={MEALS_SIGNUP_URL}
+                className="border border-brand-accent text-brand-accent px-4 py-2 font-display font-semibold uppercase tracking-wider text-sm hover:bg-brand-accent hover:text-black transition-all duration-300"
+              >
+                Get Meals
+              </a>
+            </div>
           </div>
 
           <button
@@ -59,13 +68,22 @@ export default function Navbar() {
             <Link href="/blog" className="block font-body text-sm text-white/70 uppercase tracking-wider" onClick={() => setOpen(false)}>
               Blog
             </Link>
-            <a
-              href="/#get-started"
-              className="inline-block bg-brand-accent text-black px-6 py-2 font-display font-semibold uppercase tracking-wider text-sm"
-              onClick={() => setOpen(false)}
-            >
-              Get Started
-            </a>
+            <div className="flex flex-col gap-3 pt-2">
+              <a
+                href={TRAINER_SIGNUP_URL}
+                className="inline-block text-center bg-brand-accent text-black px-6 py-2 font-display font-semibold uppercase tracking-wider text-sm"
+                onClick={() => setOpen(false)}
+              >
+                Get Trainer
+              </a>
+              <a
+                href={MEALS_SIGNUP_URL}
+                className="inline-block text-center border border-brand-accent text-brand-accent px-6 py-2 font-display font-semibold uppercase tracking-wider text-sm"
+                onClick={() => setOpen(false)}
+              >
+                Get Meals
+              </a>
+            </div>
           </div>
         )}
       </nav>

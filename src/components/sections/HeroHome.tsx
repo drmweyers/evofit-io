@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { TRAINER_SIGNUP_URL, MEALS_SIGNUP_URL } from "@/lib/cta";
 
 export default function HeroHome() {
   return (
@@ -47,16 +48,24 @@ export default function HeroHome() {
               The platform where elite trainers build empires and transform lives.
             </motion.p>
             <motion.div
+              className="flex flex-col sm:flex-row gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <a
-                className="inline-block bg-white text-black px-8 py-4 font-display font-semibold uppercase tracking-wider text-base hover:bg-brand-accent transition-all duration-500"
+                className="inline-block text-center bg-white text-black px-8 py-4 font-display font-semibold uppercase tracking-wider text-base hover:bg-brand-accent transition-all duration-500"
                 style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.3)" }}
-                href="/#get-started"
+                href={TRAINER_SIGNUP_URL}
               >
-                Get Started
+                Get EvoFit Trainer
+              </a>
+              <a
+                className="inline-block text-center border-2 border-white text-white px-8 py-4 font-display font-semibold uppercase tracking-wider text-base hover:bg-white hover:text-black transition-all duration-500"
+                style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.3)" }}
+                href={MEALS_SIGNUP_URL}
+              >
+                Get EvoFit Meals
               </a>
             </motion.div>
           </div>

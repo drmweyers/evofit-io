@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TRAINER_SIGNUP_URL, MEALS_SIGNUP_URL } from "@/lib/cta";
 
 export default function Footer() {
   return (
@@ -17,9 +18,9 @@ export default function Footer() {
           <div>
             <h3 className="font-display text-sm font-semibold text-white uppercase tracking-wider mb-4">Products</h3>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/trainer" className="hover:text-white transition-colors">EvoFit Trainer</Link></li>
-              <li><Link href="/meals" className="hover:text-white transition-colors">EvoFit Meals</Link></li>
-              <li><Link href="/#get-started" className="hover:text-white transition-colors">Get Started</Link></li>
+              <li><a href={TRAINER_SIGNUP_URL} className="hover:text-white transition-colors">Get EvoFit Trainer</a></li>
+              <li><a href={MEALS_SIGNUP_URL} className="hover:text-white transition-colors">Get EvoFit Meals</a></li>
+              <li><Link href="/free-tools" className="hover:text-white transition-colors">Free Tools</Link></li>
             </ul>
           </div>
 
@@ -56,8 +57,8 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm">
           <p>&copy; {new Date().getFullYear()} BCI Innovation Labs. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

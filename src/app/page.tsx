@@ -3,6 +3,7 @@ import HeroHome from "@/components/sections/HeroHome";
 import FullWidthImage from "@/components/sections/FullWidthImage";
 import EmailCTA from "@/components/sections/EmailCTA";
 import Image from "next/image";
+import { TRAINER_SIGNUP_URL, MEALS_SIGNUP_URL } from "@/lib/cta";
 
 export const metadata: Metadata = {
   title: "EvoFit — The Platform for Elite Fitness Professionals",
@@ -43,7 +44,8 @@ export default function HomePage() {
         label="Workout Programming"
         title={"EvoFit\nTrainer"}
         description="Create programs that clients rave about. Manage your roster with precision. Build your reputation on results, not promises."
-        cta={{ text: "Discover Trainer \u2192", href: "/trainer" }}
+        cta={{ text: "Get EvoFit Trainer \u2192", href: TRAINER_SIGNUP_URL }}
+        secondaryCta={{ text: "Learn more", href: "/trainer" }}
         align="left"
         gradient="left"
       />
@@ -55,7 +57,8 @@ export default function HomePage() {
         label="Nutrition Planning"
         title={"EvoFit\nMeals"}
         description="Nutrition plans that actually work. Custom macros, smart recipes, happy clients. Your expertise scaled infinitely."
-        cta={{ text: "Discover Meals \u2192", href: "/meals" }}
+        cta={{ text: "Get EvoFit Meals \u2192", href: MEALS_SIGNUP_URL }}
+        secondaryCta={{ text: "Learn more", href: "/meals" }}
         align="right"
         gradient="right"
       />
@@ -140,7 +143,7 @@ export default function HomePage() {
         label="Built For Scale"
         title={"From Solo Trainer\nTo Fitness Empire"}
         description="Whether you train one client or one thousand, EvoFit scales with your ambition. No limits. No compromises."
-        cta={{ text: "Start Building \u2192", href: "/#get-started" }}
+        cta={{ text: "Start Building \u2192", href: TRAINER_SIGNUP_URL }}
         align="left"
         gradient="left"
       />
