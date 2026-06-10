@@ -30,6 +30,14 @@ describe('Footer', () => {
     );
   });
 
+  it('links the comparison page to /compare', () => {
+    render(<Footer />);
+    expect(screen.getByRole('link', { name: /compare vs trainerize & everfit/i })).toHaveAttribute(
+      'href',
+      '/compare'
+    );
+  });
+
   it('links Privacy Policy to a real /privacy page', () => {
     render(<Footer />);
     expect(screen.getByRole('link', { name: /privacy policy/i })).toHaveAttribute(

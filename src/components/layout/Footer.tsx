@@ -28,6 +28,7 @@ export default function Footer() {
             <h3 className="font-display text-sm font-semibold text-white uppercase tracking-wider mb-4">Resources</h3>
             <ul className="space-y-3 text-sm">
               <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+              <li><Link href="/compare" className="hover:text-white transition-colors">Compare vs Trainerize &amp; Everfit</Link></li>
               <li><Link href="/blog/rss.xml" className="hover:text-white transition-colors">RSS Feed</Link></li>
             </ul>
           </div>
