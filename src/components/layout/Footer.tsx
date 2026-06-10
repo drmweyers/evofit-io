@@ -37,7 +37,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li>
                 <a href="https://bcinnovationlabs.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                  BCI Innovation Labs
+                  About Us
                 </a>
               </li>
               <li>
@@ -55,7 +55,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm">
-          <p>&copy; {new Date().getFullYear()} BCI Innovation Labs. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} EvoFit. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>

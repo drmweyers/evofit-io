@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const AUTHOR_PRESETS = ['EvoFit Team', 'BCI Innovation Labs', 'Mark Weyers Ed.D'] as const;
+export const AUTHOR_PRESETS = ['EvoFit Team', 'Mark Weyers Ed.D'] as const;
 
 export const EVOFIT_CATEGORIES = ['Supplements', 'Training', 'Nutrition', 'Recovery', 'Science', 'Business'] as const;
 export type EvofitCategory = typeof EVOFIT_CATEGORIES[number];

@@ -1,7 +1,6 @@
 const AUTHOR_BIOS: Record<string, string> = {
   'EvoFit Team': 'AI-powered fitness science, nutrition research, and coaching strategies for the modern fitness professional.',
-  'BCI Innovation Labs': 'A startup factory building the future of education, fitness technology, and autonomous AI agents.',
-  'Mark Weyers Ed.D': 'Educator, entrepreneur, and founder of BCI Innovation Labs. Building at the intersection of AI, education, and fitness.',
+  'Mark Weyers Ed.D': 'Educator, entrepreneur, and founder of EvoFit. Building at the intersection of AI, education, and fitness.',
 };
 
 interface AuthorBioProps {

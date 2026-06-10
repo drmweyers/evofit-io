@@ -34,9 +34,9 @@ export const metadata: Metadata = {
     "EvoFit",
     "fitness coach platform",
   ],
-  authors: [{ name: "BCI Innovation Labs" }],
-  creator: "BCI Innovation Labs",
-  publisher: "BCI Innovation Labs",
+  authors: [{ name: "EvoFit Team" }],
+  creator: "EvoFit",
+  publisher: "EvoFit",
   openGraph: {
     type: "website",
     locale: "en_US",

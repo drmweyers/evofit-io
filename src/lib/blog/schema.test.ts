@@ -73,11 +73,10 @@ describe('PostFrontmatterSchema', () => {
     expect(result.author.avatar).toBeUndefined();
   });
 
-  it('exports AUTHOR_PRESETS with all three named presets', () => {
+  it('exports AUTHOR_PRESETS with expected named presets', () => {
     expect(AUTHOR_PRESETS).toContain('EvoFit Team');
-    expect(AUTHOR_PRESETS).toContain('BCI Innovation Labs');
     expect(AUTHOR_PRESETS).toContain('Mark Weyers Ed.D');
-    expect(AUTHOR_PRESETS).toHaveLength(3);
+    expect(AUTHOR_PRESETS).toHaveLength(2);
   });
 
   it('accepts draft: true', () => {
