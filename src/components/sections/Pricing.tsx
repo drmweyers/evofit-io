@@ -12,35 +12,37 @@ type PricingTier = {
   highlighted?: boolean;
 };
 
+// Limits below mirror what the Meals app actually enforces
+// (FitnessMealPlanner server/services/EntitlementsService.ts, verified 2026-06-10).
 const mealsTiers: PricingTier[] = [
   {
     name: "Starter",
     price: "$199",
     period: "one-time",
-    clients: "Up to 10 clients",
+    clients: "Up to 9 clients",
     features: [
       "AI meal plan generation",
-      "3,000+ recipe library",
-      "Basic branding",
+      "50 meal plans / month",
+      "1,500+ recipe library",
       "Allergy filtering",
-      "Email support",
+      "PDF export",
     ],
     cta: "Get Started",
     href: "https://meals.evofit.io/get-started",
   },
   {
-    name: "Pro",
+    name: "Professional",
     price: "$299",
     period: "one-time",
-    clients: "Unlimited clients",
+    clients: "Up to 20 clients",
     features: [
       "Everything in Starter",
-      "White-label branding",
-      "Progress tracking",
-      "Client management",
+      "200 meal plans / month",
+      "3,000+ recipe library",
+      "Logo + custom colors",
       "Priority support",
     ],
-    cta: "Go Pro",
+    cta: "Go Professional",
     href: "https://meals.evofit.io/get-started",
     highlighted: true,
   },
@@ -50,11 +52,11 @@ const mealsTiers: PricingTier[] = [
     period: "one-time",
     clients: "Unlimited clients",
     features: [
-      "Everything in Pro",
-      "Multi-trainer support",
-      "Custom domain",
-      "API access",
-      "Dedicated support",
+      "Everything in Professional",
+      "Unlimited meal plans",
+      "6,000+ recipe library",
+      "White-label + custom domain",
+      "PDF + CSV export",
     ],
     cta: "Go Enterprise",
     href: "https://meals.evofit.io/get-started",
