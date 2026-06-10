@@ -44,4 +44,30 @@ describe('EmailCTA', () => {
       MEALS_SIGNUP
     );
   });
+
+  it('shows the API error message and keeps the form on failure', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        json: async () => ({ success: false, error: 'Invalid email address.' }),
+      })
+    );
+    render(<EmailCTA title="T" subtitle="S" buttonText="Start Building" />);
+    fireEvent.change(screen.getByPlaceholderText(/enter your email/i), {
+      target: { value: 'test@example.com' },
+    });
+    fireEvent.click(screen.getByRole('button', { name: /start building/i }));
+    expect(await screen.findByText('Invalid email address.')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/enter your email/i)).toBeInTheDocument();
+  });
+
+  it('shows a fallback error message when fetch throws', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('network down')));
+    render(<EmailCTA title="T" subtitle="S" buttonText="Start Building" />);
+    fireEvent.change(screen.getByPlaceholderText(/enter your email/i), {
+      target: { value: 'test@example.com' },
+    });
+    fireEvent.click(screen.getByRole('button', { name: /start building/i }));
+    expect(await screen.findByText(/something went wrong/i)).toBeInTheDocument();
+  });
 });

@@ -13,4 +13,10 @@ describe('TermsPage', () => {
   it('has canonical metadata', () => {
     expect(metadata.alternates?.canonical).toBe('https://evofit.io/terms');
   });
+
+  it('keeps the material terms content', () => {
+    render(<TermsPage />);
+    expect(screen.getByText(/effective date/i)).toBeInTheDocument();
+    expect(screen.getByText(/not medical, nutritional, legal, or financial advice/i)).toBeInTheDocument();
+  });
 });

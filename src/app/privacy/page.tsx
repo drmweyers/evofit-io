@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <section className="bg-white pt-32 pb-24">
-      <div className="max-w-3xl mx-auto px-6 lg:px-8 prose prose-neutral">
+      <div className="max-w-3xl mx-auto px-6 lg:px-8 prose prose-neutral text-gray-800">
         <h1>Privacy Policy</h1>
         <p>
           <strong>Effective date:</strong> June 10, 2026
@@ -28,7 +28,8 @@ export default function PrivacyPage() {
             occasional product updates.
           </li>
           <li>
-            <strong>Basic analytics</strong> — aggregate page-view data used to improve the site.
+            <strong>Standard server logs</strong> — our hosting provider processes routine
+            technical data (such as IP address and pages requested) to serve and secure the site.
           </li>
         </ul>
         <h2>How we use it</h2>

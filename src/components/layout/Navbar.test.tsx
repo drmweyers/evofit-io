@@ -30,9 +30,11 @@ describe('Navbar', () => {
 
   it('renders both direct CTAs in the mobile menu', () => {
     render(<Navbar />);
+    const before = screen.getAllByRole('link', { name: /get trainer/i }).length;
     fireEvent.click(screen.getByLabelText(/toggle menu/i));
-    expect(screen.getAllByRole('link', { name: /get trainer/i }).length).toBeGreaterThanOrEqual(2);
-    expect(screen.getAllByRole('link', { name: /get meals/i }).length).toBeGreaterThanOrEqual(2);
+    // opening the menu must add mobile copies on top of the desktop links
+    expect(screen.getAllByRole('link', { name: /get trainer/i }).length).toBe(before + 1);
+    expect(screen.getAllByRole('link', { name: /get meals/i }).length).toBe(before + 1);
   });
 
   it('has no link to the email-capture anchor', () => {
