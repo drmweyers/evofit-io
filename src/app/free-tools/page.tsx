@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import EmailCaptureForm from "@/components/ui/EmailCaptureForm";
 import { Calculator, FileText, DollarSign, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { TRAINER_SIGNUP_URL, MEALS_SIGNUP_URL } from "@/lib/cta";
 
 export const metadata: Metadata = {
   title: "Free Tools for Fitness Professionals — EvoFit",
@@ -190,19 +191,30 @@ export default function FreeToolsPage() {
             These free tools give you a taste. EvoFit Meals and EvoFit Trainer deliver the whole package — AI meal plans, exercise library, client management, and more.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/meals"
+            <a
+              href={MEALS_SIGNUP_URL}
               className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-xl bg-white text-sky-600 font-bold hover:bg-sky-50 transition-colors"
             >
-              Explore EvoFit Meals <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href="/trainer"
+              Get EvoFit Meals <ArrowRight className="w-4 h-4" />
+            </a>
+            <a
+              href={TRAINER_SIGNUP_URL}
               className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-xl bg-white/10 border border-white/30 text-white font-bold hover:bg-white/20 transition-colors"
             >
-              Explore EvoFit Trainer <ArrowRight className="w-4 h-4" />
-            </Link>
+              Get EvoFit Trainer <ArrowRight className="w-4 h-4" />
+            </a>
           </div>
+          <p className="text-blue-100 text-sm mt-6">
+            Still researching? Learn more about{" "}
+            <Link href="/meals" className="underline underline-offset-4 hover:text-white">
+              EvoFit Meals
+            </Link>{" "}
+            or{" "}
+            <Link href="/trainer" className="underline underline-offset-4 hover:text-white">
+              EvoFit Trainer
+            </Link>
+            .
+          </p>
         </div>
       </section>
     </>

@@ -13,6 +13,7 @@ interface FullWidthImageProps {
   description: string;
   bullets?: string[];
   cta?: { text: string; href: string };
+  secondaryCta?: { text: string; href: string };
   align?: Alignment;
   gradient?: "left" | "right";
 }
@@ -25,6 +26,7 @@ export default function FullWidthImage({
   description,
   bullets,
   cta,
+  secondaryCta,
   align = "left",
   gradient = "left",
 }: FullWidthImageProps) {
@@ -87,12 +89,22 @@ export default function FullWidthImage({
               </ul>
             )}
             {cta && (
-              <a
-                className="inline-block mt-8 bg-white text-black px-8 py-4 font-display font-semibold uppercase tracking-wider text-sm hover:bg-brand-accent hover:text-black transition-all duration-500"
-                href={cta.href}
-              >
-                {cta.text}
-              </a>
+              <div className="mt-8 flex flex-wrap items-center gap-6">
+                <a
+                  className="inline-block bg-white text-black px-8 py-4 font-display font-semibold uppercase tracking-wider text-sm hover:bg-brand-accent hover:text-black transition-all duration-500"
+                  href={cta.href}
+                >
+                  {cta.text}
+                </a>
+                {secondaryCta && (
+                  <a
+                    className="font-body text-sm text-white/70 underline underline-offset-4 hover:text-white transition-colors"
+                    href={secondaryCta.href}
+                  >
+                    {secondaryCta.text}
+                  </a>
+                )}
+              </div>
             )}
           </motion.div>
         </div>

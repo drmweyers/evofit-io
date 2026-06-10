@@ -1,5 +1,6 @@
 "use client";
 import { useState, FormEvent } from "react";
+import { TRAINER_SIGNUP_URL, MEALS_SIGNUP_URL } from "@/lib/cta";
 
 interface EmailCTAProps {
   title: string;
@@ -70,9 +71,28 @@ export default function EmailCTA({
             {subtitle}
           </p>
           {status === "success" ? (
-            <p className="font-body text-xl text-brand-accent">
-              You&apos;re in! We&apos;ll be in touch.
-            </p>
+            <div>
+              <p className="font-body text-xl text-brand-accent mb-8">
+                You&apos;re in! We&apos;ll be in touch.
+              </p>
+              <p className="font-body text-base text-white/70 mb-6">
+                Don&apos;t wait on us — jump straight in:
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href={TRAINER_SIGNUP_URL}
+                  className="inline-block bg-brand-accent text-black px-8 py-4 font-display font-semibold uppercase tracking-wider text-sm hover:bg-white transition-all duration-300"
+                >
+                  Get EvoFit Trainer
+                </a>
+                <a
+                  href={MEALS_SIGNUP_URL}
+                  className="inline-block border border-brand-accent text-brand-accent px-8 py-4 font-display font-semibold uppercase tracking-wider text-sm hover:bg-brand-accent hover:text-black transition-all duration-300"
+                >
+                  Get EvoFit Meals
+                </a>
+              </div>
+            </div>
           ) : (
             <form className="max-w-2xl mx-auto" onSubmit={handleSubmit}>
               <div className="flex flex-col md:flex-row gap-4 mb-4">
