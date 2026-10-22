@@ -1,6 +1,6 @@
 "use client";
 import { useState, FormEvent } from "react";
-import { TRAINER_SIGNUP_URL, MEALS_SIGNUP_URL } from "@/lib/cta";
+import { PRICING_URL, MEALS_SIGNUP_URL } from "@/lib/cta";
 
 interface EmailCTAProps {
   title: string;
@@ -80,7 +80,7 @@ export default function EmailCTA({
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href={TRAINER_SIGNUP_URL}
+                  href={PRICING_URL}
                   className="inline-block bg-brand-accent text-black px-8 py-4 font-display font-semibold uppercase tracking-wider text-sm hover:bg-white transition-all duration-300"
                 >
                   Get EvoFit Trainer

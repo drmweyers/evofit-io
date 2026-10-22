@@ -1,7 +1,7 @@
 // Shared story blocks for the home, /trainer and /compare pages, in the copy-deck order:
 // (1) own it forever, (2) the Fitness Agent upsell, (3) why not Everfit or Trainerize (page-specific).
 // Every price comes from src/lib/pricing.ts (generated pricing.json); none is typed here.
-import { PRICING_URL, AI_PAGE_URL } from "@/lib/cta";
+import { PRICING_URL, AI_PAGE_URL, TRAINER_SIGNUP_URL } from "@/lib/cta";
 import {
   TIER_KEYS,
   tierName,
@@ -41,7 +41,16 @@ const h2 = "font-display text-4xl md:text-6xl font-bold uppercase tracking-wider
 const btn = "inline-block px-8 py-4 font-display font-semibold uppercase tracking-wider text-sm transition-colors duration-300";
 
 /** (1) Own it forever. */
-export function OwnItForever({ tone = "light", id }: { tone?: Tone; id?: string }) {
+export function OwnItForever({
+  tone = "light",
+  id,
+  showTiers = true,
+}: {
+  tone?: Tone;
+  id?: string;
+  /** false when the page shows its own detailed plan cards right after this block. */
+  showTiers?: boolean;
+}) {
   const c = palette[tone];
   return (
     <section id={id} className={`${c.section} py-24 md:py-32 border-t ${c.rule}`}>
@@ -52,6 +61,7 @@ export function OwnItForever({ tone = "light", id }: { tone?: Tone; id?: string 
           One payment of {oneTimeList}. No required monthly fees. Your own custom exercises are included.
         </p>
 
+        {showTiers && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
           {TIER_KEYS.map((t) => (
             <div
@@ -79,6 +89,7 @@ export function OwnItForever({ tone = "light", id }: { tone?: Tone; id?: string 
             </div>
           ))}
         </div>
+        )}
 
         <ul className={`mt-10 space-y-2 font-body text-sm ${c.muted}`}>
           <li>1,300+ exercises with GIF demos, and room for your own.</li>
@@ -91,7 +102,11 @@ export function OwnItForever({ tone = "light", id }: { tone?: Tone; id?: string 
           </a>
         </div>
         <p className={`font-body text-xs uppercase tracking-wider ${c.faint} mt-6`}>
-          7-day money-back guarantee. Try it free for 30 days (1 client).
+          7-day money-back guarantee.{" "}
+          <a href={TRAINER_SIGNUP_URL} className="underline underline-offset-4">
+            Try it free for 30 days (1 client)
+          </a>
+          .
         </p>
       </div>
     </section>

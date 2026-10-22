@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { TRAINER_SIGNUP_URL, MEALS_SIGNUP_URL } from "@/lib/cta";
+import { PRICING_URL, MEALS_SIGNUP_URL } from "@/lib/cta";
 
 export default function HeroHome() {
   return (
@@ -56,7 +56,7 @@ export default function HeroHome() {
               <a
                 className="inline-block text-center bg-white text-black px-8 py-4 font-display font-semibold uppercase tracking-wider text-base hover:bg-brand-accent transition-all duration-500"
                 style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.3)" }}
-                href={TRAINER_SIGNUP_URL}
+                href={PRICING_URL}
               >
                 Get EvoFit Trainer
               </a>

@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import HeroHome from './HeroHome';
 
-const TRAINER_SIGNUP = 'https://trainer.evofit.io/get-started';
+const TRAINER_SIGNUP = 'https://trainer.evofit.io/pricing';
 const MEALS_SIGNUP = 'https://meals.evofit.io/get-started';
 
 describe('HeroHome', () => {

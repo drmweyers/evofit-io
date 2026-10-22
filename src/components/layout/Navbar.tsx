@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { TRAINER_SIGNUP_URL, MEALS_SIGNUP_URL } from "@/lib/cta";
+import { PRICING_URL, MEALS_SIGNUP_URL } from "@/lib/cta";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -26,7 +26,7 @@ export default function Navbar() {
             </Link>
             <div className="flex items-center gap-3">
               <a
-                href={TRAINER_SIGNUP_URL}
+                href={PRICING_URL}
                 className="bg-brand-accent text-black px-4 py-2 font-display font-semibold uppercase tracking-wider text-sm hover:bg-white transition-all duration-300"
               >
                 Get Trainer
@@ -70,7 +70,7 @@ export default function Navbar() {
             </Link>
             <div className="flex flex-col gap-3 pt-2">
               <a
-                href={TRAINER_SIGNUP_URL}
+                href={PRICING_URL}
                 className="inline-block text-center bg-brand-accent text-black px-6 py-2 font-display font-semibold uppercase tracking-wider text-sm"
                 onClick={() => setOpen(false)}
               >

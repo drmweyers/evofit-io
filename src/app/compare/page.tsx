@@ -19,17 +19,17 @@ import {
 export const metadata: Metadata = {
   title: "EvoFit Trainer vs Trainerize vs Everfit — They Rent. You Own.",
   description:
-    "Trainerize and Everfit charge you per client, forever. EvoFit Trainer is a one-time purchase: unlimited clients from Professional, with your own Fitness Agent and Cloud Pro as optional extras. Competitor prices checked October 21, 2026.",
+    "Trainerize and Everfit bill you every month, for as long as you coach. EvoFit Trainer is a one-time purchase: unlimited clients from Professional, with your own Fitness Agent and Cloud Pro as optional extras.",
   openGraph: {
     title: "EvoFit Trainer vs Trainerize vs Everfit — They Rent. You Own.",
     description:
-      "Trainerize and Everfit charge you per client, forever. EvoFit Trainer is a one-time purchase.",
+      "Trainerize and Everfit bill you every month, for as long as you coach. EvoFit Trainer is a one-time purchase.",
     url: "https://evofit.io/compare",
   },
   alternates: { canonical: "https://evofit.io/compare" },
 };
 
-const DATE_STAMP = "Competitor prices from their public pricing pages, checked October 21, 2026.";
+const DATE_STAMP = "Competitor prices in this table are from their public pricing pages, checked October 21, 2026.";
 
 // Competitor monthly prices as printed on their public pricing pages, checked October 21, 2026.
 // Every 36-month total is computed (price x 36), never typed.
@@ -62,77 +62,40 @@ const trainerizeAnnual50 = Math.round(threeYear(135) * 0.9);
 const tableRows: { label: string; evofit: string; check?: boolean; trainerize: string; everfit: string }[] = [
   {
     label: "Pricing model",
-    evofit: `One-time — ${oneTimeSlashes}`,
-    trainerize: "Monthly, scales with clients",
-    everfit: "Monthly, scales with clients",
-  },
-  {
-    label: "Client limit",
-    evofit: "Unlimited (Professional+)",
-    trainerize: "Capped per tier, max 500/location",
-    everfit: "Capped per tier, max 500",
+    evofit: `One-time \u2014 ${oneTimeSlashes}`,
+    trainerize: "Monthly, priced by client count",
+    everfit: "Monthly, priced by client count (free plan up to 5 clients)",
   },
   {
     label: "Nutrition & macros",
-    evofit: "Included",
+    evofit: "Macro targets and logging included",
     check: true,
-    trainerize: "+$20–45/mo add-on",
-    everfit: "+$39/mo add-on",
-  },
-  {
-    label: "Scheduling + drag-and-drop weekly editor",
-    evofit: "Included",
-    check: true,
-    trainerize: "Scheduling needs $25/mo Business add-on",
-    everfit: "Tasks & reminders only",
-  },
-  {
-    label: "Check-ins & form builder",
-    evofit: "Included on Professional and up — 10 question types",
-    check: true,
-    trainerize: "Consultation forms",
-    everfit: "Pro tier and up",
-  },
-  {
-    label: "Client messaging",
-    evofit: "WhatsApp-native",
-    check: true,
-    trainerize: "In-app only",
-    everfit: "In-app only",
-  },
-  {
-    label: "Exercise library",
-    evofit: "1,300+ with GIF demos",
-    check: true,
-    trainerize: "On-demand library",
-    everfit: "1,000+",
+    trainerize: "Advanced Nutrition add-on, $20\u201345/mo",
+    everfit: "Meal Plans add-on, from $39/mo",
   },
   {
     label: "Client app",
-    evofit:
-      "Modern 4-tab coaching app (Today / Coaching / Inbox / You) — installable to the home screen",
-    trainerize: "Native apps",
-    everfit: "Native apps; clean",
+    evofit: "Installable web app, no app-store download",
+    trainerize: "Custom branded app available as an add-on",
+    everfit: "Native iOS and Android apps",
   },
   {
-    label: "Training-load analytics (ACWR) + PDF reports",
-    evofit: "Included (Professional)",
-    check: true,
-    trainerize: "Basic stats",
-    everfit: "Dashboards",
+    label: "Where they lead",
+    evofit: "Not in our product today",
+    trainerize: "Video coaching, custom branded apps",
+    everfit: "Community forums, white label, payments and packages, meal-plan generators, automation",
   },
 ];
 
 const features = [
   {
     eyebrow: "Program Builder",
-    title: "Rotation programs, the way Trainerize taught you",
+    title: "Rotation programs that repeat week after week",
     body: (
       <>
         Build <strong className="text-white font-medium">7-day training cycles</strong> that rotate
         automatically, week after week. Start from the template library or from scratch, assign to
-        one client or fifty, and adjust mid-cycle without rebuilding. If you&rsquo;re coming from
-        Trainerize, the mental model is the same — the bill isn&rsquo;t.
+        one client or fifty, and adjust mid-cycle without rebuilding.
       </>
     ),
     image: "/screenshots/trainer-program-builder.png",
@@ -167,8 +130,7 @@ const features = [
         A weekly schedule editor with real{" "}
         <strong className="text-white font-medium">drag-and-drop</strong> — move sessions between
         days, copy a day and paste it across the week, restructure a client&rsquo;s split in
-        seconds. Over at Trainerize, scheduling lives behind a $25/mo add-on. Here it&rsquo;s just
-        part of the product.
+        seconds. Scheduling is part of the product, not an add-on.
       </>
     ),
     image: "/screenshots/trainer-schedule.png",
@@ -211,7 +173,7 @@ export default function ComparePage() {
           They rent. <span className="text-white/40">You own.</span>
         </h1>
         <p className="font-body text-lg md:text-xl text-white/60 font-light leading-relaxed max-w-2xl mb-11">
-          Trainerize and Everfit charge you per client, forever.{" "}
+          Beyond Everfit&rsquo;s free 5-client plan, Trainerize and Everfit bill you every month, for as long as you coach.{" "}
           <strong className="text-white font-medium">
             EvoFit Trainer is a one-time purchase
           </strong>{" "}
@@ -231,12 +193,6 @@ export default function ComparePage() {
             Do the math first &darr;
           </a>
         </div>
-        <p className="font-body text-xs uppercase tracking-wider text-white/40 mt-8">
-          {DATE_STAMP}
-        </p>
-        <p className="font-body text-xs tracking-wider text-white/40 mt-2">
-          Source: public pricing pages at trainerize.com/pricing and everfit.io/pricing.
-        </p>
       </section>
 
       <OwnItForever tone="dark" />
@@ -290,7 +246,10 @@ export default function ComparePage() {
                         threeYearCell(r.everfitMonthly)
                       )}
                     </td>
-                    <td className="px-5 py-5 text-white/60">{threeYearCell(r.everfitAnnual)}</td>
+                    <td className="px-5 py-5 text-white/60">
+                      {threeYearCell(r.everfitAnnual)}
+                      {r.clients === 5 && <span className="block text-xs text-white/40">on Pro</span>}
+                    </td>
                     <td className="px-5 py-5 text-white/60">
                       {r.trainerizeNote ?? threeYearCell(r.trainerizeMonthly)}
                     </td>
@@ -321,6 +280,7 @@ export default function ComparePage() {
               ownership, and room to grow to unlimited clients on Professional.
             </p>
             <p>Neither company&rsquo;s pricing page lists a ChatGPT or Claude connector.</p>
+            <p className="text-white/40">{DATE_STAMP} Sources: trainerize.com/pricing and everfit.io/pricing.</p>
           </div>
         </div>
       </section>
@@ -396,8 +356,8 @@ export default function ComparePage() {
         <div className="max-w-7xl mx-auto px-8 lg:px-16">
           <p className={eyebrowClass}>03 &middot; From the Floor</p>
           <p className="font-body text-lg md:text-xl font-medium max-w-2xl mt-13 pt-8 border-t border-white/10">
-            Nutrition and scheduling —{" "}
-            <span className="text-white/60 font-light">add-ons over there.</span> Included here.
+            Meal plans and advanced nutrition —{" "}
+            <span className="text-white/60 font-light">paid add-ons over there.</span> Macro targets and logging are included here.
           </p>
         </div>
       </section>
@@ -498,9 +458,6 @@ export default function ComparePage() {
               See all features
             </Link>
           </div>
-          <p className="font-body text-xs uppercase tracking-wider text-white/40 mt-10">
-            {DATE_STAMP} Prices may change.
-          </p>
         </div>
       </section>
     </main>

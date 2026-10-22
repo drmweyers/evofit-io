@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import EmailCTA from './EmailCTA';
 
-const TRAINER_SIGNUP = 'https://trainer.evofit.io/get-started';
+const TRAINER_SIGNUP = 'https://trainer.evofit.io/pricing';
 const MEALS_SIGNUP = 'https://meals.evofit.io/get-started';
 
 describe('EmailCTA', () => {

@@ -72,6 +72,14 @@ describe.each(pages)('%s page tells the story in order', (_name, Page) => {
   });
 });
 
+describe('/trainer shows one plan grid, not two', () => {
+  it('has exactly one Recommended badge and one Professional price card', () => {
+    const { container } = render(<TrainerPage />);
+    expect(container.textContent?.match(/Recommended/g)).toHaveLength(1);
+    expect(container.textContent?.match(/One-Time Payment/g)).toHaveLength(3);
+  });
+});
+
 describe('no EvoFit price is typed in the page sources', () => {
   const files = [
     'src/app/page.tsx',

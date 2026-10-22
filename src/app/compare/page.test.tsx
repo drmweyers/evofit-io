@@ -17,10 +17,11 @@ describe('ComparePage funnel', () => {
       (a) => a.getAttribute('href') === PRICING
     );
     expect(trainerLinks.length).toBeGreaterThanOrEqual(2);
-    const getStarted = Array.from(container.querySelectorAll('a')).filter((a) =>
-      (a.getAttribute('href') ?? '').includes('/get-started')
+    const buy = Array.from(container.querySelectorAll('a')).filter((a) =>
+      /^(Get |See the three plans|Add AI)/.test(a.textContent ?? '')
     );
-    expect(getStarted).toHaveLength(0);
+    expect(buy.length).toBeGreaterThan(0);
+    buy.forEach((a) => expect(a.getAttribute('href')).toBe(PRICING));
   });
 
   it('contains no dead href="#" links', () => {
@@ -49,6 +50,29 @@ describe('ComparePage funnel', () => {
     const { container } = render(<ComparePage />);
     expect(container.textContent).toContain('checked October 21, 2026');
     expect(container.textContent).not.toContain('June 10, 2026');
+  });
+
+  it('limits the checked-date stamp to the cost table (not the hero or footer)', () => {
+    const { container } = render(<ComparePage />);
+    const t = container.textContent ?? '';
+    expect(t.match(/checked October 21, 2026/g)).toHaveLength(1);
+    expect(t.indexOf('checked October 21, 2026')).toBeGreaterThan(t.indexOf('Everfit, monthly billing'));
+  });
+
+  it('makes no competitor claim the copy deck does not state', () => {
+    const { container } = render(<ComparePage />);
+    const t = container.textContent ?? '';
+    for (const bad of ['max 500', '1,000+', 'per client, forever', 'Business add-on', 'Tasks & reminders', 'Consultation forms', 'In-app only', 'Basic stats', 'Dashboards', 'Native apps; clean']) {
+      expect(t, bad).not.toContain(bad);
+    }
+  });
+
+  it('labels the 5-client Everfit annual figure as the Pro plan', () => {
+    const { container } = render(<ComparePage />);
+    const row = Array.from(container.querySelectorAll('tbody tr')).find((r) => r.querySelector('th')?.textContent === '5');
+    const cells = row!.querySelectorAll('td');
+    expect(cells[3].textContent).toContain('$576');
+    expect(cells[3].textContent).toContain('on Pro');
   });
 
   it('does not mention the parked Evolution AI add-on', () => {

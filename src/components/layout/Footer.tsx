@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { TRAINER_SIGNUP_URL, MEALS_SIGNUP_URL } from "@/lib/cta";
+import { PRICING_URL, MEALS_SIGNUP_URL } from "@/lib/cta";
 
 export default function Footer() {
   return (
@@ -18,7 +18,7 @@ export default function Footer() {
           <div>
             <h3 className="font-display text-sm font-semibold text-white uppercase tracking-wider mb-4">Products</h3>
             <ul className="space-y-3 text-sm">
-              <li><a href={TRAINER_SIGNUP_URL} className="hover:text-white transition-colors">Get EvoFit Trainer</a></li>
+              <li><a href={PRICING_URL} className="hover:text-white transition-colors">Get EvoFit Trainer</a></li>
               <li><a href={MEALS_SIGNUP_URL} className="hover:text-white transition-colors">Get EvoFit Meals</a></li>
               <li><Link href="/free-tools" className="hover:text-white transition-colors">Free Tools</Link></li>
             </ul>

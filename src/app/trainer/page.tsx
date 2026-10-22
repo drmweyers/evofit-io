@@ -114,7 +114,7 @@ export default function TrainerPage() {
       />
 
       {/* Story: (1) own it forever, (2) the Fitness Agent upsell, (3) why not Everfit or Trainerize */}
-      <OwnItForever tone="light" />
+      <OwnItForever tone="light" showTiers={false} />
       <PricingSection tiers={trainerTiers} />
 
       <FitnessAgent tone="dark" />
