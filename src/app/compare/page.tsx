@@ -201,8 +201,7 @@ const tiers = [
     features: [
       "Everything in Professional",
       "API keys and Excel export",
-      "Team-shared workout templates",
-      "Progress photo compare and a public trainer profile",
+      "Unlimited custom exercises and progress-photo storage",
       "Cloud Pro included",
     ],
     cta: "Get Enterprise →",

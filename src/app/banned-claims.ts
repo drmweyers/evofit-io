@@ -72,6 +72,7 @@ export const BANNED_CLAIMS: BannedClaim[] = [
   { pattern: /activity log/i, why: 'not reachable by a buyer: admin-only' },
   { pattern: /for studios/i, why: 'implies a studio/org layer that does not exist' },
   { pattern: /bulk operations/i, why: 'admin-only feature' },
+  { pattern: /team-shared templates|team-shared workout templates|share with (your )?team/i, why: 'not reachable: no UI sets isTeamShared' },
   { pattern: /Stripe payments/i, why: 'EvoFit has no client billing' },
   { pattern: /and PDF export/i, why: 'Starter programBuilder.pdfExport is false' },
 ];
