@@ -76,6 +76,16 @@ export const BANNED_CLAIMS: BannedClaim[] = [
   { pattern: /team-shared templates|team-shared workout templates|share with (your )?team/i, why: 'not reachable: no UI sets isTeamShared' },
   { pattern: /Stripe payments/i, why: 'EvoFit has no client billing' },
   { pattern: /and PDF export/i, why: 'Starter programBuilder.pdfExport is false' },
+  // Fitness Agent overclaims (copy deck 2.1 "Never write" list, Mark 2026-10-22).
+  { pattern: /AI coach that trains your clients/i, why: 'overclaim: the agent drafts, the trainer approves (copy deck 2.1)' },
+  { pattern: /fully[- ]automatic/i, why: 'overclaim: nothing reaches a client without trainer approval (copy deck 2.1)' },
+  { pattern: /sends? (the )?messages? for you/i, why: 'overclaim: the trainer approves and sends (copy deck 2.1)' },
+  { pattern: /built[- ]into EvoFit/i, why: 'false: the agent runs inside Claude or ChatGPT; a built-in agent does not exist yet (copy deck 2.1)' },
+  { pattern: /\d+% (more )?(client )?retention|retention (rate )?(up|increase)/i, why: 'unprovable retention figure (copy deck 2.1)' },
+  // GIF creator is part of the AI add-on only (Mark 2026-10-22); the review queue is never marketed.
+  { pattern: /(Cloud Pro|Enterprise)\s+(includes?|gets?|comes with|unlocks?)[^.]{0,60}GIF/i, why: 'false: the GIF creator is add-on only' },
+  { pattern: /GIF creator[^.]{0,60}(included in|comes with|part of)[^.]{0,30}(Cloud Pro|Enterprise)/i, why: 'false: the GIF creator is add-on only' },
+  { pattern: /review queue/i, why: 'not marketed (Mark 2026-10-22)' },
 ];
 
 // Genuine out-of-scope uses, exempted by file + pattern.source with a written reason.

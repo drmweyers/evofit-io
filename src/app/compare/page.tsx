@@ -1,12 +1,25 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { TRAINER_SIGNUP_URL } from "@/lib/cta";
+import { PRICING_URL } from "@/lib/cta";
+import { OwnItForever, FitnessAgent } from "@/components/sections/TrainerStory";
+import {
+  TIER_KEYS,
+  tierPrice,
+  oneTimeSlashes,
+  oneTimeList,
+  aiPerMonth,
+  cloudProPerMonth,
+  usd,
+  threeYear,
+  withAiThreeYear,
+  cloudProThreeYear,
+} from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "EvoFit Trainer vs Trainerize vs Everfit — They Rent. You Own.",
   description:
-    "Trainerize and Everfit charge you per client, forever. EvoFit Trainer is a one-time purchase: unlimited clients from Professional, with the AI Add-on and Cloud Pro as optional extras. Prices compared as of June 10, 2026.",
+    "Trainerize and Everfit charge you per client, forever. EvoFit Trainer is a one-time purchase: unlimited clients from Professional, with your own Fitness Agent and Cloud Pro as optional extras. Competitor prices checked October 21, 2026.",
   openGraph: {
     title: "EvoFit Trainer vs Trainerize vs Everfit — They Rent. You Own.",
     description:
@@ -16,39 +29,40 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://evofit.io/compare" },
 };
 
-const DATE_STAMP = "Prices compared as of June 10, 2026.";
+const DATE_STAMP = "Competitor prices from their public pricing pages, checked October 21, 2026.";
 
-const mathRows = [
+// Competitor monthly prices as printed on their public pricing pages, checked October 21, 2026.
+// Every 36-month total is computed (price x 36), never typed.
+const costRows: {
+  clients: number;
+  evofitTier: (typeof TIER_KEYS)[number];
+  everfitMonthly: number | null;
+  everfitAnnual: number | null;
+  trainerizeMonthly: number | null;
+  trainerizeAnnual: number | null;
+  trainerizeNote?: string;
+}[] = [
+  { clients: 5, evofitTier: "starter", everfitMonthly: 19, everfitAnnual: 16, trainerizeMonthly: 25, trainerizeAnnual: 23 },
   {
-    name: "Trainerize",
-    sub: "~$200 / month",
-    figure: "~$2,400",
-    per: "/yr",
-    note: "Pro 100 plan plus nutrition, business, and payments add-ons.",
-    evofit: false,
+    clients: 20,
+    evofitTier: "professional",
+    everfitMonthly: 49,
+    everfitAnnual: 41,
+    trainerizeMonthly: null,
+    trainerizeAnnual: null,
+    trainerizeNote: "from $79/mo (up to 30 clients)",
   },
-  {
-    name: "Everfit",
-    sub: "~$217 / month",
-    figure: "~$2,600",
-    per: "/yr",
-    note: "Pro 100 plan plus meal plans, payments, and Autoflow.",
-    evofit: false,
-  },
-  {
-    name: "EvoFit Trainer",
-    sub: "Professional",
-    figure: "$299",
-    per: " once",
-    note: "Pay once. Everything you buy is yours. Optional extras: AI Add-on $30/mo, Cloud Pro $10/mo.",
-    evofit: true,
-  },
+  { clients: 50, evofitTier: "professional", everfitMonthly: 95, everfitAnnual: 79, trainerizeMonthly: 135, trainerizeAnnual: null },
 ];
+
+const threeYearCell = (monthly: number | null) => (monthly === null ? "n/a" : usd(threeYear(monthly)));
+// Trainerize says annual billing saves 10%.
+const trainerizeAnnual50 = Math.round(threeYear(135) * 0.9);
 
 const tableRows: { label: string; evofit: string; check?: boolean; trainerize: string; everfit: string }[] = [
   {
     label: "Pricing model",
-    evofit: "One-time — $199 / $299 / $399",
+    evofit: `One-time — ${oneTimeSlashes}`,
     trainerize: "Monthly, scales with clients",
     everfit: "Monthly, scales with clients",
   },
@@ -165,53 +179,10 @@ const features = [
   },
 ];
 
-const tiers = [
-  {
-    name: "Starter",
-    price: "$199",
-    sub: "For coaches getting their first roster going.",
-    features: [
-      "Up to 5 clients",
-      "Up to 20 programs",
-      "Drag-and-drop program builder with sections",
-      "Up to 50 custom exercises",
-    ],
-    cta: "Get Starter →",
-    highlighted: false,
-  },
-  {
-    name: "Professional",
-    price: "$299",
-    sub: "For working coaches who plan to grow.",
-    features: [
-      "Unlimited clients",
-      "Everything in Starter",
-      "Training-load analytics (ACWR)",
-      "Client PDF reports",
-    ],
-    cta: "Get Professional →",
-    highlighted: true,
-    badge: "Recommended",
-  },
-  {
-    name: "Enterprise",
-    price: "$399",
-    sub: "For coaches who want the last gates removed.",
-    features: [
-      "Everything in Professional",
-      "API keys and Excel export",
-      "Unlimited custom exercises and progress-photo storage",
-      "Cloud Pro included",
-    ],
-    cta: "Get Enterprise →",
-    highlighted: false,
-  },
-];
-
 const faqs = [
   {
     q: "Is it really one-time?",
-    a: "Yes. $199, $299 or $399, paid once. The only monthly charges are the optional AI Add-on and Cloud Pro, and you can skip both.",
+    a: `Yes. ${oneTimeList}, paid once. The only monthly charges are the optional Fitness Agent add-on (${aiPerMonth}) and Cloud Pro (${cloudProPerMonth}), and you can skip both.`,
   },
   {
     q: "What happens when I grow from 20 to 200 clients?",
@@ -223,7 +194,7 @@ const faqs = [
   },
   {
     q: "Is there a free way to try it?",
-    a: "There's a free tier at signup — try the product with real clients before you pay anything.",
+    a: "There's a 30-day free trial with 1 client, so you can try the product before you pay anything.",
   },
 ];
 
@@ -244,14 +215,14 @@ export default function ComparePage() {
           <strong className="text-white font-medium">
             EvoFit Trainer is a one-time purchase
           </strong>{" "}
-          with unlimited clients from Professional. The AI Add-on and Cloud Pro are optional extras.
+          with unlimited clients from Professional. The Fitness Agent add-on and Cloud Pro are optional extras.
         </p>
         <div className="flex flex-wrap items-center gap-7">
           <a
-            href={TRAINER_SIGNUP_URL}
+            href={PRICING_URL}
             className="inline-block bg-brand-accent text-black px-8 py-4 font-display font-semibold uppercase tracking-wider text-sm hover:bg-white transition-colors duration-300"
           >
-            Get EvoFit Trainer &rarr;
+            See the three plans &rarr;
           </a>
           <a
             href="#the-math"
@@ -268,71 +239,88 @@ export default function ComparePage() {
         </p>
       </section>
 
+      <OwnItForever tone="dark" />
+      <FitnessAgent tone="light" />
+
       {/* 2 · The math */}
       <section id="the-math" className="border-t border-white/10 py-24 md:py-36">
         <div className="max-w-7xl mx-auto px-8 lg:px-16">
           <div className="mb-14 md:mb-20">
             <p className={eyebrowClass}>01 &middot; The Math</p>
             <h2 className="font-display text-4xl md:text-6xl font-bold uppercase tracking-wider leading-none mt-5 max-w-3xl">
-              What 100 clients actually costs you
+              What you pay over 3 years
             </h2>
             <p className="font-body text-lg text-white/60 font-light leading-relaxed max-w-2xl mt-6">
-              Their pricing pages call it &ldquo;scaling with your business.&rdquo; Look at the
-              line items and it reads more like rent.
+              They rent you the software every month. EvoFit is yours after one payment.
             </p>
           </div>
 
-          <div>
-            {mathRows.map((row) => (
-              <div
-                key={row.name}
-                className="grid grid-cols-1 md:grid-cols-[minmax(170px,0.9fr)_minmax(0,1.6fr)_minmax(0,1.1fr)] gap-3 md:gap-7 items-baseline py-8 md:py-10 border-t border-white/10 last:border-b"
-              >
-                <div className="font-body font-medium">
-                  {row.name}
-                  <span className="block font-body text-xs uppercase tracking-wider text-white/40 mt-1.5">
-                    {row.sub}
-                  </span>
-                </div>
-                <div
-                  className={`font-display font-bold leading-none whitespace-nowrap text-5xl md:text-8xl ${
-                    row.evofit ? "text-brand-accent" : "text-white"
-                  }`}
-                >
-                  {row.figure}
-                  <span className="text-[0.3em] text-white/40 font-body font-normal tracking-normal">
-                    {row.per}
-                  </span>
-                </div>
-                <p className="font-body text-sm text-white/60 leading-relaxed md:max-w-xs">
-                  {row.note}
-                </p>
-              </div>
-            ))}
+          <div className="overflow-x-auto border border-white/10">
+            <table className="w-full min-w-[880px] border-collapse text-left">
+              <caption className="sr-only">36-month cost of the cheapest plan that fits each client count</caption>
+              <thead>
+                <tr className="font-body text-xs font-semibold uppercase tracking-[0.15em] text-white/40">
+                  <th scope="col" className="px-5 pt-6 pb-4">Clients</th>
+                  <th scope="col" className="px-5 pt-6 pb-4 text-brand-accent bg-white/5">EvoFit one-time</th>
+                  <th scope="col" className="px-5 pt-6 pb-4 text-brand-accent bg-white/5">EvoFit + AI add-on (36 mo)</th>
+                  <th scope="col" className="px-5 pt-6 pb-4">Everfit, monthly billing</th>
+                  <th scope="col" className="px-5 pt-6 pb-4">Everfit, annual billing</th>
+                  <th scope="col" className="px-5 pt-6 pb-4">Trainerize, monthly billing</th>
+                  <th scope="col" className="px-5 pt-6 pb-4">Trainerize, annual billing</th>
+                </tr>
+              </thead>
+              <tbody>
+                {costRows.map((r) => (
+                  <tr key={r.clients} className="border-t border-white/10 font-body text-sm align-top">
+                    <th scope="row" className="px-5 py-5 font-medium text-white">{r.clients}</th>
+                    <td className="px-5 py-5 text-white bg-white/5">
+                      {tierPrice(r.evofitTier)}
+                      <span className="block text-xs text-white/40">
+                        {r.evofitTier === "starter" ? "Starter" : "Professional"}
+                      </span>
+                    </td>
+                    <td className="px-5 py-5 text-white bg-white/5">{usd(withAiThreeYear(r.evofitTier))}</td>
+                    <td className="px-5 py-5 text-white/60">
+                      {r.clients === 5 ? (
+                        <>
+                          $0 on the free Starter plan
+                          <span className="block text-xs text-white/40">{threeYearCell(r.everfitMonthly)} on Pro</span>
+                        </>
+                      ) : (
+                        threeYearCell(r.everfitMonthly)
+                      )}
+                    </td>
+                    <td className="px-5 py-5 text-white/60">{threeYearCell(r.everfitAnnual)}</td>
+                    <td className="px-5 py-5 text-white/60">
+                      {r.trainerizeNote ?? threeYearCell(r.trainerizeMonthly)}
+                    </td>
+                    <td className="px-5 py-5 text-white/60">
+                      {r.trainerizeNote
+                        ? "n/a"
+                        : r.clients === 50
+                          ? usd(trainerizeAnnual50)
+                          : threeYearCell(r.trainerizeAnnual)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
 
-          <div className="mt-14 border border-white/10 px-8 py-7 flex flex-wrap items-baseline gap-y-4 gap-x-14">
-            <span className="basis-full font-body text-xs uppercase tracking-[0.2em] text-white/40">
-              Run it for three years
-            </span>
-            <span className="font-display font-bold text-3xl md:text-4xl">
-              ~$7,200
-              <small className="block font-body font-normal text-xs text-white/40 tracking-wide mt-1.5">
-                Trainerize
-              </small>
-            </span>
-            <span className="font-display font-bold text-3xl md:text-4xl">
-              ~$7,800
-              <small className="block font-body font-normal text-xs text-white/40 tracking-wide mt-1.5">
-                Everfit
-              </small>
-            </span>
-            <span className="font-display font-bold text-3xl md:text-4xl text-brand-accent">
-              $299
-              <small className="block font-body font-normal text-xs text-white/40 tracking-wide mt-1.5">
-                EvoFit Trainer, one-time
-              </small>
-            </span>
+          <div className="mt-8 space-y-2 font-body text-sm text-white/60 max-w-3xl">
+            <p>
+              Base plan only, the cheapest plan that fits that client count, no add-ons for any company. Totals
+              are the monthly price times 36; annual totals assume the annual price holds for three years.
+            </p>
+            <p>
+              EvoFit columns exclude Cloud Pro. Adding Cloud Pro to Starter or Professional adds{" "}
+              {usd(cloudProThreeYear)} over 36 months.
+            </p>
+            <p>
+              Everfit&rsquo;s free plan costs $0 at 5 clients, and we say so. EvoFit&rsquo;s case there is
+              ownership, and room to grow to unlimited clients on Professional.
+            </p>
+            <p>Neither company&rsquo;s pricing page lists a ChatGPT or Claude connector.</p>
           </div>
         </div>
       </section>
@@ -459,73 +447,6 @@ export default function ComparePage() {
         </div>
       </section>
 
-      {/* 6 · Pricing */}
-      <section id="pricing" className="border-t border-white/10 py-24 md:py-36">
-        <div className="max-w-7xl mx-auto px-8 lg:px-16">
-          <div className="mb-14 md:mb-20">
-            <p className={eyebrowClass}>05 &middot; Pricing</p>
-            <h2 className="font-display text-4xl md:text-6xl font-bold uppercase tracking-wider leading-none mt-5 max-w-3xl">
-              Pay once. That&rsquo;s the whole model.
-            </h2>
-            <p className="font-body text-lg text-white/60 font-light leading-relaxed max-w-2xl mt-6">
-              Pay once. Everything you buy is yours. Optional extras: AI Add-on $30/mo, Cloud Pro
-              $10/mo.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-            {tiers.map((tier) => (
-              <div
-                key={tier.name}
-                className={`relative flex flex-col p-9 border ${
-                  tier.highlighted
-                    ? "border-brand-accent bg-white/5"
-                    : "border-white/10"
-                }`}
-              >
-                {tier.badge && (
-                  <span className="absolute -top-3 left-7 bg-brand-accent text-black font-display text-xs font-semibold uppercase tracking-wider px-3 py-1">
-                    {tier.badge}
-                  </span>
-                )}
-                <h3 className="font-display text-lg font-semibold uppercase tracking-wider">
-                  {tier.name}
-                </h3>
-                <p className="font-display text-5xl md:text-6xl font-bold mt-5 mb-1">
-                  {tier.price}
-                  <small className="font-body text-sm font-normal text-white/40 tracking-normal ml-2">
-                    one-time
-                  </small>
-                </p>
-                <p className="font-body text-sm text-white/60 mb-7">{tier.sub}</p>
-                <ul className="grow mb-9">
-                  {tier.features.map((f, i) => (
-                    <li
-                      key={f}
-                      className={`py-2.5 border-t border-white/10 font-body text-sm ${
-                        i === 0 ? "text-white font-medium" : "text-white/60"
-                      }`}
-                    >
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={TRAINER_SIGNUP_URL}
-                  className={`block text-center py-4 px-6 font-display font-semibold uppercase tracking-wider text-sm transition-colors duration-300 ${
-                    tier.highlighted
-                      ? "bg-brand-accent text-black hover:bg-white"
-                      : "border border-white/30 text-white hover:border-white hover:bg-white hover:text-black"
-                  }`}
-                >
-                  {tier.cta}
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* 7 · FAQ */}
       <section className="border-t border-white/10 py-24 md:py-36">
         <div className="max-w-7xl mx-auto px-8 lg:px-16">
@@ -565,7 +486,7 @@ export default function ComparePage() {
           </h2>
           <div className="flex flex-wrap items-center gap-7 mt-10">
             <a
-              href={TRAINER_SIGNUP_URL}
+              href={PRICING_URL}
               className="inline-block bg-brand-accent text-black px-8 py-4 font-display font-semibold uppercase tracking-wider text-sm hover:bg-white transition-colors duration-300"
             >
               Get EvoFit Trainer &rarr;
@@ -578,7 +499,7 @@ export default function ComparePage() {
             </Link>
           </div>
           <p className="font-body text-xs uppercase tracking-wider text-white/40 mt-10">
-            Competitor prices compared as of June 10, 2026 and may change.
+            {DATE_STAMP} Prices may change.
           </p>
         </div>
       </section>

@@ -3,6 +3,10 @@ import HeroSubpage from "@/components/sections/HeroSubpage";
 import FullWidthImage from "@/components/sections/FullWidthImage";
 import PricingSection from "@/components/sections/PricingSection";
 import EmailCTA from "@/components/sections/EmailCTA";
+import { OwnItForever, FitnessAgent, WhyNotRent } from "@/components/sections/TrainerStory";
+import { PRICING_URL } from "@/lib/cta";
+import { tierPrice, tierName, clientsLabel, customExercises } from "@/lib/pricing";
+import pricing from "@/lib/pricing.json";
 
 export const metadata: Metadata = {
   title: "EvoFit Trainer — Programs That Win Clients",
@@ -34,40 +38,42 @@ const trainerTiers = [
   },
   {
     name: "Starter",
-    price: "$199",
+    price: tierPrice("starter"),
     period: "One-Time Payment",
     features: [
       "1,300+ exercises with GIF demos",
-      "Up to 5 active clients",
+      `${clientsLabel("starter")}`,
+      `${customExercises("starter")} custom exercises included`,
       "Set-by-set workout logging",
       "PR detection + confetti celebration",
       "Built-in rest timer",
       "Habit tracking + daily macro log",
     ],
-    cta: "Get Started — $199",
-    href: "https://trainer.evofit.io/get-started",
+    cta: `Get ${tierName("starter")} — ${tierPrice("starter")}`,
+    href: PRICING_URL,
   },
   {
     name: "Professional",
-    price: "$299",
+    price: tierPrice("professional"),
     period: "One-Time Payment",
     features: [
       "Everything in Starter, plus:",
       "Unlimited active clients",
+      `${customExercises("professional")} custom exercises included`,
       "8 program types (Strength, Hypertrophy, Rehab\u2026)",
       "7 set types (Drop Sets, Pyramid, AMRAP\u2026)",
       "RPE, RIR & tempo prescriptions",
       "Unlimited custom color tags",
       "Client check-ins + Client 360 dashboard",
     ],
-    cta: "Upgrade to Professional — $299",
-    href: "https://trainer.evofit.io/get-started",
+    cta: `Get ${tierName("professional")} — ${tierPrice("professional")}`,
+    href: PRICING_URL,
     highlighted: true,
     badge: "Recommended",
   },
   {
     name: "Enterprise",
-    price: "$399",
+    price: tierPrice("enterprise"),
     period: "One-Time Payment",
     features: [
       "Everything in Professional, plus:",
@@ -76,8 +82,8 @@ const trainerTiers = [
       "Unlimited custom exercises and progress-photo storage",
       "Cloud Pro included",
     ],
-    cta: "Get Enterprise — $399",
-    href: "https://trainer.evofit.io/get-started",
+    cta: `Get ${tierName("enterprise")} — ${tierPrice("enterprise")}`,
+    href: PRICING_URL,
   },
 ];
 
@@ -94,7 +100,7 @@ export default function TrainerPage() {
             applicationCategory: "SportsApplication",
             url: "https://trainer.evofit.io",
             description: "Professional personal training platform with 1,300+ exercises, program builder, and ACWR analytics.",
-            offers: { "@type": "Offer", priceCurrency: "USD", price: "199", name: "Starter License" },
+            offers: { "@type": "Offer", priceCurrency: "USD", price: String(pricing.tiers.starter.priceUsd), name: "Starter License" },
           }),
         }}
       />
@@ -107,6 +113,13 @@ export default function TrainerPage() {
         ctaHref="/trainer#pricing"
       />
 
+      {/* Story: (1) own it forever, (2) the Fitness Agent upsell, (3) why not Everfit or Trainerize */}
+      <OwnItForever tone="light" />
+      <PricingSection tiers={trainerTiers} />
+
+      <FitnessAgent tone="dark" />
+      <WhyNotRent tone="light" />
+
       <FullWidthImage
         image="/images/trainer-desk.png"
         alt="Trainer working on program builder at desk"
@@ -118,7 +131,7 @@ export default function TrainerPage() {
           "Drop Sets, Pyramid, AMRAP, Cluster, Rest-Pause",
           "Custom template library",
         ]}
-        cta={{ text: "Start Building Programs \u2192", href: "https://trainer.evofit.io/get-started" }}
+        cta={{ text: "Start Building Programs \u2192", href: PRICING_URL }}
         align="left"
         gradient="left"
       />
@@ -134,7 +147,7 @@ export default function TrainerPage() {
           "Muscle group targeting + equipment filters",
           "Favorites + custom collections",
         ]}
-        cta={{ text: "See The Full Library \u2192", href: "https://trainer.evofit.io/get-started" }}
+        cta={{ text: "See The Full Library \u2192", href: PRICING_URL }}
         align="right"
         gradient="right"
       />
@@ -150,27 +163,10 @@ export default function TrainerPage() {
           "Set-by-set logging with auto PR detection",
           "PR confetti celebration + best tracking",
         ]}
-        cta={{ text: "Manage Your Roster \u2192", href: "https://trainer.evofit.io/get-started" }}
+        cta={{ text: "Manage Your Roster \u2192", href: PRICING_URL }}
         align="left"
         gradient="left"
       />
-
-      <FullWidthImage
-        image="/images/hero-gym.png"
-        alt="Modern premium gym interior"
-        label="Optional AI Add-on"
-        title="Add AI for $30/mo"
-        description="Run your clients from ChatGPT or Claude, and make your own exercise GIFs."
-        bullets={[
-          "Run your clients from ChatGPT or Claude",
-          "Make your own exercise GIFs",
-        ]}
-        cta={{ text: "See the AI Add-on", href: "https://trainer.evofit.io/pricing" }}
-        align="right"
-        gradient="right"
-      />
-
-      <PricingSection tiers={trainerTiers} />
 
       <EmailCTA
         title="Start Training Smarter"

@@ -3,7 +3,9 @@ import HeroHome from "@/components/sections/HeroHome";
 import FullWidthImage from "@/components/sections/FullWidthImage";
 import EmailCTA from "@/components/sections/EmailCTA";
 import Image from "next/image";
-import { TRAINER_SIGNUP_URL, MEALS_SIGNUP_URL } from "@/lib/cta";
+import { TRAINER_SIGNUP_URL, MEALS_SIGNUP_URL, PRICING_URL } from "@/lib/cta";
+import { clientsLabel } from "@/lib/pricing";
+import { OwnItForever, FitnessAgent, WhyNotRent } from "@/components/sections/TrainerStory";
 
 export const metadata: Metadata = {
   title: "EvoFit — Software for Personal Trainers",
@@ -23,6 +25,11 @@ export default function HomePage() {
   return (
     <>
       <HeroHome />
+
+      {/* Story: (1) own it forever, (2) the Fitness Agent upsell, (3) why not Everfit or Trainerize */}
+      <OwnItForever tone="light" />
+      <FitnessAgent tone="dark" />
+      <WhyNotRent tone="light" />
 
       {/* One Platform Section */}
       <section className="bg-white py-24 md:py-32 border-t border-neutral-200 border-b border-neutral-200">
@@ -44,7 +51,7 @@ export default function HomePage() {
         label="Workout Programming"
         title={"EvoFit\nTrainer"}
         description="Create programs that clients rave about. Manage your roster with precision. Build your reputation on results, not promises."
-        cta={{ text: "Get EvoFit Trainer \u2192", href: TRAINER_SIGNUP_URL }}
+        cta={{ text: "See the plans \u2192", href: PRICING_URL }}
         secondaryCta={{ text: "Learn more", href: "/trainer" }}
         align="left"
         gradient="left"
@@ -71,7 +78,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://trainer.evofit.io/get-started"
+              href={TRAINER_SIGNUP_URL}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#F97316] text-black font-bold rounded-full hover:bg-white transition-colors text-lg"
             >
               Try EvoFit Trainer <span aria-hidden="true">&#8594;</span>
@@ -122,8 +129,8 @@ export default function HomePage() {
         alt="Group fitness class in modern boutique gym"
         label="Built For Scale"
         title={"From Solo Trainer\nTo Fitness Empire"}
-        description="Starter covers up to 5 clients. Professional and Enterprise have no client cap."
-        cta={{ text: "Start Building \u2192", href: TRAINER_SIGNUP_URL }}
+        description={`${clientsLabel("starter")} on Starter. Professional and Enterprise have no client cap.`}
+        cta={{ text: "See the plans \u2192", href: PRICING_URL }}
         align="left"
         gradient="left"
       />

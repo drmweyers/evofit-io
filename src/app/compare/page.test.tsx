@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/react';
 import ComparePage, { metadata } from './page';
 
-const TRAINER_SIGNUP = 'https://trainer.evofit.io/get-started';
+const PRICING = 'https://trainer.evofit.io/pricing';
 
 describe('ComparePage funnel', () => {
   it('renders the hero headline', () => {
@@ -11,12 +11,16 @@ describe('ComparePage funnel', () => {
     expect(container.textContent).toContain('You own.');
   });
 
-  it('offers at least two 1-click paths to the trainer sales page', () => {
+  it('sends every buy link to the trainer pricing page', () => {
     const { container } = render(<ComparePage />);
     const trainerLinks = Array.from(container.querySelectorAll('a')).filter(
-      (a) => a.getAttribute('href') === TRAINER_SIGNUP
+      (a) => a.getAttribute('href') === PRICING
     );
     expect(trainerLinks.length).toBeGreaterThanOrEqual(2);
+    const getStarted = Array.from(container.querySelectorAll('a')).filter((a) =>
+      (a.getAttribute('href') ?? '').includes('/get-started')
+    );
+    expect(getStarted).toHaveLength(0);
   });
 
   it('contains no dead href="#" links', () => {
@@ -43,7 +47,8 @@ describe('ComparePage funnel', () => {
 
   it('shows the price-comparison date stamp', () => {
     const { container } = render(<ComparePage />);
-    expect(container.textContent).toContain('Prices compared as of June 10, 2026');
+    expect(container.textContent).toContain('checked October 21, 2026');
+    expect(container.textContent).not.toContain('June 10, 2026');
   });
 
   it('does not mention the parked Evolution AI add-on', () => {

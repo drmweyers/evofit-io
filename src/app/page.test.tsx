@@ -14,7 +14,7 @@ describe('HomePage funnel', () => {
     expect(anchorLinks).toHaveLength(0);
   });
 
-  it('offers multiple 1-click paths to the trainer sales page', () => {
+  it('keeps the free-trial paths to the trainer sign-up page', () => {
     const { container } = render(<HomePage />);
     const trainerLinks = Array.from(container.querySelectorAll('a')).filter(
       (a) => a.getAttribute('href') === TRAINER_SIGNUP

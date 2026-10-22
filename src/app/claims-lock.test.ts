@@ -13,6 +13,8 @@ describe('marketing claims lock', () => {
     expect(files).toContain('src/app/compare/page.tsx');
     expect(files).toContain('src/app/trainer/page.tsx');
     expect(files).toContain('src/components/sections/PricingSection.tsx');
+    expect(files).toContain('src/components/sections/TrainerStory.tsx');
+    expect(files).toContain('src/lib/pricing.ts');
     expect(files.some((f) => f.startsWith('src/app/api/'))).toBe(false);
   });
 
@@ -27,6 +29,22 @@ describe('marketing claims lock', () => {
     const found = scanSource('fixture.tsx', fixture).map((h) => h.pattern.source);
     expect(found).toContain('total value');
     expect(found.some((s) => s.startsWith('Marcus D'))).toBe(true);
+  });
+
+  it('self-test: catches the Fitness Agent overclaims from the copy deck never-write list', () => {
+    const bad = [
+      'An AI coach that trains your clients for you',
+      'It is fully automatic',
+      'The agent sends messages for you',
+      'Built into EvoFit',
+      'Cloud Pro includes the GIF creator',
+      'The GIF creator is part of Enterprise',
+      'Check the review queue',
+    ];
+    for (const phrase of bad) {
+      expect(scanSource('fixture.tsx', `<p>${phrase}</p>`).length, phrase).toBeGreaterThan(0);
+    }
+    expect(scanSource('fixture.tsx', '<p>Cloud Pro is $10/mo (included in Enterprise). The GIF creator is in beta.</p>')).toEqual([]);
   });
 
   it('contains no banned claims', () => {
