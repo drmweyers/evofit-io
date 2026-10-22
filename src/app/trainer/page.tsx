@@ -26,7 +26,7 @@ const trainerTiers = [
       "1,300+ exercises with GIF demos",
       "Set-by-set workout logging",
       "Basic program builder",
-      "PWA — works offline",
+      "PWA (installable to the home screen)",
       "No credit card required",
     ],
     cta: "Start Free",

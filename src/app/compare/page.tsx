@@ -96,7 +96,7 @@ const tableRows: { label: string; evofit: string; check?: boolean; trainerize: s
   {
     label: "Client app",
     evofit:
-      "Modern 4-tab coaching app (Today / Coaching / Inbox / You) — installable, works offline",
+      "Modern 4-tab coaching app (Today / Coaching / Inbox / You) — installable to the home screen",
     trainerize: "Native apps",
     everfit: "Native apps; clean",
   },
@@ -136,8 +136,7 @@ const features = [
         the session in front of them, <strong className="text-white font-medium">Coaching</strong>{" "}
         for programs and check-ins, <strong className="text-white font-medium">Inbox</strong> that
         opens straight into WhatsApp, and <strong className="text-white font-medium">You</strong>{" "}
-        for their progress. Installable to the home screen, and it keeps working offline in the gym
-        basement.
+        for their progress. Installable to the home screen.
       </>
     ),
     image: "/screenshots/client-today-tab.png",

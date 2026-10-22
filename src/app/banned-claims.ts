@@ -18,6 +18,7 @@ const NOT_PROVABLE = 'unprovable or false marketing claim';
 // concatenated string literals ("a" + "b"), and tag stripping treats a literal < or >
 // operator in code as markup. Keep copy in plain JSX text or single string literals.
 export const BANNED_CLAIMS: BannedClaim[] = [
+  { pattern: /works (fully )?offline|offline[- ]first|without wi-?fi|offline (workout )?logging/i, why: 'false: no workout screen queues offline writes and sw.js skips non-GET (verified 2026-10-21)' },
   { pattern: /only recurring option/i, why: 'false: Cloud Pro and the AI add-on are also recurring' },
   { pattern: /all other features are included/i, why: NOT_PROVABLE },
   { pattern: /Marcus D\./i, why: 'fabricated testimonial' },
