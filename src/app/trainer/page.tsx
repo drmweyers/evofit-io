@@ -158,15 +158,14 @@ export default function TrainerPage() {
       <FullWidthImage
         image="/images/hero-gym.png"
         alt="Modern premium gym interior"
-        label="Coming Soon"
-        title="AI Workout Generation"
-        description="Full balanced workout in under 5 seconds from 1,324 exercises. RPE-based progression. Plateau detection."
+        label="Optional AI Add-on"
+        title="Add AI for $30/mo"
+        description="Run your clients from ChatGPT or Claude, and make your own exercise GIFs."
         bullets={[
-          "AI-generated workouts in 5 seconds",
-          "Confidence-rated suggestions (High/Med/Low)",
-          "Stack on any tier \u2014 coming soon",
+          "Run your clients from ChatGPT or Claude",
+          "Make your own exercise GIFs",
         ]}
-        cta={{ text: "Get Lifetime Access \u2192", href: "https://trainer.evofit.io/get-started" }}
+        cta={{ text: "See the AI Add-on", href: "https://trainer.evofit.io/ai" }}
         align="right"
         gradient="right"
       />

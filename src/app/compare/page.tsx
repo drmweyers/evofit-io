@@ -40,7 +40,7 @@ const mathRows = [
     sub: "Professional",
     figure: "$299",
     per: " once",
-    note: "Everything included. Unlimited clients. No add-on menu, no meter running.",
+    note: "Pay once. Everything you buy is yours. Optional extras: AI Add-on $30/mo, Cloud Pro $10/mo.",
     evofit: true,
   },
 ];
@@ -219,7 +219,7 @@ const tiers = [
 const faqs = [
   {
     q: "Is it really one-time?",
-    a: "Yes. $199, $299, or $399 — paid once. No subscription, no renewal email, no per-client meter anywhere in the product.",
+    a: "Yes. $199, $299 or $399, paid once. The only monthly charges are the optional AI Add-on and Cloud Pro, and you can skip both.",
   },
   {
     q: "What happens when I grow from 20 to 200 clients?",
@@ -312,8 +312,8 @@ export default function ComparePage() {
                 <p className="font-body text-sm text-white/60 leading-relaxed md:max-w-xs">
                   {row.evofit ? (
                     <>
-                      <strong className="text-white font-medium">Everything included.</strong>{" "}
-                      Unlimited clients. No add-on menu, no meter running.
+                      <strong className="text-white font-medium">Pay once.</strong>{" "}
+                      Everything you buy is yours. Optional extras: AI Add-on $30/mo, Cloud Pro $10/mo.
                     </>
                   ) : (
                     row.note
@@ -487,8 +487,8 @@ export default function ComparePage() {
               Pay once. That&rsquo;s the whole model.
             </h2>
             <p className="font-body text-lg text-white/60 font-light leading-relaxed max-w-2xl mt-6">
-              No per-client meter, no add-on menu, no renewal email. Buy the tier that fits, and
-              it&rsquo;s yours.
+              Pay once. Everything you buy is yours. Optional extras: AI Add-on $30/mo, Cloud Pro
+              $10/mo.
             </p>
           </div>
 
