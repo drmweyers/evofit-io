@@ -155,7 +155,11 @@ export default function MealsPage() {
         gradient="right"
       />
 
-      <PricingSection tiers={mealsTiers} />
+      <PricingSection
+        tiers={mealsTiers}
+        note="Pay once. Own forever. Save $5,700+ over competitors."
+        finePrint="No monthly fees \u2022 No per-client charges \u2022 14-day money-back guarantee"
+      />
 
       <EmailCTA
         title="Start Planning Smarter"

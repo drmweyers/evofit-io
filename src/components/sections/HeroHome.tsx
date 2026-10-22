@@ -45,7 +45,7 @@ export default function HeroHome() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              The platform where elite trainers build empires and transform lives.
+              Workout programming, client tracking and messaging for personal trainers.
             </motion.p>
             <motion.div
               className="flex flex-col sm:flex-row gap-4"

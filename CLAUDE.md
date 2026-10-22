@@ -17,7 +17,7 @@ Sells EvoFit Meals and EvoFit Trainer to fitness coaches and personal trainers.
 - Font: Inter (system)
 
 ## Routes
-- `/` — Homepage (Hero → ProductShowcase → HowItWorks → FeaturesGrid → Pricing → LeadMagnets → Testimonials → FAQ)
+- `/` — Homepage (Hero → ProductShowcase → HowItWorks → FeaturesGrid → Pricing → LeadMagnets → FAQ)
 - `/meals` — EvoFit Meals dedicated page
 - `/trainer` — EvoFit Trainer dedicated page
 - `/free-tools` — Lead magnet page with email capture

@@ -20,11 +20,11 @@ const oswald = Oswald({
 export const metadata: Metadata = {
   metadataBase: new URL("https://evofit.io"),
   title: {
-    default: "EvoFit — The Platform for Elite Fitness Professionals",
+    default: "EvoFit — Software for Personal Trainers",
     template: "%s | EvoFit",
   },
   description:
-    "EvoFit powers the world's most ambitious fitness professionals with AI-driven workout programming and nutrition planning.",
+    "EvoFit makes software for personal trainers: workout programming, client tracking and messaging, and meal planning.",
   keywords: [
     "fitness business platform",
     "AI meal plans",
@@ -42,15 +42,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://evofit.io",
     siteName: "EvoFit",
-    title: "EvoFit — The Platform for Elite Fitness Professionals",
+    title: "EvoFit — Software for Personal Trainers",
     description:
-      "EvoFit powers the world's most ambitious fitness professionals with AI-driven workout programming and nutrition planning.",
+      "EvoFit makes software for personal trainers: workout programming, client tracking and messaging, and meal planning.",
     images: [
       {
         url: "/images/hero-gym.png",
         width: 1200,
         height: 630,
-        alt: "EvoFit - Elite Fitness Platform",
+        alt: "EvoFit - Software for Personal Trainers",
       },
     ],
   },
@@ -58,9 +58,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@evofit_io",
     creator: "@evofit_io",
-    title: "EvoFit — The Platform for Elite Fitness Professionals",
+    title: "EvoFit — Software for Personal Trainers",
     description:
-      "EvoFit powers the world's most ambitious fitness professionals with AI-driven workout programming and nutrition planning.",
+      "EvoFit makes software for personal trainers: workout programming, client tracking and messaging, and meal planning.",
     images: ["/images/hero-gym.png"],
   },
   robots: {

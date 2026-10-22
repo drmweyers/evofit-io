@@ -14,6 +14,9 @@ export interface AllowlistEntry {
 
 const NOT_PROVABLE = 'unprovable or false marketing claim';
 
+// Known scanner gaps: it does not decode string escapes (—, '), does not join
+// concatenated string literals ("a" + "b"), and tag stripping treats a literal < or >
+// operator in code as markup. Keep copy in plain JSX text or single string literals.
 export const BANNED_CLAIMS: BannedClaim[] = [
   { pattern: /only recurring option/i, why: 'false: Cloud Pro and the AI add-on are also recurring' },
   { pattern: /all other features are included/i, why: NOT_PROVABLE },
@@ -43,10 +46,48 @@ export const BANNED_CLAIMS: BannedClaim[] = [
   { pattern: /no add-on menu/i, why: 'false: optional AI Add-on and Cloud Pro exist' },
   { pattern: /no renewal email/i, why: 'unprovable or misleading renewal claim' },
   { pattern: /Stack on any tier/i, why: 'not in the founding offer code' },
+  { pattern: /\bNo monthly fees\b/i, why: 'false: optional AI Add-on and Cloud Pro are monthly' },
+  { pattern: /total, ever/i, why: 'false: optional monthly extras exist' },
+  { pattern: /everything included/i, why: 'false: AI Add-on and Cloud Pro are optional extras; Starter is limited' },
+  { pattern: /Most Popular/, why: 'unprovable popularity claim (use Recommended)' },
+  { pattern: /1,3(24|28|44)\b/, why: 'exact exercise count drifts; use 1,300+' },
+  { pattern: /\belite\b/i, why: 'unprovable superlative' },
+  { pattern: /most ambitious/i, why: 'unprovable superlative' },
+  { pattern: /AI-driven workout/i, why: 'no such product feature' },
+  { pattern: /widely called dated/i, why: 'unsourced competitor claim' },
+  { pattern: /r\/personaltraining/i, why: 'unlinked third-party quote' },
+  { pattern: /Join the trainers who/i, why: 'implies an unprovable customer base' },
+  { pattern: /side hustle to a legacy/i, why: 'testimonial-style quote without a real customer' },
+  { pattern: /Save \$5,700/i, why: 'unsourced savings claim' },
 ];
 
 // Genuine out-of-scope uses, exempted by file + pattern.source with a written reason.
 export const ALLOWLIST: AllowlistEntry[] = [
+  {
+    file: 'src/app/meals/page.tsx',
+    pattern: '\\bNo monthly fees\\b',
+    reason: 'EvoFit Meals is a separate product, out of scope of the Trainer truth pass; its copy is not edited here',
+  },
+  {
+    file: 'src/app/meals/page.tsx',
+    pattern: 'Most Popular',
+    reason: 'EvoFit Meals is a separate product, out of scope of the Trainer truth pass; its copy is not edited here',
+  },
+  {
+    file: 'src/app/meals/page.tsx',
+    pattern: '\\belite\\b',
+    reason: 'EvoFit Meals is a separate product, out of scope of the Trainer truth pass; its copy is not edited here',
+  },
+  {
+    file: 'src/app/meals/page.tsx',
+    pattern: 'Save \\$5,700',
+    reason: 'EvoFit Meals is a separate product, out of scope of the Trainer truth pass; its copy is not edited here',
+  },
+  {
+    file: 'src/app/meals/page.tsx',
+    pattern: 'Join the trainers who',
+    reason: 'EvoFit Meals is a separate product, out of scope of the Trainer truth pass; its copy is not edited here',
+  },
   {
     file: 'src/app/meals/page.tsx',
     pattern: 'Stack on any tier',

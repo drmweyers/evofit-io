@@ -6,14 +6,14 @@ import Image from "next/image";
 import { TRAINER_SIGNUP_URL, MEALS_SIGNUP_URL } from "@/lib/cta";
 
 export const metadata: Metadata = {
-  title: "EvoFit — The Platform for Elite Fitness Professionals",
+  title: "EvoFit — Software for Personal Trainers",
   description:
-    "EvoFit powers the world's most ambitious fitness professionals with AI-driven workout programming and nutrition planning.",
+    "EvoFit makes software for personal trainers: workout programming, client tracking and messaging, and meal planning.",
   alternates: { canonical: "https://evofit.io" },
 };
 
 const stats = [
-  { value: "1,324", label: "Exercises with GIF Demos" },
+  { value: "1,300+", label: "Exercises with GIF Demos" },
   { value: "8", label: "Program Types" },
   { value: "Smart", label: "Macro Calculations" },
   { value: "PDF", label: "Meal Plan Exports" },
@@ -32,7 +32,7 @@ export default function HomePage() {
           </h2>
           <div className="w-24 h-1 bg-brand-accent mx-auto mb-10" />
           <p className="font-body text-xl md:text-2xl font-light text-neutral-500 leading-relaxed max-w-2xl mx-auto">
-            EvoFit can power the world&apos;s most ambitious fitness professionals. We don&apos;t just build software — we help build careers.
+            EvoFit makes software for personal trainers and nutrition coaches: workout programming, client tracking, messaging and meal plans.
           </p>
         </div>
       </section>
@@ -116,33 +116,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonial */}
-      <section className="bg-black py-32 md:py-44">
-        <div className="max-w-5xl mx-auto px-8 lg:px-16 text-center">
-          <span className="text-8xl md:text-[10rem] text-brand-accent font-serif leading-none block mb-4">
-            &ldquo;
-          </span>
-          <blockquote className="font-body text-2xl md:text-4xl font-light text-white leading-relaxed mb-16 -mt-12">
-            I believe EvoFit Trainer will be the tool that takes my coaching business from a side hustle to a legacy. Everything I need — programming, tracking, client management — in one place. This is the future.
-          </blockquote>
-          <cite className="not-italic">
-            <span className="font-display text-lg font-semibold text-white uppercase tracking-[0.15em] block">
-              Jordan
-            </span>
-            <span className="font-body text-sm text-white/50 mt-2 block uppercase tracking-[0.1em]">
-              Performance Coach
-            </span>
-          </cite>
-        </div>
-      </section>
-
       {/* Scale Section */}
       <FullWidthImage
         image="/images/lifestyle-class.png"
         alt="Group fitness class in modern boutique gym"
         label="Built For Scale"
         title={"From Solo Trainer\nTo Fitness Empire"}
-        description="Whether you train one client or one thousand, EvoFit scales with your ambition. No limits. No compromises."
+        description="Starter covers up to 5 clients. Professional and Enterprise have no client cap."
         cta={{ text: "Start Building \u2192", href: TRAINER_SIGNUP_URL }}
         align="left"
         gradient="left"
@@ -151,7 +131,7 @@ export default function HomePage() {
       {/* CTA */}
       <EmailCTA
         title="Two Steps, and You're In."
-        subtitle="Join the trainers who stopped making excuses and started making money."
+        subtitle="Create your account and start building."
         buttonText="Start Building"
       />
     </>

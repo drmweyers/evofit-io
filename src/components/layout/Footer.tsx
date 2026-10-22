@@ -11,7 +11,7 @@ export default function Footer() {
               EvoFit
             </Link>
             <p className="text-sm leading-relaxed">
-              The platform for elite fitness professionals. Own your career.
+              Software for personal trainers.
             </p>
           </div>
 

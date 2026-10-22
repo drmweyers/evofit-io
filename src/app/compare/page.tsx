@@ -6,7 +6,7 @@ import { TRAINER_SIGNUP_URL } from "@/lib/cta";
 export const metadata: Metadata = {
   title: "EvoFit Trainer vs Trainerize vs Everfit — They Rent. You Own.",
   description:
-    "Trainerize and Everfit charge you per client, forever. EvoFit Trainer is a one-time purchase — unlimited clients, everything included. Prices compared as of June 10, 2026.",
+    "Trainerize and Everfit charge you per client, forever. EvoFit Trainer is a one-time purchase: unlimited clients from Professional, with the AI Add-on and Cloud Pro as optional extras. Prices compared as of June 10, 2026.",
   openGraph: {
     title: "EvoFit Trainer vs Trainerize vs Everfit — They Rent. You Own.",
     description:
@@ -95,7 +95,7 @@ const tableRows: { label: string; evofit: string; check?: boolean; trainerize: s
   },
   {
     label: "Exercise library",
-    evofit: "1,324 with GIF demos",
+    evofit: "1,300+ with GIF demos",
     check: true,
     trainerize: "On-demand library",
     everfit: "1,000+",
@@ -104,7 +104,7 @@ const tableRows: { label: string; evofit: string; check?: boolean; trainerize: s
     label: "Client app",
     evofit:
       "Modern 4-tab coaching app (Today / Coaching / Inbox / You) — installable, works offline",
-    trainerize: "Native apps; UI widely called dated",
+    trainerize: "Native apps",
     everfit: "Native apps; clean",
   },
   {
@@ -180,9 +180,9 @@ const tiers = [
     sub: "For coaches getting their first roster going.",
     features: [
       "Up to 5 clients",
-      "Rotation program builder + template library",
-      "Nutrition & macros, Stripe payments",
-      "Scheduling, check-ins, WhatsApp-native messaging",
+      "Up to 20 programs",
+      "Drag-and-drop program builder with sections and PDF export",
+      "Up to 50 custom exercises",
     ],
     cta: "Get Starter →",
     highlighted: false,
@@ -199,7 +199,7 @@ const tiers = [
     ],
     cta: "Get Professional →",
     highlighted: true,
-    badge: "Most Popular",
+    badge: "Recommended",
   },
   {
     name: "Enterprise",
@@ -252,7 +252,7 @@ export default function ComparePage() {
           <strong className="text-white font-medium">
             EvoFit Trainer is a one-time purchase
           </strong>{" "}
-          — unlimited clients, everything included.
+          with unlimited clients from Professional. The AI Add-on and Cloud Pro are optional extras.
         </p>
         <div className="flex flex-wrap items-center gap-7">
           <a
@@ -270,6 +270,9 @@ export default function ComparePage() {
         </div>
         <p className="font-body text-xs uppercase tracking-wider text-white/40 mt-8">
           {DATE_STAMP}
+        </p>
+        <p className="font-body text-xs tracking-wider text-white/40 mt-2">
+          Source: public pricing pages at trainerize.com/pricing and everfit.io/pricing.
         </p>
       </section>
 
@@ -310,14 +313,7 @@ export default function ComparePage() {
                   </span>
                 </div>
                 <p className="font-body text-sm text-white/60 leading-relaxed md:max-w-xs">
-                  {row.evofit ? (
-                    <>
-                      <strong className="text-white font-medium">Pay once.</strong>{" "}
-                      Everything you buy is yours. Optional extras: AI Add-on $30/mo, Cloud Pro $10/mo.
-                    </>
-                  ) : (
-                    row.note
-                  )}
+                  {row.note}
                 </p>
               </div>
             ))}
@@ -342,7 +338,7 @@ export default function ComparePage() {
             <span className="font-display font-bold text-3xl md:text-4xl text-brand-accent">
               $299
               <small className="block font-body font-normal text-xs text-white/40 tracking-wide mt-1.5">
-                EvoFit Trainer — total, ever
+                EvoFit Trainer, one-time
               </small>
             </span>
           </div>
@@ -419,13 +415,6 @@ export default function ComparePage() {
       <section className="border-t border-white/10 py-24 md:py-36">
         <div className="max-w-7xl mx-auto px-8 lg:px-16">
           <p className={eyebrowClass}>03 &middot; From the Floor</p>
-          <blockquote className="font-display font-bold text-3xl md:text-5xl lg:text-6xl uppercase tracking-wide leading-tight max-w-4xl mt-6">
-            <span className="text-white/40">&ldquo;</span>Everfit is a much cleaner looking program
-            but they do nickel and dime you.<span className="text-white/40">&rdquo;</span>
-            <cite className="block not-italic font-body text-sm normal-case tracking-wider text-white/40 mt-8">
-              — actual trainer, r/personaltraining
-            </cite>
-          </blockquote>
           <p className="font-body text-lg md:text-xl font-medium max-w-2xl mt-13 pt-8 border-t border-white/10">
             Nutrition, payments, automation, scheduling —{" "}
             <span className="text-white/60 font-light">add-ons over there.</span> Included here.

@@ -13,9 +13,17 @@ interface Tier {
 
 interface PricingSectionProps {
   tiers: Tier[];
+  /** Line under the heading. */
+  note?: string;
+  /** Small print under the note. */
+  finePrint?: string;
 }
 
-export default function PricingSection({ tiers }: PricingSectionProps) {
+export default function PricingSection({
+  tiers,
+  note = "Pay once. Own forever.",
+  finePrint = "No required monthly fees \u2022 No per-client charges \u2022 14-day money-back guarantee",
+}: PricingSectionProps) {
   return (
     <section id="pricing" className="bg-white py-32 md:py-40">
       <div className="max-w-7xl mx-auto px-8 lg:px-16">
@@ -24,10 +32,10 @@ export default function PricingSection({ tiers }: PricingSectionProps) {
             Simple, One-Time Pricing
           </h2>
           <p className="font-body text-xl text-neutral-500 font-light leading-relaxed max-w-2xl mx-auto mb-4">
-            Pay once. Own forever. Save $5,700+ over competitors.
+            {note}
           </p>
           <p className="font-body text-sm text-neutral-400 uppercase tracking-wider">
-            No monthly fees &bull; No per-client charges &bull; 14-day money-back guarantee
+            {finePrint}
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">

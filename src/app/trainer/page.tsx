@@ -23,7 +23,7 @@ const trainerTiers = [
     period: "Forever",
     features: [
       "1 active client",
-      "1,324 exercises with GIF demos",
+      "1,300+ exercises with GIF demos",
       "Set-by-set workout logging",
       "Basic program builder",
       "PWA — works offline",
@@ -37,7 +37,7 @@ const trainerTiers = [
     price: "$199",
     period: "One-Time Payment",
     features: [
-      "1,324 exercises with GIF demos",
+      "1,300+ exercises with GIF demos",
       "Up to 5 active clients",
       "Set-by-set workout logging",
       "PR detection + confetti celebration",
@@ -63,7 +63,7 @@ const trainerTiers = [
     cta: "Upgrade to Professional — $299",
     href: "https://trainer.evofit.io/get-started",
     highlighted: true,
-    badge: "Most Popular",
+    badge: "Recommended",
   },
   {
     name: "Enterprise",
@@ -93,7 +93,7 @@ export default function TrainerPage() {
             name: "EvoFit Trainer",
             applicationCategory: "SportsApplication",
             url: "https://trainer.evofit.io",
-            description: "Professional personal training platform with 1,324 exercises, program builder, and ACWR analytics.",
+            description: "Professional personal training platform with 1,300+ exercises, program builder, and ACWR analytics.",
             offers: { "@type": "Offer", priceCurrency: "USD", price: "199", name: "Starter License" },
           }),
         }}
@@ -127,7 +127,7 @@ export default function TrainerPage() {
         image="/images/lifestyle-class.png"
         alt="Group fitness class in modern gym"
         label="Feature"
-        title="1,324 Exercises"
+        title="1,300+ Exercises"
         description="Every exercise with animated GIF demonstrations. Full-text search + multi-filter stacking."
         bullets={[
           "Animated GIF demonstrations",
@@ -165,7 +165,7 @@ export default function TrainerPage() {
           "Run your clients from ChatGPT or Claude",
           "Make your own exercise GIFs",
         ]}
-        cta={{ text: "See the AI Add-on", href: "https://trainer.evofit.io/ai" }}
+        cta={{ text: "See the AI Add-on", href: "https://trainer.evofit.io/pricing" }}
         align="right"
         gradient="right"
       />
@@ -174,7 +174,7 @@ export default function TrainerPage() {
 
       <EmailCTA
         title="Start Training Smarter"
-        subtitle="Join the trainers who stopped guessing and started growing."
+        subtitle="Create your account and start building."
         buttonText="Get EvoFit Trainer"
         productTag="evofit-trainer-interest"
       />

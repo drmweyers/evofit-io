@@ -70,7 +70,7 @@ const trainerTiers: PricingTier[] = [
     period: "forever",
     clients: "1 client",
     features: [
-      "1,324 exercise library",
+      "1,300+ exercise library",
       "Basic program builder",
       "Workout tracking",
       "PWA offline support",
@@ -85,7 +85,7 @@ const trainerTiers: PricingTier[] = [
     period: "one-time",
     clients: "Up to 5 clients",
     features: [
-      "1,324 exercise library",
+      "1,300+ exercise library",
       "Program builder",
       "Workout tracking",
       "Basic scheduling",
@@ -159,7 +159,7 @@ function PricingCard({
     >
       {tier.highlighted && (
         <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-white text-xs font-bold ${c.badge}`}>
-          Most Popular
+          Recommended
         </div>
       )}
       <div className="mb-6">
@@ -202,7 +202,7 @@ export default function Pricing() {
             Transparent pricing. No surprises.
           </h2>
           <p className="text-xl text-slate-600 max-w-xl mx-auto">
-            Pay once, own it forever. No monthly fees, no subscriptions, no surprises.
+            Pay once, own it forever. No required monthly fees. The AI Add-on and Cloud Pro are optional.
           </p>
         </div>
 

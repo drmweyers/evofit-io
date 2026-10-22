@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     q: "Is this a one-time purchase or a subscription?",
-    a: "One-time purchase. EvoFit Meals and EvoFit Trainer both offer one-time licenses — Starter at $199, Professional at $299, and Enterprise at $399. Pay once, own it forever. No monthly fees, no subscriptions.",
+    a: "One-time purchase. EvoFit Meals and EvoFit Trainer both offer one-time licenses — Starter at $199, Professional at $299, and Enterprise at $399. Pay once, own it forever. No required monthly fees; the AI Add-on and Cloud Pro are optional.",
   },
   {
     q: "Can I use my own branding with EvoFit?",
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: "Is there a free trial?",
-    a: "Yes — EvoFit Trainer has a forever-free tier with 1 active client, the full 1,324-exercise library, basic program builder, workout tracking, and offline PWA. No credit card. Upgrade to Starter ($199) when you add a second client. Contact hello@evofit.io for Enterprise demo access.",
+    a: "Yes — EvoFit Trainer has a forever-free tier with 1 active client, the full 1,300+ exercise library, basic program builder, workout tracking, and offline PWA. No credit card. Upgrade to Starter ($199) when you add a second client. Contact hello@evofit.io for Enterprise demo access.",
   },
   {
     q: "What does the AI actually do in EvoFit Meals?",
