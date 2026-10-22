@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import EmailCaptureForm from "@/components/ui/EmailCaptureForm";
 import { Calculator, FileText, DollarSign, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { TRAINER_SIGNUP_URL, MEALS_SIGNUP_URL } from "@/lib/cta";
+import { PRICING_URL, MEALS_SIGNUP_URL } from "@/lib/cta";
 
 export const metadata: Metadata = {
   title: "Free Tools for Fitness Professionals — EvoFit",
@@ -198,7 +198,7 @@ export default function FreeToolsPage() {
               Get EvoFit Meals <ArrowRight className="w-4 h-4" />
             </a>
             <a
-              href={TRAINER_SIGNUP_URL}
+              href={PRICING_URL}
               className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-xl bg-white/10 border border-white/30 text-white font-bold hover:bg-white/20 transition-colors"
             >
               Get EvoFit Trainer <ArrowRight className="w-4 h-4" />

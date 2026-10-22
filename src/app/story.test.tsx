@@ -93,3 +93,13 @@ describe('no EvoFit price is typed in the page sources', () => {
     expect(src).not.toMatch(/\$(30|10)\/mo/);
   });
 });
+
+describe('free-trial links go straight to the trial sign-up route', () => {
+  it.each(pages)('%s: "Try it free" / "Try EvoFit Trainer" links', (_n, Page) => {
+    const { container } = render(<Page />);
+    const trial = Array.from(container.querySelectorAll('a')).filter((a) =>
+      /Try it free|Try EvoFit Trainer/.test(a.textContent ?? '')
+    );
+    trial.forEach((a) => expect(a.getAttribute('href')).toBe('https://trainer.evofit.io/auth/register?role=trainer'));
+  });
+});

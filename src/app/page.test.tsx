@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/react';
 import HomePage from './page';
 
-const TRAINER_SIGNUP = 'https://trainer.evofit.io/get-started';
+const TRAINER_SIGNUP = 'https://trainer.evofit.io/auth/register?role=trainer';
 const MEALS_SIGNUP = 'https://meals.evofit.io/get-started';
 
 describe('HomePage funnel', () => {
