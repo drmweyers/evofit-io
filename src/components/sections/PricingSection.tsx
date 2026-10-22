@@ -22,7 +22,7 @@ interface PricingSectionProps {
 export default function PricingSection({
   tiers,
   note = "Pay once. Own forever.",
-  finePrint = "No required monthly fees \u2022 No per-client charges \u2022 14-day money-back guarantee",
+  finePrint = "No required monthly fees \u2022 No per-client charges \u2022 7-day money-back guarantee",
 }: PricingSectionProps) {
   return (
     <section id="pricing" className="bg-white py-32 md:py-40">
