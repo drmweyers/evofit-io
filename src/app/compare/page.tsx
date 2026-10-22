@@ -134,8 +134,8 @@ const features = [
       <>
         Four tabs, zero confusion: <strong className="text-white font-medium">Today</strong> for
         the session in front of them, <strong className="text-white font-medium">Coaching</strong>{" "}
-        for programs and check-ins, <strong className="text-white font-medium">Inbox</strong> that
-        opens straight into WhatsApp, and <strong className="text-white font-medium">You</strong>{" "}
+        for programs and check-ins, <strong className="text-white font-medium">Inbox</strong> where
+        in-app chat lives (for WhatsApp clients it opens a prefilled message you send from your own WhatsApp), and <strong className="text-white font-medium">You</strong>{" "}
         for their progress. Installable to the home screen.
       </>
     ),
