@@ -6,7 +6,7 @@ const steps = [
     icon: MousePointerClick,
     title: "Choose Your Tool",
     description:
-      "Start with EvoFit Meals, EvoFit Trainer, or both. Pick the plan that fits your business size — from solo coaches to multi-trainer gyms.",
+      "Start with EvoFit Meals, EvoFit Trainer, or both. Pick the plan that fits your business size.",
     color: "sky",
   },
   {

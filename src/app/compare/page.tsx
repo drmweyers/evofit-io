@@ -66,13 +66,6 @@ const tableRows: { label: string; evofit: string; check?: boolean; trainerize: s
     everfit: "+$39/mo add-on",
   },
   {
-    label: "Stripe payments",
-    evofit: "Included",
-    check: true,
-    trainerize: "+$10/mo add-on",
-    everfit: "+$9/mo add-on",
-  },
-  {
     label: "Scheduling + drag-and-drop weekly editor",
     evofit: "Included",
     check: true,
@@ -81,7 +74,7 @@ const tableRows: { label: string; evofit: string; check?: boolean; trainerize: s
   },
   {
     label: "Check-ins & form builder",
-    evofit: "Included — 10 question types",
+    evofit: "Included on Professional and up — 10 question types",
     check: true,
     trainerize: "Consultation forms",
     everfit: "Pro tier and up",
@@ -181,7 +174,7 @@ const tiers = [
     features: [
       "Up to 5 clients",
       "Up to 20 programs",
-      "Drag-and-drop program builder with sections and PDF export",
+      "Drag-and-drop program builder with sections",
       "Up to 50 custom exercises",
     ],
     cta: "Get Starter →",
@@ -204,12 +197,13 @@ const tiers = [
   {
     name: "Enterprise",
     price: "$399",
-    sub: "For studios and multi-coach teams.",
+    sub: "For coaches who want the last gates removed.",
     features: [
       "Everything in Professional",
-      "Admin dashboard",
-      "Audit trail",
-      "Bulk operations",
+      "API keys and Excel export",
+      "Team-shared workout templates",
+      "Progress photo compare and a public trainer profile",
+      "Cloud Pro included",
     ],
     cta: "Get Enterprise →",
     highlighted: false,
@@ -416,7 +410,7 @@ export default function ComparePage() {
         <div className="max-w-7xl mx-auto px-8 lg:px-16">
           <p className={eyebrowClass}>03 &middot; From the Floor</p>
           <p className="font-body text-lg md:text-xl font-medium max-w-2xl mt-13 pt-8 border-t border-white/10">
-            Nutrition, payments, automation, scheduling —{" "}
+            Nutrition and scheduling —{" "}
             <span className="text-white/60 font-light">add-ons over there.</span> Included here.
           </p>
         </div>

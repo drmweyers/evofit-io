@@ -20,7 +20,7 @@ const trainerTiers = [
   {
     name: "Free",
     price: "$0",
-    period: "Forever",
+    period: "30-day trial",
     features: [
       "1 active client",
       "1,300+ exercises with GIF demos",
@@ -42,6 +42,7 @@ const trainerTiers = [
       "Set-by-set workout logging",
       "PR detection + confetti celebration",
       "Built-in rest timer",
+      "Habit tracking + daily macro log",
     ],
     cta: "Get Started — $199",
     href: "https://trainer.evofit.io/get-started",
@@ -57,7 +58,6 @@ const trainerTiers = [
       "7 set types (Drop Sets, Pyramid, AMRAP\u2026)",
       "RPE, RIR & tempo prescriptions",
       "Unlimited custom color tags",
-      "Habit tracking + daily macro log",
       "Client check-ins + Client 360 dashboard",
     ],
     cta: "Upgrade to Professional — $299",
@@ -72,9 +72,10 @@ const trainerTiers = [
     features: [
       "Everything in Professional, plus:",
       "Unlimited active clients",
-      "Full user management & roles",
-      "Feature flags API",
-      "Multi-trainer oversight",
+      "API keys and Excel export",
+      "Team-shared workout templates",
+      "Progress photo compare and a public trainer profile",
+      "Cloud Pro included",
     ],
     cta: "Get Enterprise — $399",
     href: "https://trainer.evofit.io/get-started",

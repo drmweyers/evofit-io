@@ -12,7 +12,7 @@ describe('marketing claims lock', () => {
     expect(files).toContain('src/app/page.tsx');
     expect(files).toContain('src/app/compare/page.tsx');
     expect(files).toContain('src/app/trainer/page.tsx');
-    expect(files).toContain('src/components/sections/Pricing.tsx');
+    expect(files).toContain('src/components/sections/PricingSection.tsx');
     expect(files.some((f) => f.startsWith('src/app/api/'))).toBe(false);
   });
 

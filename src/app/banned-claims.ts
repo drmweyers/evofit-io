@@ -59,6 +59,21 @@ export const BANNED_CLAIMS: BannedClaim[] = [
   { pattern: /Join the trainers who/i, why: 'implies an unprovable customer base' },
   { pattern: /side hustle to a legacy/i, why: 'testimonial-style quote without a real customer' },
   { pattern: /Save \$5,700/i, why: 'unsourced savings claim' },
+  // Final truth pass: Enterprise has no admin/org layer buyers can reach (trainer app/admin is admin-role only).
+  { pattern: /admin dashboard/i, why: 'not reachable by a buyer: admin-role only' },
+  { pattern: /user management/i, why: 'not reachable by a buyer: admin-role only' },
+  { pattern: /feature flags?/i, why: 'not reachable by a buyer: admin-role only' },
+  { pattern: /system health/i, why: 'not reachable by a buyer: admin-role only' },
+  { pattern: /support[- ]ticket/i, why: 'not reachable by a buyer: admin-role only' },
+  { pattern: /multi-(trainer|coach)/i, why: 'no org/team model exists' },
+  { pattern: /trainer accounts/i, why: 'no org/team model exists' },
+  { pattern: /oversight/i, why: 'no org/team model exists' },
+  { pattern: /audit (log|trail)/i, why: 'not reachable by a buyer: admin-only' },
+  { pattern: /activity log/i, why: 'not reachable by a buyer: admin-only' },
+  { pattern: /for studios/i, why: 'implies a studio/org layer that does not exist' },
+  { pattern: /bulk operations/i, why: 'admin-only feature' },
+  { pattern: /Stripe payments/i, why: 'EvoFit has no client billing' },
+  { pattern: /and PDF export/i, why: 'Starter programBuilder.pdfExport is false' },
 ];
 
 // Genuine out-of-scope uses, exempted by file + pattern.source with a written reason.
