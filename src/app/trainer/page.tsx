@@ -5,7 +5,7 @@ import PricingSection from "@/components/sections/PricingSection";
 import EmailCTA from "@/components/sections/EmailCTA";
 import { OwnItForever, FitnessAgent, WhyNotRent } from "@/components/sections/TrainerStory";
 import { PRICING_URL } from "@/lib/cta";
-import { tierPrice, tierName, clientsLabel, customExercises } from "@/lib/pricing";
+import { usd, tierPrice, tierName, clientsLabel, customExercises } from "@/lib/pricing";
 import pricing from "@/lib/pricing.json";
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 const trainerTiers = [
   {
     name: "Free",
-    price: "$0",
+    price: usd(0), // free trial: no price exists in pricing.json
     period: "30-day trial",
     features: [
       "1 active client",
