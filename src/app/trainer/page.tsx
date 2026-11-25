@@ -5,7 +5,7 @@ import PricingSection from "@/components/sections/PricingSection";
 import EmailCTA from "@/components/sections/EmailCTA";
 import { OwnItForever, FitnessAgent, WhyNotRent } from "@/components/sections/TrainerStory";
 import { PRICING_URL } from "@/lib/cta";
-import { usd, tierPrice, tierName, clientsLabel, customExercises } from "@/lib/pricing";
+import { usd, tierPrice, tierPriceLabel, tierCtaLabel, clientsLabel, customExercises } from "@/lib/pricing";
 import pricing from "@/lib/pricing.json";
 
 export const metadata: Metadata = {
@@ -38,7 +38,7 @@ const trainerTiers = [
   },
   {
     name: "Starter",
-    price: tierPrice("starter"),
+    price: tierPriceLabel("starter"),
     period: "One-Time Payment",
     features: [
       "1,300+ exercises with GIF demos",
@@ -49,12 +49,12 @@ const trainerTiers = [
       "Built-in rest timer",
       "Habit tracking + daily macro log",
     ],
-    cta: `Get ${tierName("starter")} — ${tierPrice("starter")}`,
+    cta: tierCtaLabel("starter"),
     href: PRICING_URL,
   },
   {
     name: "Professional",
-    price: tierPrice("professional"),
+    price: tierPriceLabel("professional"),
     period: "One-Time Payment",
     features: [
       "Everything in Starter, plus:",
@@ -66,14 +66,14 @@ const trainerTiers = [
       "Unlimited custom color tags",
       "Client check-ins + Client 360 dashboard",
     ],
-    cta: `Get ${tierName("professional")} — ${tierPrice("professional")}`,
+    cta: tierCtaLabel("professional"),
     href: PRICING_URL,
     highlighted: true,
     badge: "Recommended",
   },
   {
     name: "Enterprise",
-    price: tierPrice("enterprise"),
+    price: tierPriceLabel("enterprise"),
     period: "One-Time Payment",
     features: [
       "Everything in Professional, plus:",
@@ -82,7 +82,7 @@ const trainerTiers = [
       "Unlimited custom exercises and progress-photo storage",
       "Cloud Pro included",
     ],
-    cta: `Get ${tierName("enterprise")} — ${tierPrice("enterprise")}`,
+    cta: tierCtaLabel("enterprise"),
     href: PRICING_URL,
   },
 ];

@@ -36,7 +36,9 @@ describe.each(pages)('%s page tells the story in order', (_name, Page) => {
     const { starter, professional, enterprise } = pricing.tiers;
     expect(t).toContain(`$${starter.priceUsd}`);
     expect(t).toContain(`$${professional.priceUsd}`);
-    expect(t).toContain(`$${enterprise.priceUsd}`);
+    // Enterprise sells at a live founding price this static site cannot read: it never states a number
+    expect(t).not.toContain(`$${enterprise.priceUsd}`);
+    expect(t).toMatch(/current Enterprise price|see current price/i);
     expect(t).toContain(`$${pricing.aiAddonMonthlyUsd}/mo`);
     expect(t).toContain(`$${pricing.cloudProMonthlyUsd}/mo`);
     expect(t).toContain(`${starter.customExercises} custom exercises`);

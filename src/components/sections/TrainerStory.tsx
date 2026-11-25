@@ -6,6 +6,7 @@ import {
   TIER_KEYS,
   tierName,
   tierPrice,
+  tierPriceLabel,
   customExercises,
   clientsLabel,
   oneTimeList,
@@ -75,8 +76,10 @@ export function OwnItForever({
               )}
               <h3 className="font-display text-lg font-semibold uppercase tracking-wider">{tierName(t)}</h3>
               <p className="font-display text-5xl font-bold mt-4">
-                {tierPrice(t)}
-                <small className={`font-body text-sm font-normal ${c.faint} tracking-normal ml-2`}>one-time</small>
+                {t === "enterprise" ? <span className="text-3xl">{tierPriceLabel(t)}</span> : tierPrice(t)}
+                {t !== "enterprise" && (
+                  <small className={`font-body text-sm font-normal ${c.faint} tracking-normal ml-2`}>one-time</small>
+                )}
               </p>
               <ul className={`mt-6 font-body text-sm ${c.muted}`}>
                 <li className={`py-2 border-t ${c.rule}`}>{clientsLabel(t)}</li>
